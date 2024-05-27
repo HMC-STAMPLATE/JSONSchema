@@ -1,0 +1,73 @@
+{
+    "@context": {
+        "DataDownload": "http://schema.org/DataDownload",
+        "Dataset": "http://schema.org/Dataset",
+        "Organization": "http://schema.org/Organization",
+        "Person": "http://schema.org/Person",
+        "ResearchProject": "http://schema.org/ResearchProject",
+        "Role": "http://schema.org/Role",
+        "responsiblePersons": {
+            "@id": "http://schema.org/member",
+            "@container": "@set"
+        },
+        "dataset": "http://schema.org/dataset",
+        "identifier": "http://schema.org/identifier",
+        "involvedOrganizations": {
+            "@id": "http://schema.org/memberOf",
+            "@container": "@set"
+        },
+        "mobile": {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        },
+        "partOfProject": {
+            "@id": "http://schema.org/memberOf",
+            "@container": "@set"
+        },
+        "status": "http://schema.org/status"
+    },
+    "@id": "https://sensors.gfz-potsdam.de/configurations/35",
+    "@type": "ThingProperty",
+    "identifier": "https://handle.net/12345",
+    "mobile": false,
+    "status": "active",
+    "responsiblePersons": [
+        {
+            "@type": "Role",
+            "roleName": "Owner",
+            "responsiblePersons": {
+                "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+                "@type": "Person",
+                "givenName": "Christian",
+                "familyName": "Wille",
+                "email": "christian.wille@gfz-potsdam.de",
+                "affiliation": {
+                    "@type": "Organization",
+                    "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+                    "identifier": "https://ror.org/04z8jg394"
+                },
+                "identifier": "https://orcid.org/0000-0003-0930-6527"
+            }
+        }
+    ],
+    "memberOf": [
+        {
+            "@type": "Organization",
+            "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+            "identifier": "https://ror.org/04z8jg394"
+        }
+    ],
+    "partOfProject": [
+        {
+            "@type": "ResearchProject",
+            "name": "TERENO-NO"
+        }
+    ],
+    "dataset": {
+        "@type": "Dataset",
+        "encodingFormat": "application/xml",
+        "distribution": {
+            "@type": "DataDownload",
+            "url": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
+        }
+    }
+}
