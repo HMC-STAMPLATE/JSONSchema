@@ -1,21 +1,7 @@
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "ThingProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/jsonschemas/ThingProperties"
-    },
-    "responsiblePersons": {
-      "@id": "http://schema.org/member",
-      "@container": "@set"
-    },
-    "involvedOrganizations": {
-      "@id": "http://schema.org/memberOf",
-      "@container": "@set"
-    },
-    "partOfProject": {
-      "@id": "http://schema.org/memberOf",
-      "@container": "@set"
-    }
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
   },
   "@id": "https://sensors.gfz-potsdam.de/configurations/35",
   "@type": "ThingProperties",
