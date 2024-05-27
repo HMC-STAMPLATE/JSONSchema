@@ -24,7 +24,7 @@
         "status": "http://schema.org/status"
     },
     "@id": "https://sensors.gfz-potsdam.de/configurations/35",
-    "@type": "ThingProperty",
+    "@type": "ThingProperties",
     "identifier": "https://handle.net/12345",
     "providerMobility": "static",
     "status": "active",
