@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "stamplate": "https://codebase.helmholtz.cloud/stamplate#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/"
+  },
+  "@graph": [
+    {
+      "@id": "stamplate:ThingProperties",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The `properties` object of an OGC STA Thing entity.",
+      "rdfs:label": "ThingProperties"
+    },
+    {
+      "stamplate:responsiblePersons": {
+        "@id": "schema:member",
+        "@container": "@set",
+        "schema:domainIncludes": [
+          {
+            "@id": "stamplate:ThingProperties"
+          }
+        ]
+      },
+      "stamplate:involvedOrganizations": {
+        "@id": "schema:memberOf",
+        "@container": "@set",
+        "schema:domainIncludes": [
+          {
+            "@id": "stamplate:ThingProperties"
+          }
+        ]
+      },
+      "stamplate:partOfProject": {
+        "@id": "schema:memberOf",
+        "@container": "@set",
+        "schema:domainIncludes": [
+          {
+            "@id": "stamplate:ThingProperties"
+          }
+        ]
+      }
+    }
+  ]
+}
