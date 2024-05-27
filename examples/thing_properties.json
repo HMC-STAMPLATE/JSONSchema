@@ -47,7 +47,7 @@
             }
         }
     ],
-    "memberOf": [
+    "involvedOrganizations": [
         {
             "@type": "Organization",
             "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
