@@ -1,6 +1,7 @@
 {
   "@context": {
     "@import": "stamplate.jsonld",
+    "@base": "https://codebase.helmholtz.cloud/stamplate#",
     "@vocab": "http://schema.org/"
   },
   "@id": "https://sensors.gfz-potsdam.de/configurations/35",
