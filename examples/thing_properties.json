@@ -1,5 +1,6 @@
 {
   "@context": {
+    "@version": 1.1,
     "@import": "stamplate.jsonld",
     "@base": "https://codebase.helmholtz.cloud/stamplate#",
     "@vocab": "http://schema.org/"
