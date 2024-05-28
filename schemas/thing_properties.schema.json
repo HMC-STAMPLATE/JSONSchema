@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ThingProperty",
+  "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@version": {
+          "type": "number",
+          "const": 1.1
+        },
+        "@import": {
+          "type": "string"
+        },
+        "@base": {
+          "type": "string",
+          "const": "https://codebase.helmholtz.cloud/stamplate#"
+        },
+        "@vocab": {
+          "type": "string",
+          "const": "http://schema.org/"
+        }
+      }
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "type": "string",
+      "const": "ThingProperties"
+    },
+    "identifier": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "providerMobility": {
+      "type": "string",
+      "enum": ["static", "dynamic"]
+    },
+    "status": {
+      "type": "string"
+    },
+    "responsiblePersons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string"
+          },
+          "responsiblePersons": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "type": "string"
+              },
+              "@type": {
+                "type": "string"
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "familyName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  }
+                }
+              },
+              "identifier": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "involvedOrganizations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "partOfProject": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "encodingFormat": {
+          "type": "string"
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
