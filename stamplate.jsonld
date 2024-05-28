@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ThingProperties": "https://codebase.helmholtz.cloud/stamplate#ThingProperties",
+    "SensorProperties": "https://codebase.helmholtz.cloud/stamplate#SensorProperties",
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
