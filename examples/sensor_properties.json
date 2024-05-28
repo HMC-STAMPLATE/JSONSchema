@@ -1,0 +1,35 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@base": "https://codebase.helmholtz.cloud/stamplate#",
+    "@vocab": "http://schema.org/"
+  },
+  "@id": "https://sensors.gfz-potsdam.de/devices/786",
+  "@type": "SensorProperties",
+  "identifier": "https://handle.net/1234567",
+  "status": "active",
+  "productID": "Pressure transducer",
+  "model": "AdconBP1",
+  "manufacturer": "OTT HydroMet",
+  "serialNumber": "heydenhof1",
+  "responsiblePersons": [
+    {
+      "@type": "Role",
+      "roleName": "Owner",
+      "responsiblePersons": {
+        "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+        "@type": "Person",
+        "givenName": "Christian",
+        "familyName": "Budach",
+        "email": "christian.budach@gfz-potsdam.de",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+          "identifier": "https://ror.org/04z8jg394"
+        },
+        "identifier": ""
+      }
+    }
+  ]
+}
