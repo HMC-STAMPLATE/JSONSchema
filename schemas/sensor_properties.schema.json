@@ -28,10 +28,19 @@
     "identifier": {
       "type": "string"
     },
-    "providerMobility": {
+    "status": {
       "type": "string"
     },
-    "status": {
+    "productID": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "serialNumber": {
       "type": "string"
     },
     "responsiblePersons": {
@@ -80,59 +89,6 @@
               "identifier": {
                 "type": "string"
               }
-            }
-          }
-        }
-      }
-    },
-    "involvedOrganizations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "partOfProject": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "dataset": {
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "string"
-        },
-        "encodingFormat": {
-          "type": "string"
-        },
-        "distribution": {
-          "type": "object",
-          "properties": {
-            "@type": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
             }
           }
         }
