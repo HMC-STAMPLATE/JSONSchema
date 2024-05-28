@@ -10,7 +10,7 @@ OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
 The `examples` folder provides JSON-LD and schema.org compliant examples for the
 mentioned properties.
 
-### Linting
+### JSON-LD Compability
 
 To check for JSON-LD compatibility lint the examples with the
 `jsonld-cli` tool:
