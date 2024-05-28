@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@version": {
+          "type": "number"
+        },
+        "@import": {
+          "type": "string"
+        },
+        "@base": {
+          "type": "string"
+        },
+        "@vocab": {
+          "type": "string"
+        }
+      }
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "providerMobility": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "responsiblePersons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string"
+          },
+          "roleName": {
+            "type": "string"
+          },
+          "responsiblePersons": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "type": "string"
+              },
+              "@type": {
+                "type": "string"
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "familyName": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  }
+                }
+              },
+              "identifier": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "involvedOrganizations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "partOfProject": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "encodingFormat": {
+          "type": "string"
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
