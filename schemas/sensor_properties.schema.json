@@ -1,5 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "SensorProperty",
+  "description": "The JSON object of the `properties` property of an OGC STA `Sensor` entity.",
   "type": "object",
   "properties": {
     "@context": {
