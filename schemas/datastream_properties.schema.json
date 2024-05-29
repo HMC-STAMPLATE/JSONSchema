@@ -1,29 +1,36 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "DatastreamProperty",
+  "description": "The JSON object of the `properties` property of an OGC STA `DataStream` entity.",
   "type": "object",
   "properties": {
     "@context": {
       "type": "object",
       "properties": {
         "@version": {
-          "type": "number"
+          "type": "number",
+          "const": 1.1
         },
         "@import": {
           "type": "string"
         },
         "@base": {
-          "type": "string"
+          "type": "string",
+          "const": "https://codebase.helmholtz.cloud/stamplate#"
         },
         "@vocab": {
-          "type": "string"
+          "type": "string",
+          "const": "http://schema.org/"
         }
       }
     },
     "@id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^https*://"
     },
     "@type": {
-      "type": "string"
+      "type": "string",
+      "const": "DatastreamProperties"
     },
     "GeoCoordinates": {
       "type": "object",
@@ -46,7 +53,8 @@
           "type": "string"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^https*://"
         }
       }
     }
