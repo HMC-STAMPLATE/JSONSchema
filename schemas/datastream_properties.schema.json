@@ -32,9 +32,13 @@
       "type": "string",
       "const": "DatastreamProperties"
     },
-    "GeoCoordinates": {
+    "geoCoordinates": {
       "type": "object",
       "properties": {
+        "@type": {
+          "type": "string",
+          "const": "GeoCoordinates"
+        },
         "latitude": {
           "type": "string"
         },
@@ -49,6 +53,10 @@
     "license": {
       "type": "object",
       "properties": {
+        "@type": {
+          "type": "string",
+          "const": "CreativeWork"
+        },
         "name": {
           "type": "string"
         },
