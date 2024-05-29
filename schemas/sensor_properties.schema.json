@@ -1,32 +1,38 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
   "type": "object",
   "properties": {
     "@context": {
       "type": "object",
       "properties": {
         "@version": {
-          "type": "number"
+          "type": "number",
+          "const": 1.1
         },
         "@import": {
           "type": "string"
         },
         "@base": {
-          "type": "string"
+          "type": "string",
+          "const": "https://codebase.helmholtz.cloud/stamplate#"
         },
         "@vocab": {
-          "type": "string"
+          "type": "string",
+          "const": "http://schema.org/"
         }
       }
     },
     "@id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^https*://"
     },
     "@type": {
-      "type": "string"
+      "type": "string",
+      "const": "SensorProperties"
     },
     "identifier": {
-      "type": "string"
+      "type": "string",
+      "pattern": "|^https*://"
     },
     "status": {
       "type": "string"
@@ -49,7 +55,8 @@
         "type": "object",
         "properties": {
           "@type": {
-            "type": "string"
+            "type": "string",
+            "const": "Role"
           },
           "roleName": {
             "type": "string"
@@ -58,10 +65,12 @@
             "type": "object",
             "properties": {
               "@id": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^https*://"
               },
               "@type": {
-                "type": "string"
+                "type": "string",
+                "const": "Person"
               },
               "givenName": {
                 "type": "string"
@@ -76,18 +85,21 @@
                 "type": "object",
                 "properties": {
                   "@type": {
-                    "type": "string"
+                    "type": "string",
+                    "const": "Organization"
                   },
                   "name": {
                     "type": "string"
                   },
                   "identifier": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "|^https*://"
                   }
                 }
               },
               "identifier": {
-                "type": "string"
+                "type": "string",
+                "pattern": "|^https*://"
               }
             }
           }
