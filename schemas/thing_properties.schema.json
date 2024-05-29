@@ -1,35 +1,44 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ThingProperty",
+  "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
   "type": "object",
   "properties": {
     "@context": {
       "type": "object",
       "properties": {
         "@version": {
-          "type": "number"
+          "type": "number",
+          "const": 1.1
         },
         "@import": {
           "type": "string"
         },
         "@base": {
-          "type": "string"
+          "type": "string",
+          "const": "https://codebase.helmholtz.cloud/stamplate#"
         },
         "@vocab": {
-          "type": "string"
+          "type": "string",
+          "const": "http://schema.org/"
         }
       }
     },
     "@id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^https*://"
     },
     "@type": {
-      "type": "string"
+      "type": "string",
+      "const": "ThingProperties"
     },
     "identifier": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^https*://"
     },
     "providerMobility": {
-      "type": "string"
+      "type": "string",
+      "enum": ["static", "dynamic"]
     },
     "status": {
       "type": "string"
@@ -40,7 +49,8 @@
         "type": "object",
         "properties": {
           "@type": {
-            "type": "string"
+            "type": "string",
+            "const": "Role"
           },
           "roleName": {
             "type": "string"
@@ -49,10 +59,12 @@
             "type": "object",
             "properties": {
               "@id": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^https*://"
               },
               "@type": {
-                "type": "string"
+                "type": "string",
+                "const": "Person"
               },
               "givenName": {
                 "type": "string"
@@ -67,18 +79,21 @@
                 "type": "object",
                 "properties": {
                   "@type": {
-                    "type": "string"
+                    "type": "string",
+                    "const": "Organization"
                   },
                   "name": {
                     "type": "string"
                   },
                   "identifier": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^https*://"
                   }
                 }
               },
               "identifier": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^https*://"
               }
             }
           }
@@ -91,13 +106,15 @@
         "type": "object",
         "properties": {
           "@type": {
-            "type": "string"
+            "type": "string",
+            "const": "Organization"
           },
           "name": {
             "type": "string"
           },
           "identifier": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^https*://"
           }
         }
       }
@@ -108,7 +125,8 @@
         "type": "object",
         "properties": {
           "@type": {
-            "type": "string"
+            "type": "string",
+            "const": "ResearchProject"
           },
           "name": {
             "type": "string"
@@ -120,7 +138,8 @@
       "type": "object",
       "properties": {
         "@type": {
-          "type": "string"
+          "type": "string",
+          "const": "Dataset"
         },
         "encodingFormat": {
           "type": "string"
@@ -129,10 +148,12 @@
           "type": "object",
           "properties": {
             "@type": {
-              "type": "string"
+              "type": "string",
+              "const": "DataDownload"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "pattern": "^https*://"
             }
           }
         }
