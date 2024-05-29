@@ -12,13 +12,14 @@ To generate a base schema from an example, use:
 npx generate-schema -j examples/thing_properties.json > example_thing_properties.schema.json
 ```
 
+ ⚠️ Take care that the `"$schema"` property has the version `"http://json-schema.org/draft-06/schema#"`.
+
 ## Schema Validation
 
 ```
 npx ajv-cli validate -s schemas/thing_properties.schema.json -d
 examples/thing_properties.json
 ```
-
 
 ## Examples
 
