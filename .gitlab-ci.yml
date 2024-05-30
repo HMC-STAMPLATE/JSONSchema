@@ -6,7 +6,7 @@ before_script:
 pages:
   script:
     - npm run lint:jsonld
-    - cp stamplate.jsonld ./public/.
+    - mkdir ./public && cp stamplate.jsonld ./public/.
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
