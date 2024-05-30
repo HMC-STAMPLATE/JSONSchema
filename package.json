@@ -6,6 +6,8 @@
     "example": "examples"
   },
   "scripts": {
+    "lint:jsonld": "npx jsonld-cli lint stamplate.jsonld",
+    "lint:jsonld-examples": "for f in ./examples/*.json; do npx jsonld-cli lint $f || exit $?; done",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
