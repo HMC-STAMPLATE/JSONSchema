@@ -1,23 +1,57 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ThingProperties": "https://codebase.helmholtz.cloud/stamplate#ThingProperties",
-    "SensorProperties": "https://codebase.helmholtz.cloud/stamplate#SensorProperties",
-    "DatastreamProperties": "https://codebase.helmholtz.cloud/stamplate#DatastreamProperties",
+    "ThingProperties": "https://codebase.helmholtz.cloud/stamplate/stamplate.jsonld#ThingProperties",
+    "SensorProperties": "https://codebase.helmholtz.cloud/stamplate/stamplate.jsonld#SensorProperties",
+    "DatastreamProperties": "https://codebase.helmholtz.cloud/stamplate/stamplate.jsonld#DatastreamProperties",
     "responsiblePersons": {
       "@id": "schema:member",
-      "@container": "@set"
-    },
-    "involvedOrganizations": {
-      "@id": "schema:memberOf",
       "@container": "@set"
     },
     "partOfProject": {
       "@id": "schema:memberOf",
       "@container": "@set"
     },
+    "involvedOrganizations": {
+      "@id": "schema:memberOf",
+      "@container": "@set"
+    },
     "geoCoordinates": {
       "@id": "schema:geo"
+    }
+  },
+  "ThingProperties": {
+    "@id": "ThingProperties",
+    "@type": "@id",
+    "properties": {
+      "identifier": "schema:identifier",
+      "providerMobility": "schema:providerMobility",
+      "status": "schema:status",
+      "responsiblePersons": "responsiblePersons",
+      "involvedOrganizations": "schema:memberOf",
+      "partOfProject": "schema:memberOf",
+      "dataset": "schema:dataset"
+    }
+  },
+  "SensorProperties": {
+    "@id": "SensorProperties",
+    "@type": "@id",
+    "properties": {
+      "identifier": "schema:identifier",
+      "status": "schema:status",
+      "productID": "schema:productID",
+      "model": "schema:model",
+      "manufacturer": "schema:manufacturer",
+      "serialNumber": "schema:serialNumber",
+      "responsiblePersons": "responsiblePersons"
+    }
+  },
+  "DatastreamProperties": {
+    "@id": "DatastreamProperties",
+    "@type": "@id",
+    "properties": {
+      "geoCoordinates": "geoCoordinates",
+      "license": "schema:license"
     }
   }
 }
