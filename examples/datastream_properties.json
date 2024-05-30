@@ -2,7 +2,6 @@
   "@context": {
     "@version": 1.1,
     "@import": "stamplate.jsonld",
-    "@base": "https://codebase.helmholtz.cloud/stamplate#",
     "@vocab": "http://schema.org/"
   },
   "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",

@@ -14,10 +14,6 @@
         "@import": {
           "type": "string"
         },
-        "@base": {
-          "type": "string",
-          "const": "https://codebase.helmholtz.cloud/stamplate#"
-        },
         "@vocab": {
           "type": "string",
           "const": "http://schema.org/"
