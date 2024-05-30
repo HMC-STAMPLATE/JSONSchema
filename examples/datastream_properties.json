@@ -7,14 +7,15 @@
   },
   "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",
   "@type": "DatastreamProperties",
-  "GeoCoordinates": {
+  "geoCoordinates": {
+    "@type": "GeoCoordinates",
     "latitude": "50.62672766",
     "longitude": "6.30157978",
     "elevation": "3 m"
   },
   "license": {
+    "@type": "CreativeWork",
     "name": "GPLv3",
     "url": "https://www.gnu.org/licenses/gpl-3.0.txt"
   }
-
 }
