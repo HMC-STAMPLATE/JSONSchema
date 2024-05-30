@@ -1,23 +1,51 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ThingProperties": "https://codebase.helmholtz.cloud/stamplate#ThingProperties",
-    "SensorProperties": "https://codebase.helmholtz.cloud/stamplate#SensorProperties",
-    "DatastreamProperties": "https://codebase.helmholtz.cloud/stamplate#DatastreamProperties",
+    "ThingProperties": {
+      "@id": "#ThingProperties",
+      "@type": "@id",
+      "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
+      "properties": {
+        "identifier": "schema:identifier",
+        "providerMobility": "schema:providerMobility",
+        "status": "schema:status",
+        "responsiblePersons": "responsiblePersons",
+        "involvedOrganizations": {
+          "@id": "schema:memberOf",
+          "@container": "@set"
+        },
+        "partOfProject": {
+          "@id": "schema:memberOf",
+          "@container": "@set"
+        },
+        "dataset": "schema:Dataset"
+    },
+    "SensorProperties": {
+      "@id": "#SensorProperties",
+      "@type": "@id",
+      "description": "The JSON object of the `properties` property of an OGC STA `Sensor` entity.",
+      "properties": {
+        "identifier": "schema:identifier",
+        "status": "schema:status",
+        "productID": "schema:productID",
+        "model": "schema:model",
+        "manufacturer": "schema:manufacturer",
+        "serialNumber": "schema:serialNumber",
+        "responsiblePersons": "responsiblePersons"
+      }
+    },
+    "DatastreamProperties": {
+      "@id": "#DatastreamProperties",
+      "@type": "@id",
+      "description": "The JSON object of the `properties` property of an OGC STA `Datastream` entity.",
+      "properties": {
+        "geoCoordinates": "schema:geo",
+        "license": "schema:license"
+      }
+    },
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
-    },
-    "involvedOrganizations": {
-      "@id": "schema:memberOf",
-      "@container": "@set"
-    },
-    "partOfProject": {
-      "@id": "schema:memberOf",
-      "@container": "@set"
-    },
-    "geoCoordinates": {
-      "@id": "schema:geo"
     }
   }
 }
