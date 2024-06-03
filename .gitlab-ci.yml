@@ -32,5 +32,5 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - echo "Generating the schemas from examples/*.json..."
-    - for f in examples/*.json; do npx generate-schema -j "$f" > schemas/`basename "$f" .json`.schema.json; done
+    - for f in examples/*.json; do npx generate-schema -j "$f" > schemas/$(basename "$f" .json).schema.json; done
     - echo "done."
