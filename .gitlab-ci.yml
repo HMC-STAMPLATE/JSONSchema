@@ -7,11 +7,11 @@ variables:
 
 upload:
   stage: upload
-  image: node:lts-alpine
+  image: node:lts
   # rules: 
   #   - if: $CI_COMMIT_TAG
   script:
     - |
-      export VERSION=$(node -p "require('./package.json').version")
+      export PACKAGE_VERSION=$(node -p "require('./package.json').version")
     - |
       curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file stamplate.jsonld "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
