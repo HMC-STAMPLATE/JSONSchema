@@ -30,7 +30,9 @@ release:
     - 'true'
   release:
     name: "Release ${PACKAGE_VERSION}"
+    description: "Release ${PACKAGE_VERSION} of ${CI_PROJECT_NAME}"
     tag_name: "${PACKAGE_VERSION}"
+    ref: "${PACKAGE_VERSION}"
     assets:
       links:
         - name: "stamplate.jsonld"
