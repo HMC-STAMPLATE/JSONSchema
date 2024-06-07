@@ -14,4 +14,6 @@ upload:
     - |
       export PACKAGE_VERSION=$(node -p "require('./package.json').version")
     - |
+      echo "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
+    - |
       curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file stamplate.jsonld "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
