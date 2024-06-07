@@ -27,7 +27,9 @@ release:
   # rules: 
   #   - if: $CI_COMMIT_TAG
   script:
-    - |
-      release-cli create --name "Release $PACKAGE_VERSION" --tag-name $PACKAGE_VERSION \
-        --assets-link "{\"name\":\"stamplate.jsonld\",\"url\":\"${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld\"}"
-
+    - 'true'
+  assets:
+    links:
+      - name: "stamplate.jsonld"
+        filepath: "/stamplate.jsonld"
+        url: "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
