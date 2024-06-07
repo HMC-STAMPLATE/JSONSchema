@@ -1,3 +1,6 @@
+# Node.js
+node_modules/
+
 # Vim files
 # Swap
 [._]*.s[a-v][a-z]
