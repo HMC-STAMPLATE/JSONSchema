@@ -1,0 +1,32 @@
+{
+  "name": "jsonschemas",
+  "version": "0.0.1",
+  "description": "JSON Schema definitions for the HMC STAMPLATE project",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "lint:jsonld": "npx jsonld-cli lint stamplate.jsonld",
+    "lint:jsonld-examples": "for f in ./examples/*.json; do npx jsonld-cli lint $f || exit $?; done",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://codebase.helmholtz.cloud/stamplate/jsonschemas"
+  },
+  "keywords": [
+    "HMC",
+    "STAMPLATE",
+    "STA",
+    "SensorThingsAPI"
+  ],
+  "contributors": [
+    "Marc Hanisch <marc.hanisch@gfz-potsdam.de>",
+    "Ulrich Loup <u.loup@fz-juelich.de>"
+  ],
+  "devDependencies": {
+    "ajv-cli": "^5.0.0",
+    "generate-schema": "^2.6.0",
+    "jsonld-cli": "^2.0.0"
+  }
+}
