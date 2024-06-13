@@ -1,10 +1,35 @@
-# JSONSchemas
+# HMC STAMPLATE JSON-Schemas
 
-This repo provides JSON Schema definitions for the `properties` objects of the
+This repo provides JSON-Schema definitions for the `properties` objects of the
 OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
 `Location`, `Observation` and `FeatureOfInterest`.
 
-## Schema Generation
+## Goals
+
+With this project we want to standardize the use of the freely definable
+property `properties` of the OGC STA entities within the HMC STAMPLATE project.
+For this purpose, JSON schemas are defined that enable the validation of these
+properties on both the service and the client side. This ensures uniform access
+to this data across the centers.
+
+We also want to semantically label the data by using the terms already defined
+at https://schema.org.
+
+## Structure of this Repository
+
+- `stamplate.jsonld`, contains the necessary adoptions and definitions of terms
+    used in the JSON documents
+- `schemas/`, contains the JSON-Schema definitions for each OGC STA entity
+    property
+- `examples/`, contains examples of JSON-Schema and JSON-LD valid documents for
+    each OGC STA entity property
+
+## Examples
+
+The `examples` folder provides JSON-LD and schema.org compliant examples for the
+mentioned properties.
+
+## JSON-Schema Generation
 
 To generate a base schema from an example, use:
 
@@ -14,19 +39,14 @@ npx generate-schema -j examples/thing_properties.json > example_thing_properties
 
  ⚠️ Take care that the `"$schema"` property has the version `"http://json-schema.org/draft-06/schema#"`.
 
-## Schema Validation
+## JSON-Schema Validation
 
 ```
 npx ajv-cli validate -s schemas/thing_properties.schema.json -d
 examples/thing_properties.json
 ```
 
-## Examples
-
-The `examples` folder provides JSON-LD and schema.org compliant examples for the
-mentioned properties.
-
-### JSON-LD Compability
+## JSON-LD Compability
 
 To check for JSON-LD compatibility lint the examples with the
 `jsonld-cli` tool:
@@ -178,3 +198,7 @@ which generates the following result:
 ]
 ```
 
+## Authors
+
+- @u.loup
+- @marc.hanisch
