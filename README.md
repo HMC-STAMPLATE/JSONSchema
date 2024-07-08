@@ -49,7 +49,12 @@ which generates the following result:
   {
     "@id": "https://sensors.gfz-potsdam.de/configurations/35",
     "@type": [
-      "https://codebase.helmholtz.cloud/stamplate#ThingProperties"
+      "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties"
+    ],
+    "http://schema.org/identifier": [
+      {
+        "@value": "https://handle.net/12345"
+      }
     ],
     "http://schema.org/dataset": [
       {
@@ -70,32 +75,12 @@ which generates the following result:
         ],
         "http://schema.org/encodingFormat": [
           {
-            "@value": "application/xml"
+            "@value": "http://www.opengis.net/doc/IS/SensorML/2.0"
           }
         ]
-      }
-    ],
-    "http://schema.org/identifier": [
-      {
-        "@value": "https://handle.net/12345"
       }
     ],
     "http://schema.org/memberOf": [
-      {
-        "@type": [
-          "http://schema.org/Organization"
-        ],
-        "http://schema.org/identifier": [
-          {
-            "@value": "https://ror.org/04z8jg394"
-          }
-        ],
-        "http://schema.org/name": [
-          {
-            "@value": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ"
-          }
-        ]
-      },
       {
         "@type": [
           "http://schema.org/ResearchProject"
