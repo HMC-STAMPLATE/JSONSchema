@@ -93,24 +93,6 @@
         }
       }
     },
-    "involvedOrganizations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "const": "Organization"
-          },
-          "name": {
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "partOfProjects": {
       "type": "array",
       "items": {

@@ -21,10 +21,6 @@
       "@id": "schema:memberOf",
       "@container": "@set"
     },
-    "involvedOrganizations": {
-      "@id": "schema:memberOf",
-      "@container": "@set"
-    },
     "geoCoordinates": {
       "@id": "schema:geo"
     }
