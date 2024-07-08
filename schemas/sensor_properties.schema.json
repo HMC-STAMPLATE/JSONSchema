@@ -34,8 +34,17 @@
     "status": {
       "type": "string"
     },
-    "productID": {
-      "type": "string"
+    "type": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "|^https*://"
+        }
+      }
     },
     "model": {
       "type": "string"

@@ -8,7 +8,10 @@
   "@type": "SensorProperties",
   "identifier": "https://handle.net/1234567",
   "status": "active",
-  "productID": "Pressure transducer",
+  "type": {
+    "name": "Pressure transducer",
+    "url": ""
+  },
   "model": "AdconBP1",
   "manufacturer": "OTT HydroMet",
   "serialNumber": "heydenhof1",
