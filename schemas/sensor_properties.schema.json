@@ -50,7 +50,16 @@
       "type": "string"
     },
     "manufacturer": {
-      "type": "string"
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
     },
     "serialNumber": {
       "type": "string"

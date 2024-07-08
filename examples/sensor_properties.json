@@ -13,7 +13,10 @@
     "url": ""
   },
   "model": "AdconBP1",
-  "manufacturer": "OTT HydroMet",
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "OTT HydroMet"
+  },
   "serialNumber": "heydenhof1",
   "responsiblePersons": [
     {
