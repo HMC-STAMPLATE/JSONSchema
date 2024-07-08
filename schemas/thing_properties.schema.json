@@ -115,7 +115,7 @@
         }
       }
     },
-    "partOfProject": {
+    "partOfProjects": {
       "type": "array",
       "items": {
         "type": "object",

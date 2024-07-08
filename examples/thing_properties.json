@@ -35,7 +35,7 @@
       "identifier": "https://ror.org/04z8jg394"
     }
   ],
-  "partOfProject": [
+  "partOfProjects": [
     {
       "@type": "ResearchProject",
       "name": "TERENO-NO"

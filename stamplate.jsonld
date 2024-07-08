@@ -17,7 +17,7 @@
       "@id": "schema:member",
       "@container": "@set"
     },
-    "partOfProject": {
+    "partOfProjects": {
       "@id": "schema:memberOf",
       "@container": "@set"
     },
