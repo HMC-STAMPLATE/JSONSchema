@@ -29,8 +29,7 @@
       "const": "SensorProperties"
     },
     "identifier": {
-      "type": "string",
-      "pattern": "|^https*://"
+      "type": "string"
     },
     "status": {
       "type": "string"
@@ -90,14 +89,12 @@
                     "type": "string"
                   },
                   "identifier": {
-                    "type": "string",
-                    "pattern": "|^https*://"
+                    "type": "string"
                   }
                 }
               },
               "identifier": {
-                "type": "string",
-                "pattern": "|^https*://"
+                "type": "string"
               }
             }
           }

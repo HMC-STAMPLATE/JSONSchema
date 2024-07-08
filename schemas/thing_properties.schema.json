@@ -29,8 +29,7 @@
       "const": "ThingProperties"
     },
     "identifier": {
-      "type": "string",
-      "pattern": "|^https*://"
+      "type": "string"
     },
     "providerMobility": {
       "type": "string",
@@ -82,14 +81,12 @@
                     "type": "string"
                   },
                   "identifier": {
-                    "type": "string",
-                    "pattern": "|^https*://"
+                    "type": "string"
                   }
                 }
               },
               "identifier": {
-                "type": "string",
-                "pattern": "|^https*://"
+                "type": "string"
               }
             }
           }
@@ -109,8 +106,7 @@
             "type": "string"
           },
           "identifier": {
-            "type": "string",
-            "pattern": "|^https*://"
+            "type": "string"
           }
         }
       }
