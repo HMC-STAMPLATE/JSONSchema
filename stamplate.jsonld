@@ -26,6 +26,9 @@
     },
     "metadata": {
       "@id": "schema:dataset"
+    },
+    "encodingType": {
+      "@id": "schema:encodingFormat"
     }
   }
 }

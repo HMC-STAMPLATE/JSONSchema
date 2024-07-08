@@ -115,8 +115,9 @@
           "type": "string",
           "const": "Dataset"
         },
-        "encodingFormat": {
-          "type": "string"
+        "encodingType": {
+          "type": "string",
+          "enum": ["application/pdf", "http://www.opengis.net/doc/IS/SensorML/2.0", "text/html"]
         },
         "distribution": {
           "type": "object",

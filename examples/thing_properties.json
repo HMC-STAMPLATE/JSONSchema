@@ -36,7 +36,7 @@
   ],
   "metadata": {
     "@type": "Dataset",
-    "encodingFormat": "application/xml",
+    "encodingType": "http://www.opengis.net/doc/IS/SensorML/2.0",
     "distribution": {
       "@type": "DataDownload",
       "url": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
