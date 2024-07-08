@@ -34,7 +34,7 @@
       "name": "TERENO-NO"
     }
   ],
-  "dataset": {
+  "metadata": {
     "@type": "Dataset",
     "encodingFormat": "application/xml",
     "distribution": {

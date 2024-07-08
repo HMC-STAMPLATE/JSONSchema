@@ -108,7 +108,7 @@
         }
       }
     },
-    "dataset": {
+    "metadata": {
       "type": "object",
       "properties": {
         "@type": {

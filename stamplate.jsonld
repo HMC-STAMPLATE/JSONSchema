@@ -23,6 +23,9 @@
     },
     "geoCoordinates": {
       "@id": "schema:geo"
+    },
+    "metadata": {
+      "@id": "schema:dataset"
     }
   }
 }
