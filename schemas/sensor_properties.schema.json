@@ -37,6 +37,10 @@
     "type": {
       "type": "object",
       "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Thing"
+        },
         "name": {
           "type": "string"
         },

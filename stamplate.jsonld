@@ -13,9 +13,6 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
       "@type": "@id"
     },
-    "CVEntry": {
-      "@id": "schema:Thing"
-    },
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
@@ -34,7 +31,7 @@
       "@id": "schema:encodingFormat"
     },
     "type": {
-      "@id": "CVEntry"
+      "@id": "schema:Thing"
     }
   }
 }
