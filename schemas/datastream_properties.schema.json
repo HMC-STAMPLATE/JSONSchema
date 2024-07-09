@@ -14,15 +14,12 @@
         "@import": {
           "type": "string"
         },
-        "@base": {
-          "type": "string",
-          "const": "https://codebase.helmholtz.cloud/stamplate#"
-        },
         "@vocab": {
           "type": "string",
           "const": "http://schema.org/"
         }
-      }
+      },
+      "required": ["@version", "@import", "@vocab"]
     },
     "@id": {
       "type": "string",
@@ -48,7 +45,8 @@
         "elevation": {
           "type": "string"
         }
-      }
+      },
+      "required": ["@type", "latitude", "longitude", "elevation"]
     },
     "license": {
       "type": "object",
@@ -64,7 +62,9 @@
           "type": "string",
           "pattern": "^https*://"
         }
-      }
+      },
+      "required": ["@type", "name"]
     }
-  }
+  },
+  "required": ["@context", "@type", "@id"]
 }
