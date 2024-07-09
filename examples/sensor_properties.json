@@ -8,10 +8,9 @@
   "@type": "SensorProperties",
   "identifier": "https://handle.net/1234567",
   "status": "active",
-  "type": {
-    "@type": "Thing",
-    "name": "Pressure transducer",
-    "url": ""
+  "isVariantOf": {
+    "@type": "ProductModel",
+    "name": "Pressure transducer"
   },
   "model": "AdconBP1",
   "manufacturer": {

@@ -29,9 +29,6 @@
     },
     "encodingType": {
       "@id": "schema:encodingFormat"
-    },
-    "type": {
-      "@id": "schema:Thing"
     }
   }
 }

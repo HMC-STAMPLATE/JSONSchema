@@ -59,19 +59,15 @@
     "status": {
       "type": "string"
     },
-    "type": {
+    "isVariantOf": {
       "type": "object",
       "properties": {
         "@type": {
           "type": "string",
-          "const": "Thing"
+          "const": "ProductModel"
         },
         "name": {
           "type": "string"
-        },
-        "url": {
-          "type": "string",
-          "pattern": "|^https*://"
         }
       },
       "required": ["@type", "name"]
