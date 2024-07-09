@@ -3,6 +3,31 @@
   "title": "SensorProperty",
   "description": "The JSON object of the `properties` property of an OGC STA `Sensor` entity.",
   "type": "object",
+  "$defs": {
+    "@id": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "required": ["@type", "name"]
+    }
+  },
   "properties": {
     "@context": {
       "type": "object",
@@ -18,18 +43,18 @@
           "type": "string",
           "const": "http://schema.org/"
         }
-      }
+      },
+      "required": ["@version", "@import", "@vocab"]
     },
     "@id": {
-      "type": "string",
-      "pattern": "^https*://"
+      "$ref": "#/$defs/@id"
     },
     "@type": {
       "type": "string",
       "const": "SensorProperties"
     },
     "identifier": {
-      "type": "string"
+      "$ref": "#/$defs/identifier"
     },
     "status": {
       "type": "string"
@@ -48,22 +73,14 @@
           "type": "string",
           "pattern": "|^https*://"
         }
-      }
+      },
+      "required": ["@type", "name"]
     },
     "model": {
       "type": "string"
     },
     "manufacturer": {
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "string",
-          "const": "Organization"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
+      "$ref": "#/$defs/organization"
     },
     "serialNumber": {
       "type": "string"
@@ -84,8 +101,7 @@
             "type": "object",
             "properties": {
               "@id": {
-                "type": "string",
-                "pattern": "^https*://"
+                "$ref": "#/$defs/@id"
               },
               "@type": {
                 "type": "string",
@@ -101,27 +117,18 @@
                 "type": "string"
               },
               "affiliation": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "string",
-                    "const": "Organization"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/$defs/organization"
               },
               "identifier": {
-                "type": "string"
+                "$ref": "#/$defs/identifier"
               }
-            }
+            },
+            "required": ["@type", "givenName", "familyName", "affiliation"]
           }
-        }
+        },
+        "required": ["@type", "roleName", "responsiblePersons"]
       }
     }
-  }
+  },
+  "required": ["@context", "@id", "@type", "responsiblePersons"]
 }
