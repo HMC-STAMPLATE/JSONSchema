@@ -131,8 +131,19 @@
               "pattern": "^https*://"
             }
           }
+        },
+        "text": {
+          "type": "string"
         }
-      }
+      },
+      "oneOf": [
+        {
+          "required": ["distribution"]
+        },
+        {
+          "required": ["text"]
+        }
+      ]
     }
   }
 }
