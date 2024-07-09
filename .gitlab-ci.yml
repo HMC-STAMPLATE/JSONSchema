@@ -9,8 +9,6 @@ upload:
   stage: upload
   image: node:lts
   rules:
-    - changes:
-      - stamplate.jsonld
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: never
     - if: '$CI_PIPELINE_SOURCE == "pipeline"'
