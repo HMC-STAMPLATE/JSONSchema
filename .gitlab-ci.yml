@@ -9,14 +9,13 @@ upload:
   stage: upload
   image: node:lts
   rules:
-    - changes:
-      - stamplate.jsonld
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: never
     - if: '$CI_PIPELINE_SOURCE == "pipeline"'
       when: never
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-      when: always
+      changes:
+        - stamplate.jsonld
   script:
     - |
       export PACKAGE_VERSION=$(node -p "require('./package.json').version")
@@ -32,14 +31,13 @@ release:
   stage: release
   image: registry.gitlab.com/gitlab-org/release-cli:latest
   rules:
-    - changes:
-      - stamplate.jsonld
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: never
     - if: '$CI_PIPELINE_SOURCE == "pipeline"'
       when: never
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-      when: always
+      changes:
+        - stamplate.jsonld
   script:
     - 'true'
   release:

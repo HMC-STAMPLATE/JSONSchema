@@ -2,7 +2,6 @@
   "@context": {
     "@version": 1.1,
     "@import": "stamplate.jsonld",
-    "@base": "https://codebase.helmholtz.cloud/stamplate#",
     "@vocab": "http://schema.org/"
   },
   "@id": "https://sensors.gfz-potsdam.de/configurations/35",
@@ -29,22 +28,15 @@
       }
     }
   ],
-  "involvedOrganizations": [
-    {
-      "@type": "Organization",
-      "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
-      "identifier": "https://ror.org/04z8jg394"
-    }
-  ],
-  "partOfProject": [
+  "partOfProjects": [
     {
       "@type": "ResearchProject",
       "name": "TERENO-NO"
     }
   ],
-  "dataset": {
+  "metadata": {
     "@type": "Dataset",
-    "encodingFormat": "application/xml",
+    "encodingType": "http://www.opengis.net/doc/IS/SensorML/2.0",
     "distribution": {
       "@type": "DataDownload",
       "url": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"

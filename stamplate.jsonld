@@ -1,23 +1,34 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ThingProperties": "https://codebase.helmholtz.cloud/stamplate#ThingProperties",
-    "SensorProperties": "https://codebase.helmholtz.cloud/stamplate#SensorProperties",
-    "DatastreamProperties": "https://codebase.helmholtz.cloud/stamplate#DatastreamProperties",
+    "ThingProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties",
+      "@type": "@id"
+    },
+    "SensorProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/SensorProperties",
+      "@type": "@id"
+    },
+    "DatastreamProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
+      "@type": "@id"
+    },
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
     },
-    "involvedOrganizations": {
-      "@id": "schema:memberOf",
-      "@container": "@set"
-    },
-    "partOfProject": {
+    "partOfProjects": {
       "@id": "schema:memberOf",
       "@container": "@set"
     },
     "geoCoordinates": {
       "@id": "schema:geo"
+    },
+    "metadata": {
+      "@id": "schema:dataset"
+    },
+    "encodingType": {
+      "@id": "schema:encodingFormat"
     }
   }
 }

@@ -3,6 +3,31 @@
   "title": "ThingProperty",
   "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
   "type": "object",
+  "$defs": {
+    "@id": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "required": ["@type", "name"]
+    }
+  },
   "properties": {
     "@context": {
       "type": "object",
@@ -14,27 +39,22 @@
         "@import": {
           "type": "string"
         },
-        "@base": {
-          "type": "string",
-          "const": "https://codebase.helmholtz.cloud/stamplate#"
-        },
         "@vocab": {
           "type": "string",
           "const": "http://schema.org/"
         }
-      }
+      },
+      "required": ["@version", "@import", "@vocab"]
     },
     "@id": {
-      "type": "string",
-      "pattern": "^https*://"
+      "$ref": "#/$defs/@id"
     },
     "@type": {
       "type": "string",
       "const": "ThingProperties"
     },
     "identifier": {
-      "type": "string",
-      "pattern": "|^https*://"
+      "$ref": "#/$defs/identifier"
     },
     "providerMobility": {
       "type": "string",
@@ -59,8 +79,7 @@
             "type": "object",
             "properties": {
               "@id": {
-                "type": "string",
-                "pattern": "^https*://"
+                "$ref": "#/$defs/@id"
               },
               "@type": {
                 "type": "string",
@@ -73,53 +92,24 @@
                 "type": "string"
               },
               "email": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^\\S+@\\S+\\.\\S+$",
+                "minLength": 6
               },
               "affiliation": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "string",
-                    "const": "Organization"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string",
-                    "pattern": "|^https*://"
-                  }
-                }
+                "$ref": "#/$defs/organization"
               },
               "identifier": {
-                "type": "string",
-                "pattern": "|^https*://"
+                "$ref": "#/$defs/identifier"
               }
-            }
+            },
+            "required": ["@type", "givenName", "familyName", "affiliation"]
           }
-        }
+        },
+        "required": ["@type", "roleName", "responsiblePersons"]
       }
     },
-    "involvedOrganizations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "const": "Organization"
-          },
-          "name": {
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string",
-            "pattern": "|^https*://"
-          }
-        }
-      }
-    },
-    "partOfProject": {
+    "partOfProjects": {
       "type": "array",
       "items": {
         "type": "object",
@@ -131,18 +121,20 @@
           "name": {
             "type": "string"
           }
-        }
+        },
+        "required": ["@type", "name"]
       }
     },
-    "dataset": {
+    "metadata": {
       "type": "object",
       "properties": {
         "@type": {
           "type": "string",
           "const": "Dataset"
         },
-        "encodingFormat": {
-          "type": "string"
+        "encodingType": {
+          "type": "string",
+          "enum": ["application/pdf", "http://www.opengis.net/doc/IS/SensorML/2.0", "text/html"]
         },
         "distribution": {
           "type": "object",
@@ -155,9 +147,23 @@
               "type": "string",
               "pattern": "^https*://"
             }
-          }
+          },
+          "required": ["@type", "url"]
+        },
+        "text": {
+          "type": "string"
         }
-      }
+      },
+      "required": ["@type", "encodingType"],
+      "oneOf": [
+        {
+          "required": ["distribution"]
+        },
+        {
+          "required": ["text"]
+        }
+      ]
     }
-  }
+  },
+  "required": ["@context", "@id", "@type", "responsiblePersons"]
 }
