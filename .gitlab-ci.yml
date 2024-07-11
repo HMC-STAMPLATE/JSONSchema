@@ -9,12 +9,12 @@ variables:
 validate-schemas:
   stage: test
   image: node:lts
-  rules:
-    - if: $CI_COMMIT_BRANCH
-      changes:
-        compare_to: 'refs/heads/main'
-        paths:
-          - 'schemas/*.schema.jsonx'
+  # rules:
+  #   - if: $CI_COMMIT_BRANCH
+  #     changes:
+  #       compare_to: 'refs/heads/main'
+  #       paths:
+  #         - 'schemas/*.schema.jsonx'
   before_script:
     - npm ci
   script:
