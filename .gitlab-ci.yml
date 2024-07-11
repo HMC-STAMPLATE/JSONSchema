@@ -96,6 +96,7 @@ release:
           url: "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
 
 pages:
+  stage: release
   image: node:lts
   before_script:
     - npm ci
@@ -105,3 +106,6 @@ pages:
     - "mkdir -p public/vocab && cp stamplate.jsonld public/vocab/."
     # build the site
     - "npx @11ty/eleventy"
+  artifacts:
+    paths:
+      - public
