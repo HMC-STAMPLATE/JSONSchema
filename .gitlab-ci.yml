@@ -94,3 +94,14 @@ release:
         - name: "stamplate.jsonld"
           filepath: "/stamplate.jsonld"
           url: "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
+
+pages:
+  image: node:lts
+  before_script:
+    - npm ci
+  script:
+    # cp static files to public/
+    - "mkdir public/schemas && cp schemas/*.schema.json public/schemas/."
+    - "mkdir public/vocab && cp stamplate.jsonld public/vocab/."
+    # build the site
+    - "npx @11ty/eleventy"
