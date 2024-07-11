@@ -6,11 +6,11 @@ date: Last Modified
 
 ## JSON-LD Context
 
-- [stamplate.jsonld](/jsonschemas/vocab/stamplate.jsonld)
+- [stamplate.jsonld](/{{ CI_PROJECT_NAME }}/vocab/stamplate.jsonld)
 
 ## Schemas
 
 {% for schema in schemaFiles %}
-- [{{ schema }}](/jsonschemas/schemas/{{ schema }})
+- [{{ schema }}]({{ CI_PROJECT_NAME }}/schemas/{{ schema }})
 {% endfor %}
 

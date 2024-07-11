@@ -5,6 +5,7 @@ const schemaFiles = fs.readdirSync('schemas/').filter(file => path.extname(file)
 
 module.exports = function () {
   return {
+    CI_PROJECT_NAME: process.env.CI_PROJECT_NAME,
     schemaFiles
   }
 }
