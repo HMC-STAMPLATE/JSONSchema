@@ -14,7 +14,7 @@ validate-schemas:
       changes:
         compare_to: 'refs/heads/main'
         paths:
-          - 'schemas/*.schema.json'
+          - 'schemas/*.schema.jsonx'
   before_script:
     - npm ci
   script:
