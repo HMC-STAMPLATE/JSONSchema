@@ -101,7 +101,7 @@ pages:
     - npm ci
   script:
     # cp static files to public/
-    - "mkdir public/schemas && cp schemas/*.schema.json public/schemas/."
-    - "mkdir public/vocab && cp stamplate.jsonld public/vocab/."
+    - "mkdir -p public/schemas && cp schemas/*.schema.json public/schemas/."
+    - "mkdir -p public/vocab && cp stamplate.jsonld public/vocab/."
     # build the site
     - "npx @11ty/eleventy"
