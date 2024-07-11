@@ -18,7 +18,7 @@ validate-schemas:
   before_script:
     - npm ci
   script:
-    - for file in schemas/*.json; do; npx ajv-cli compile -s $file || exit $?; done;
+    - "for file in schemas/*.json; do npx ajv-cli compile -s $file || exit $?; done"
 
 upload:
   stage: upload
