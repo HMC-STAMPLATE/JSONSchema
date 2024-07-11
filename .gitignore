@@ -1,6 +1,9 @@
 # Node.js
 node_modules/
 
+# Eleventy
+_site/
+
 # Vim files
 # Swap
 [._]*.s[a-v][a-z]
