@@ -9,8 +9,8 @@ variables:
 validate-schemas:
   stage: test
   image: node:lts
-  # rules:
-  #   - if: $CI_COMMIT_BRANCH
+  rules:
+    - if: $CI_COMMIT_BRANCH
   #     changes:
   #       compare_to: 'refs/heads/main'
   #       paths:
@@ -23,8 +23,8 @@ validate-schemas:
 validate-examples-against-schemas:
   stage: test
   image: node:lts
-  # rules:
-  #   - if: $CI_COMMIT_BRANCH
+  rules:
+    - if: $CI_COMMIT_BRANCH
   #     changes:
   #       compare_to: 'refs/heads/main'
   #       paths:
@@ -32,7 +32,7 @@ validate-examples-against-schemas:
   before_script:
     - npm ci
   script:
-    - "for file in schemas/*.schema.json; do npx ajv-cli validate -s $file -d `echo $file | sed -e 's/schema\.//' -e 's/schemas/examples/'` || exit $?; done"
+    - "for file in schemas/*.schema.json; do npx ajv-cli validate -s $file -d `echo $file | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done"
 
 upload:
   stage: upload
