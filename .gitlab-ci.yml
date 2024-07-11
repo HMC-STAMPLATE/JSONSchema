@@ -1,9 +1,53 @@
 stages:
+  - test
   - upload
   - release
 
 variables:
   PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/stamplate"
+
+validate-schemas:
+  stage: test
+  image: node:lts
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        # just run the tests when something in the schemas or examples changed
+        #
+        # in the future we can use $CI_DEFAULT_BRANCH, too
+        # see https://gitlab.com/gitlab-org/gitlab/-/issues/369916
+        compare_to: 'refs/heads/main'
+        paths:
+          - 'schemas/*.schema.json'
+          - 'examples/*.json'
+  before_script:
+    - npm ci
+  script:
+    # validate the schemas
+    - "for file in schemas/*.schema.json; do npx ajv-cli compile -s $file || exit $?; done"
+    # validate the examples against the schemas
+    - "for file in schemas/*.schema.json; do npx ajv-cli validate -s $file -d `echo $file | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done"
+
+validate-jsonld:
+  stage: test
+  image: node:lts
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        # just run the tests when something in the examples or the context file
+        # changed
+        #
+        # in the future we can use $CI_DEFAULT_BRANCH, too
+        # see https://gitlab.com/gitlab-org/gitlab/-/issues/369916
+        compare_to: 'refs/heads/main'
+        paths:
+          - 'examples/*.json'
+          - 'stamplate.jsonld'
+  before_script:
+    - npm ci
+  script:
+    # validate the examples
+    - "for file in examples/*.json; do npx jsonld-cli lint $file || exit $?; done"
 
 upload:
   stage: upload
