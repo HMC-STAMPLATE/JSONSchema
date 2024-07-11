@@ -1,9 +1,24 @@
 stages:
+  - test
   - upload
   - release
 
 variables:
   PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/stamplate"
+
+validate-schemas:
+  stage: test
+  image: node:lts
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      changes:
+        compare_to: 'refs/heads/main'
+        paths:
+          - 'schemas/*.schema.json'
+  before_script:
+    - npm ci
+  script:
+    - for file in schemas/*.json; do; npx ajv-cli compile -s $file || exit $?; done;
 
 upload:
   stage: upload
