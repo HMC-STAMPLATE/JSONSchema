@@ -11,6 +11,6 @@ date: Last Modified
 ## Schemas
 
 {% for schema in schemaFiles %}
-- [{{ schema }}]({{ CI_PROJECT_NAME }}/schemas/{{ schema }})
+- [{{ schema }}](/{{ CI_PROJECT_NAME }}/schemas/{{ schema }})
 {% endfor %}
 
