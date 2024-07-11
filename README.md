@@ -55,6 +55,10 @@ To check for JSON-LD compatibility lint the examples with the
 npx jsonld-cli lint examples/thing_properties.json
 ```
 
+⚠️ The linter just takes care that the file is correct to the JSON-LD
+specifications, it does not resolve or checks types from
+[schema.org](https://schema.org).
+
 To see if the terms are correctly resolved, expand the examples with the
 `jsonld-cli` tool:
 
