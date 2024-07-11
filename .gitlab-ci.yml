@@ -11,15 +11,21 @@ validate-schemas:
   image: node:lts
   rules:
     - if: $CI_COMMIT_BRANCH
-  #     changes:
-  #       compare_to: 'refs/heads/main'
-  #       paths:
-  #         - 'schemas/*.schema.json'
-  #         - 'examples/*.json'
+      changes:
+        # just run the tests when something in the schemas or examples changed
+        #
+        # in the future we can use $CI_DEFAULT_BRANCH, too
+        # see https://gitlab.com/gitlab-org/gitlab/-/issues/369916
+        compare_to: 'refs/heads/main'
+        paths:
+          - 'schemas/*.schema.json'
+          - 'examples/*.json'
   before_script:
     - npm ci
   script:
+    # validate the schemas
     - "for file in schemas/*.schema.json; do npx ajv-cli compile -s $file || exit $?; done"
+    # validate the examples against the schemas
     - "for file in schemas/*.schema.json; do npx ajv-cli validate -s $file -d `echo $file | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done"
 
 upload:
