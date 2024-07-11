@@ -14,11 +14,25 @@ validate-schemas:
   #     changes:
   #       compare_to: 'refs/heads/main'
   #       paths:
-  #         - 'schemas/*.schema.jsonx'
+  #         - 'schemas/*.schema.json'
   before_script:
     - npm ci
   script:
-    - "for file in schemas/*.json; do npx ajv-cli compile -s $file || exit $?; done"
+    - "for file in schemas/*.schema.json; do npx ajv-cli compile -s $file || exit $?; done"
+
+validate-examples-against-schemas:
+  stage: test
+  image: node:lts
+  # rules:
+  #   - if: $CI_COMMIT_BRANCH
+  #     changes:
+  #       compare_to: 'refs/heads/main'
+  #       paths:
+  #         - 'examples/*.json'
+  before_script:
+    - npm ci
+  script:
+    - "for file in schemas/*.schema.json; do npx ajv-cli validate -s $file -d `echo $file | sed -e 's/schema\.//' -e 's/schemas/examples/'` || exit $?; done"
 
 upload:
   stage: upload
