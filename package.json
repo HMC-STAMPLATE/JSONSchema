@@ -10,6 +10,7 @@
     "lint:jsonld-examples": "for f in ./examples/*.json; do npx jsonld-cli lint $f || exit $?; done",
     "lint:schemas": "for f in ./schemas/*.schema.json; do npx ajv-cli compile -s $f || exit $?; done",
     "lint:schemas-examples": "for f in ./schemas/*.schema.json; do npx ajv-cli validate -s $f -d `echo $f | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done",
+    "lint": "npm run lint:jsonld && npm run lint:jsonld-examples && npm run lint:schemas && npm run lint:schemas-examples",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
