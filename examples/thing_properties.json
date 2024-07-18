@@ -13,19 +13,21 @@
     {
       "@type": "Role",
       "roleName": "Owner",
-      "responsiblePersons": {
-        "@id": "https://sensors.gfz-potsdam.de/contacts/49",
-        "@type": "Person",
-        "givenName": "Christian",
-        "familyName": "Wille",
-        "email": "christian.wille@gfz-potsdam.de",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
-          "identifier": "https://ror.org/04z8jg394"
-        },
-        "identifier": "https://orcid.org/0000-0003-0930-6527"
-      }
+      "responsiblePersons": [
+        {
+          "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+          "@type": "Person",
+          "givenName": "Christian",
+          "familyName": "Wille",
+          "email": "christian.wille@gfz-potsdam.de",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+            "identifier": "https://ror.org/04z8jg394"
+          },
+          "identifier": "https://orcid.org/0000-0003-0930-6527"
+        }
+      ]
     }
   ],
   "partOfProjects": [

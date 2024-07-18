@@ -22,19 +22,21 @@
     {
       "@type": "Role",
       "roleName": "Owner",
-      "responsiblePersons": {
-        "@id": "https://sensors.gfz-potsdam.de/contacts/49",
-        "@type": "Person",
-        "givenName": "Christian",
-        "familyName": "Budach",
-        "email": "christian.budach@gfz-potsdam.de",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
-          "identifier": "https://ror.org/04z8jg394"
-        },
-        "identifier": ""
-      }
+      "responsiblePersons": [
+        {
+          "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+          "@type": "Person",
+          "givenName": "Christian",
+          "familyName": "Budach",
+          "email": "christian.budach@gfz-potsdam.de",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+            "identifier": "https://ror.org/04z8jg394"
+          },
+          "identifier": ""
+        }
+      ]
     }
   ]
 }
