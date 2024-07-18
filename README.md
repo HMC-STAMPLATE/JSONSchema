@@ -41,21 +41,34 @@ npx generate-schema -j examples/thing_properties.json > example_thing_properties
 
 ## JSON-Schema Validation
 
+To validate the schemas, run
+
 ```
-npx ajv-cli validate -s schemas/thing_properties.schema.json -d
-examples/thing_properties.json
+npm run lint:schemas
+```
+
+To validate the examples against the schemas, run
+
+```
+npm run lint:schemas-examples
 ```
 
 ## JSON-LD Compability
 
-To check for JSON-LD compatibility lint the examples with the
-`jsonld-cli` tool:
+To check for JSON-LD compatibility lint the `stamplate.jsonld` context file
+with:
 
 ```
-npx jsonld-cli lint examples/thing_properties.json
+npm run lint:jsonld
 ```
 
-⚠️ The linter just takes care that the file is correct to the JSON-LD
+To check the examples for JSON-LD compatibility, run:
+
+```
+npm run lint:jsonld-examples
+```
+
+⚠️ The `json-ld` linter just takes care that the file is correct to the JSON-LD
 specifications, it does not resolve or checks types from
 [schema.org](https://schema.org).
 
