@@ -94,32 +94,35 @@
             "type": "string"
           },
           "responsiblePersons": {
-            "type": "object",
-            "properties": {
-              "@id": {
-                "$ref": "#/$defs/@id"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "$ref": "#/$defs/@id"
+                },
+                "@type": {
+                  "type": "string",
+                  "const": "Person"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "familyName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "affiliation": {
+                  "$ref": "#/$defs/organization"
+                },
+                "identifier": {
+                  "$ref": "#/$defs/identifier"
+                }
               },
-              "@type": {
-                "type": "string",
-                "const": "Person"
-              },
-              "givenName": {
-                "type": "string"
-              },
-              "familyName": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "affiliation": {
-                "$ref": "#/$defs/organization"
-              },
-              "identifier": {
-                "$ref": "#/$defs/identifier"
-              }
-            },
-            "required": ["@type", "givenName", "familyName", "affiliation"]
+              "required": ["@type", "givenName", "familyName", "affiliation"]
+            }
           }
         },
         "required": ["@type", "roleName", "responsiblePersons"]

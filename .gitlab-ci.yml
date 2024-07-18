@@ -23,10 +23,8 @@ validate-schemas:
   before_script:
     - npm ci
   script:
-    # validate the schemas
-    - "for file in schemas/*.schema.json; do npx ajv-cli compile -s $file || exit $?; done"
-    # validate the examples against the schemas
-    - "for file in schemas/*.schema.json; do npx ajv-cli validate -s $file -d `echo $file | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done"
+    - "npm run lint:schemas"
+    - "npm run lint:schemas-examples"
 
 validate-jsonld:
   stage: test
@@ -46,8 +44,8 @@ validate-jsonld:
   before_script:
     - npm ci
   script:
-    # validate the examples
-    - "for file in examples/*.json; do npx jsonld-cli lint $file || exit $?; done"
+    - "npm run lint:jsonld"
+    - "npm run lint:jsonld-examples"
 
 upload:
   stage: upload
