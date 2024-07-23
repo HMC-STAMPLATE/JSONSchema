@@ -4,12 +4,9 @@
   "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
   "type": "object",
   "$defs": {
-    "@id": {
+    "url": {
       "type": "string",
       "pattern": "^https*://"
-    },
-    "identifier": {
-      "type": "string"
     },
     "organization": {
       "type": "object",
@@ -22,7 +19,7 @@
           "type": "string"
         },
         "identifier": {
-          "$ref": "#/$defs/identifier"
+          "$ref": "#/$defs/url"
         }
       },
       "required": ["@type", "name"]
@@ -47,14 +44,14 @@
       "required": ["@version", "@import", "@vocab"]
     },
     "@id": {
-      "$ref": "#/$defs/@id"
+      "$ref": "#/$defs/url"
     },
     "@type": {
       "type": "string",
       "const": "ThingProperties"
     },
     "identifier": {
-      "$ref": "#/$defs/identifier"
+      "$ref": "#/$defs/url"
     },
     "providerMobility": {
       "type": "string",
@@ -81,7 +78,7 @@
               "type": "object",
               "properties": {
                 "@id": {
-                  "$ref": "#/$defs/@id"
+                  "$ref": "#/$defs/url"
                 },
                 "@type": {
                   "type": "string",
@@ -102,7 +99,7 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
-                  "$ref": "#/$defs/identifier"
+                  "$ref": "#/$defs/url"
                 }
               },
               "required": ["@type", "givenName", "familyName", "affiliation"]
@@ -147,8 +144,7 @@
               "const": "DataDownload"
             },
             "url": {
-              "type": "string",
-              "pattern": "^https*://"
+              "$ref": "#/$defs/url"
             }
           },
           "required": ["@type", "url"]
