@@ -58,7 +58,7 @@
       "properties": {
         "@type": {
           "type": "string",
-          "const": "ProductModel"
+          "const": "ProductGroup"
         },
         "name": {
           "type": "string"
