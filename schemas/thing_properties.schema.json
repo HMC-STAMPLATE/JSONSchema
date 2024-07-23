@@ -57,9 +57,6 @@
       "type": "string",
       "enum": ["static", "dynamic"]
     },
-    "status": {
-      "type": "string"
-    },
     "responsiblePersons": {
       "type": "array",
       "items": {

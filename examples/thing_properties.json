@@ -8,7 +8,6 @@
   "@type": "ThingProperties",
   "identifier": "https://handle.net/12345",
   "providerMobility": "static",
-  "status": "active",
   "responsiblePersons": [
     {
       "@type": "Role",

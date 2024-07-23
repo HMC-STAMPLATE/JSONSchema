@@ -7,7 +7,6 @@
   "@id": "https://sensors.gfz-potsdam.de/devices/786",
   "@type": "SensorProperties",
   "identifier": "https://handle.net/1234567",
-  "status": "active",
   "isVariantOf": {
     "@type": "ProductModel",
     "name": "Pressure transducer"
