@@ -53,10 +53,6 @@
     "identifier": {
       "$ref": "#/$defs/url"
     },
-    "providerMobility": {
-      "type": "string",
-      "enum": ["static", "dynamic"]
-    },
     "responsiblePersons": {
       "type": "array",
       "items": {

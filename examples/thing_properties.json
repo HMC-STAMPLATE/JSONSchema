@@ -7,7 +7,6 @@
   "@id": "https://sensors.gfz-potsdam.de/configurations/35",
   "@type": "ThingProperties",
   "identifier": "https://handle.net/12345",
-  "providerMobility": "static",
   "responsiblePersons": [
     {
       "@type": "Role",
