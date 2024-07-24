@@ -6,6 +6,7 @@
   },
   "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",
   "@type": "DatastreamProperties",
+  "providerMobility": "static",
   "geoCoordinates": {
     "@type": "GeoCoordinates",
     "latitude": "50.62672766",

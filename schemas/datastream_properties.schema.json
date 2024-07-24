@@ -29,6 +29,10 @@
       "type": "string",
       "const": "DatastreamProperties"
     },
+    "providerMobility": {
+      "type": "string",
+      "enum": ["static", "dynamic", "profiling"]
+    },
     "geoCoordinates": {
       "type": "object",
       "properties": {
