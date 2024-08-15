@@ -53,6 +53,17 @@
     "identifier": {
       "$ref": "#/$defs/url"
     },
+    "sourceRelatedThings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": "string",
+          "externalTarget": "string"
+        },
+        "required": ["id"]
+      }
+    },
     "responsiblePersons": {
       "type": "array",
       "items": {
