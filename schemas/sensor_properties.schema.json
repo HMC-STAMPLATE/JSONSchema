@@ -3,28 +3,6 @@
   "title": "SensorProperty",
   "description": "The JSON object of the `properties` property of an OGC STA `Sensor` entity.",
   "type": "object",
-  "$defs": {
-    "url": {
-      "type": "string",
-      "pattern": "^https*://"
-    },
-    "organization": {
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "string",
-          "const": "Organization"
-        },
-        "name": {
-          "type": "string"
-        },
-        "identifier": {
-          "$ref": "#/$defs/url"
-        }
-      },
-      "required": ["@type", "name"]
-    }
-  },
   "properties": {
     "@context": {
       "type": "object",
@@ -123,5 +101,28 @@
       }
     }
   },
-  "required": ["@context", "@id", "@type", "responsiblePersons"]
+  "required": ["@context", "@id", "@type", "responsiblePersons"],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string",
+          "pattern": "^https*://"
+        }
+      },
+      "required": ["@type", "name"]
+    }
+  }
 }
