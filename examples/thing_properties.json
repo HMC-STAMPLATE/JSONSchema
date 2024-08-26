@@ -41,5 +41,17 @@
       "@type": "DataDownload",
       "url": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
     }
-  }
+  },
+  "sourceRelatedThings": [
+      {
+        "id": 1,
+        "RelationRole": {
+          "id": 1,
+          "name": "containedInPlace",
+          "definition": "https://schema.org/containedInPlace",
+          "inverseName": "containsPlace",
+          "inverseDefinition": "https://schema.org/containsPlace"
+        }
+      }
+    ]
 }
