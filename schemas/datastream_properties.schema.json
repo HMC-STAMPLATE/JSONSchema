@@ -19,38 +19,46 @@
           "const": "http://schema.org/"
         }
       },
-      "required": ["@version", "@import", "@vocab"]
+      "required": [
+        "@version",
+        "@import",
+        "@vocab"
+      ]
     },
     "@id": {
-      "type": "string",
-      "pattern": "^https*://"
+      "$ref": "#/$defs/url"
     },
     "@type": {
       "type": "string",
       "const": "DatastreamProperties"
     },
-    "providerMobility": {
-      "type": "string",
-      "enum": ["static", "dynamic", "profiling"]
-    },
-    "geoCoordinates": {
+    "observingProcedure": {
       "type": "object",
       "properties": {
         "@type": {
           "type": "string",
-          "const": "GeoCoordinates"
+          "const": "ObservingProcedure"
         },
-        "latitude": {
+        "name": {
           "type": "string"
         },
-        "longitude": {
+        "description": {
           "type": "string"
         },
-        "elevation": {
-          "type": "string"
+        "definition": {
+          "$ref": "#/$defs/url"
+        },
+        "properties": {
+          "type": "object"
         }
       },
-      "required": ["@type", "latitude", "longitude", "elevation"]
+      "required": [
+        "@type",
+        "name"
+      ]
+    },
+    "measurementProperties": {
+      "type": "object"
     },
     "license": {
       "type": "object",
@@ -63,12 +71,91 @@
           "type": "string"
         },
         "url": {
+          "$ref": "#/$defs/url"
+        },
+        "responsibleParty": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/organization"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "$ref": "#/$defs/url"
+                },
+                "@type": {
+                  "type": "string",
+                  "const": "Person"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "familyName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "pattern": "^\\S+@\\S+\\.\\S+$",
+                  "minLength": 6
+                },
+                "affiliation": {
+                  "$ref": "#/$defs/organization"
+                },
+                "identifier": {
+                  "$ref": "#/$defs/url"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "@type",
+        "name"
+      ]
+    },
+    "providerMobility": {
+      "type": "string",
+      "enum": [
+        "static",
+        "dynamic",
+        "profiling"
+      ]
+    },
+    "deployment": {
+      "$ref": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment"
+    }
+  },
+  "required": [
+    "@context",
+    "@type",
+    "@id"
+  ],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
           "type": "string",
           "pattern": "^https*://"
         }
       },
-      "required": ["@type", "name"]
+      "required": [
+        "@type",
+        "name"
+      ]
     }
-  },
-  "required": ["@context", "@type", "@id"]
+  }
 }

@@ -6,16 +6,33 @@
   },
   "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",
   "@type": "DatastreamProperties",
-  "providerMobility": "static",
-  "geoCoordinates": {
-    "@type": "GeoCoordinates",
-    "latitude": "50.62672766",
-    "longitude": "6.30157978",
-    "elevation": "3 m"
+  "observingProcedure": {
+    "@type": "ObservingProcedure",
+    "name": "aggregation",
+    "description": "",
+    "definition": "",
+    "properties": {
+      "period": "600s",
+      "function": "mean"
+    }
+  },
+  "measurementProperties": {
+    "measurementResolution": 0.2,
+    "resolution_unit": "s",
+    "accuracy": "2",
+    "measuring_range_min": -10,
+    "measuring_range_max": 10
   },
   "license": {
     "@type": "CreativeWork",
     "name": "GPLv3",
     "url": "https://www.gnu.org/licenses/gpl-3.0.txt"
+  },
+  "providerMobility": "static",
+  "deployment": {
+    "@type": "Deployment",
+    "atDepth": 10,
+    "depthUom": "m",
+    "deploymentTime": "2020-01-01T00:50-03:00"
   }
 }
