@@ -36,7 +36,7 @@
       "@id": "schema:encodingFormat"
     },
     "observingProcedure": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedure",
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedure"
     }
   }
 }
