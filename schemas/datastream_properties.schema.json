@@ -54,7 +54,7 @@
             "period": {
               "type": "number"
             },
-            "periodUoM": {
+            "periodUom": {
               "type": "string"
             },
             "function": {

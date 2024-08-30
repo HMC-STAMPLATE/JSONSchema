@@ -13,7 +13,7 @@
     "definition": "",
     "properties": {
       "period": 600,
-      "periodUoM": "s",
+      "periodUom": "s",
       "function": "mean"
     }
   },
