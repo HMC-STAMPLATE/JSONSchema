@@ -13,6 +13,10 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
       "@type": "@id"
     },
+    "ObservingProcedure": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedure",
+      "@type": "@id"
+    },
     "Deployment": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment",
       "@type": "@id"
@@ -30,6 +34,9 @@
     },
     "encodingType": {
       "@id": "schema:encodingFormat"
+    },
+    "observingProcedure": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedure",
     }
   }
 }
