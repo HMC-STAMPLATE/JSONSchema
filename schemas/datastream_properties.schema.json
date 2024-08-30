@@ -49,7 +49,18 @@
           "$ref": "#/$defs/url"
         },
         "properties": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "period": {
+              "type": "number"
+            },
+            "periodUoM": {
+              "type": "string"
+            },
+            "function": {
+              "type": "string"
+            }
+          }
         }
       },
       "required": [

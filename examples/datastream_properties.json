@@ -12,7 +12,8 @@
     "description": "",
     "definition": "",
     "properties": {
-      "period": "600s",
+      "period": 600,
+      "periodUoM": "s",
       "function": "mean"
     }
   },
