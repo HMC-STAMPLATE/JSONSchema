@@ -45,9 +45,9 @@
   "sourceRelatedThings": [
     {
       "@id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
-      "@type": "RelatedThing",
+      "@type": "StaRelatedThing",
       "relationRole": {
-        "@type": "RelationRole",
+        "@type": "StaRelationRole",
         "name": "containedInPlace",
         "definition": "https://schema.org/containedInPlace",
         "inverseName": "containsPlace",
