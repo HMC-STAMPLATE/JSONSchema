@@ -10,7 +10,7 @@
     "@type": "ObservingProcedure",
     "name": "aggregation",
     "description": "",
-    "definition": "",
+    "definition": "https://sms-cv.helmholtz.cloud/foo/bar",
     "properties": {
       "period": 600,
       "periodUom": "s",
