@@ -46,7 +46,8 @@
           "type": "string"
         },
         "definition": {
-          "$ref": "#/$defs/url"
+          "type": "string",
+          "pattern": "^$|^https*://"
         },
         "properties": {
           "type": "object",
