@@ -17,6 +17,10 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservedPropertyProperties",
       "@type": "@id"
     },
+    "ObservationProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservationProperties",
+      "@type": "@id"
+    },
     "ObservingProcedure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedure",
       "@type": "@id"

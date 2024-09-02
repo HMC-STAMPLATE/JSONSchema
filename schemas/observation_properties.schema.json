@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ObservationProperties",
+  "description": "The JSON object of the `properties` property of an OGC STA `Observation` entity.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@version": {
+          "type": "number",
+          "const": 1.1
+        },
+        "@import": {
+          "type": "string"
+        },
+        "@vocab": {
+          "type": "string",
+          "const": "http://schema.org/"
+        }
+      },
+      "required": [
+        "@version",
+        "@import",
+        "@vocab"
+      ]
+    },
+    "@type": {
+      "type": "string",
+      "const": "ObservationProperties"
+    },
+    "dataSource": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "@context",
+    "@type"
+  ]
+}
