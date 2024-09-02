@@ -135,7 +135,53 @@
       ]
     },
     "deployment": {
-      "$ref": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment"
+      "type": "object",
+      "properties": {
+        "@id": {
+          "$ref": "#/$defs/url"
+        },
+        "@type": {
+          "type": "string",
+          "const": "Deployment"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "atDepth": {
+          "type": "number"
+        },
+        "depthUom": {
+          "type": "string"
+        },
+        "deploymentTime": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "offsets": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                }
+              }
+            },
+            "offsetsUom": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   },
   "required": [

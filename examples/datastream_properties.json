@@ -31,9 +31,18 @@
   },
   "providerMobility": "static",
   "deployment": {
+    "@id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
     "@type": "Deployment",
     "atDepth": 10,
     "depthUom": "m",
-    "deploymentTime": "2020-01-01T00:50-03:00"
+    "deploymentTime": "2020-01-01T00:50-03:00",
+    "properties": {
+      "offsets": {
+        "x": -3,
+        "y": 2,
+        "z": 10
+      },
+      "offsetsUom": "m"
+    }
   }
 }

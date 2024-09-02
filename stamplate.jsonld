@@ -37,6 +37,9 @@
     },
     "observingProcedure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedure"
+    },
+    "deployment": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deployment"
     }
   }
 }
