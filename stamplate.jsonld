@@ -13,6 +13,10 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
       "@type": "@id"
     },
+    "ObservedPropertyProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservedPropertyProperties",
+      "@type": "@id"
+    },
     "ObservingProcedure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedure",
       "@type": "@id"
