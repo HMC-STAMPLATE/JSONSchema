@@ -33,19 +33,20 @@
       "const": "ThingProperties"
     },
     "identifier": {
-      "$ref": "#/$defs/url"
+      "type": "string",
+      "pattern": "^$|^https*://"
     },
     "sourceRelatedThings": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
+          "@id": {
+            "$ref": "#/$defs/url"
+          },
           "@type": {
             "type": "string",
             "const": "RelatedThing"
-          },
-          "id": {
-            "type": "string"
           },
           "externalTarget": {
             "type": "string"
@@ -55,6 +56,7 @@
           }
         },
         "required": [
+          "@id",
           "@type",
           "relationRole"
         ]
@@ -99,7 +101,8 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
-                  "$ref": "#/$defs/url"
+                  "type": "string",
+                  "pattern": "^$|^https*://"
                 }
               },
               "required": [
@@ -213,7 +216,7 @@
         },
         "identifier": {
           "type": "string",
-          "pattern": "^https*://"
+          "pattern": "^$|^https*://"
         }
       },
       "required": [
@@ -227,10 +230,6 @@
         "@type": {
           "type": "string",
           "const": "RelationRole"
-        },
-        "id": {
-          "type": "string",
-          "const": "1"
         },
         "name": {
           "type": "string",

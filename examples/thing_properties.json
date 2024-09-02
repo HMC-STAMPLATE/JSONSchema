@@ -43,15 +43,16 @@
     }
   },
   "sourceRelatedThings": [
-      {
-        "id": 1,
-        "RelationRole": {
-          "id": 1,
-          "name": "containedInPlace",
-          "definition": "https://schema.org/containedInPlace",
-          "inverseName": "containsPlace",
-          "inverseDefinition": "https://schema.org/containsPlace"
-        }
+    {
+      "@id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
+      "@type": "RelatedThing",
+      "relationRole": {
+        "@type": "RelationRole",
+        "name": "containedInPlace",
+        "definition": "https://schema.org/containedInPlace",
+        "inverseName": "containsPlace",
+        "inverseDefinition": "https://schema.org/containsPlace"
       }
-    ]
+    }
+  ]
 }

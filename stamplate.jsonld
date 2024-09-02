@@ -29,6 +29,14 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment",
       "@type": "@id"
     },
+    "RelatedThing": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/RelatedThing",
+      "@type": "@id"
+    },
+    "RelationRole": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/RelationRole",
+      "@type": "@id"
+    },
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
@@ -48,6 +56,9 @@
     },
     "deployment": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deployment"
+    },
+    "sourceRelatedThings": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings"
     }
   }
 }
