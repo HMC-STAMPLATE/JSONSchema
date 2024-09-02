@@ -11,6 +11,7 @@
     "@type": "ProductGroup",
     "name": "Pressure transducer"
   },
+  "isVirtual": false,
   "model": "AdconBP1",
   "manufacturer": {
     "@type": "Organization",

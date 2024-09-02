@@ -51,6 +51,9 @@
         "name"
       ]
     },
+    "isVirtual": {
+      "type": "boolean"
+    },
     "model": {
       "type": "string"
     },
@@ -97,7 +100,8 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
-                  "$ref": "#/$defs/url"
+                  "type": "string",
+                  "pattern": "^$|^https*://"
                 }
               },
               "required": [
