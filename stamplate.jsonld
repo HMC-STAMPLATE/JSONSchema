@@ -37,6 +37,15 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/RelationRole",
       "@type": "@id"
     },
+    "definition": {
+      "@id": "schema:sameAs"
+    },
+    "inverseDefinition": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/inverseDefinition"
+    },
+    "inverseName": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/inverseName"
+    },
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
@@ -59,6 +68,9 @@
     },
     "sourceRelatedThings": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings"
+    },
+    "relationRole": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole"
     }
   }
 }
