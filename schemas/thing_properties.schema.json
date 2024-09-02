@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "title": "ThingProperty",
+  "title": "ThingProperties",
   "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
   "type": "object",
   "properties": {

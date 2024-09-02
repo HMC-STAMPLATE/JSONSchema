@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "title": "DatastreamProperty",
+  "title": "DatastreamProperties",
   "description": "The JSON object of the `properties` property of an OGC STA `DataStream` entity.",
   "type": "object",
   "properties": {
