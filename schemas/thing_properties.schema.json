@@ -1,30 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "title": "ThingProperty",
+  "title": "ThingProperties",
   "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
   "type": "object",
-  "$defs": {
-    "url": {
-      "type": "string",
-      "pattern": "^https*://"
-    },
-    "organization": {
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "string",
-          "const": "Organization"
-        },
-        "name": {
-          "type": "string"
-        },
-        "identifier": {
-          "$ref": "#/$defs/url"
-        }
-      },
-      "required": ["@type", "name"]
-    }
-  },
   "properties": {
     "@context": {
       "type": "object",
@@ -41,7 +19,11 @@
           "const": "http://schema.org/"
         }
       },
-      "required": ["@version", "@import", "@vocab"]
+      "required": [
+        "@version",
+        "@import",
+        "@vocab"
+      ]
     },
     "@id": {
       "$ref": "#/$defs/url"
@@ -51,7 +33,34 @@
       "const": "ThingProperties"
     },
     "identifier": {
-      "$ref": "#/$defs/url"
+      "type": "string",
+      "pattern": "^$|^https*://"
+    },
+    "sourceRelatedThings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@id": {
+            "$ref": "#/$defs/url"
+          },
+          "@type": {
+            "type": "string",
+            "const": "StaRelatedThing"
+          },
+          "externalTarget": {
+            "type": "string"
+          },
+          "relationRole": {
+            "$ref": "#/$defs/containedInPlaceRelationRole"
+          }
+        },
+        "required": [
+          "@id",
+          "@type",
+          "relationRole"
+        ]
+      }
     },
     "responsiblePersons": {
       "type": "array",
@@ -92,14 +101,24 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
-                  "$ref": "#/$defs/url"
+                  "type": "string",
+                  "pattern": "^$|^https*://"
                 }
               },
-              "required": ["@type", "givenName", "familyName", "affiliation"]
+              "required": [
+                "@type",
+                "givenName",
+                "familyName",
+                "affiliation"
+              ]
             }
           }
         },
-        "required": ["@type", "roleName", "responsiblePersons"]
+        "required": [
+          "@type",
+          "roleName",
+          "responsiblePersons"
+        ]
       }
     },
     "partOfProjects": {
@@ -115,7 +134,10 @@
             "type": "string"
           }
         },
-        "required": ["@type", "name"]
+        "required": [
+          "@type",
+          "name"
+        ]
       }
     },
     "metadata": {
@@ -127,7 +149,11 @@
         },
         "encodingType": {
           "type": "string",
-          "enum": ["application/pdf", "http://www.opengis.net/doc/IS/SensorML/2.0", "text/html"]
+          "enum": [
+            "application/pdf",
+            "http://www.opengis.net/doc/IS/SensorML/2.0",
+            "text/html"
+          ]
         },
         "distribution": {
           "type": "object",
@@ -140,22 +166,93 @@
               "$ref": "#/$defs/url"
             }
           },
-          "required": ["@type", "url"]
+          "required": [
+            "@type",
+            "url"
+          ]
         },
         "text": {
           "type": "string"
         }
       },
-      "required": ["@type", "encodingType"],
+      "required": [
+        "@type",
+        "encodingType"
+      ],
       "oneOf": [
         {
-          "required": ["distribution"]
+          "required": [
+            "distribution"
+          ]
         },
         {
-          "required": ["text"]
+          "required": [
+            "text"
+          ]
         }
       ]
     }
   },
-  "required": ["@context", "@id", "@type", "responsiblePersons"]
+  "required": [
+    "@context",
+    "@id",
+    "@type",
+    "responsiblePersons"
+  ],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string",
+          "pattern": "^$|^https*://"
+        }
+      },
+      "required": [
+        "@type",
+        "name"
+      ]
+    },
+    "containedInPlaceRelationRole": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "StaRelationRole"
+        },
+        "name": {
+          "type": "string",
+          "const": "containedInPlace"
+        },
+        "definition": {
+          "type": "string",
+          "const": "https://schema.org/containedInPlace"
+        },
+        "inverseName": {
+          "type": "string",
+          "const": "containsPlace"
+        },
+        "inverseDefinition": {
+          "type": "string",
+          "const": "https://schema.org/containsPlace"
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "definition"
+      ]
+    }
+  }
 }

@@ -6,16 +6,46 @@
   },
   "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",
   "@type": "DatastreamProperties",
-  "providerMobility": "static",
-  "geoCoordinates": {
-    "@type": "GeoCoordinates",
-    "latitude": "50.62672766",
-    "longitude": "6.30157978",
-    "elevation": "3 m"
+  "observingProcedure": {
+    "@type": "StaObservingProcedure",
+    "name": "aggregation",
+    "description": "",
+    "definition": "https://sms-cv.helmholtz.cloud/foo/bar",
+    "properties": {
+      "@type": "StaEntityProperties",
+      "period": 600,
+      "periodUom": "s",
+      "function": "mean"
+    }
+  },
+  "measurementProperties": {
+    "measurementResolution": 0.2,
+    "resolutionUnit": "s",
+    "accuracy": "2",
+    "measuringRangeMin": -10,
+    "measuringRangeMax": 10
   },
   "license": {
     "@type": "CreativeWork",
     "name": "GPLv3",
     "url": "https://www.gnu.org/licenses/gpl-3.0.txt"
+  },
+  "providerMobility": "static",
+  "deployment": {
+    "@id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
+    "@type": "StaDeployment",
+    "atDepth": 10,
+    "depthUom": "m",
+    "deploymentTime": "2020-01-01T00:50-03:00",
+    "properties": {
+      "@type": "StaEntityProperties",
+      "offsets": {
+        "@type": "Offset",
+        "x": -3,
+        "y": 2,
+        "z": 10
+      },
+      "offsetsUom": "m"
+    }
   }
 }
