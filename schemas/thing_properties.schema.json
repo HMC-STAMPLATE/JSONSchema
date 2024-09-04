@@ -46,7 +46,7 @@
           },
           "@type": {
             "type": "string",
-            "const": "StaRelatedThing"
+            "const": "RelatedThing"
           },
           "externalTarget": {
             "type": "string"
@@ -229,7 +229,7 @@
       "properties": {
         "@type": {
           "type": "string",
-          "const": "StaRelationRole"
+          "const": "RelationRole"
         },
         "name": {
           "type": "string",
