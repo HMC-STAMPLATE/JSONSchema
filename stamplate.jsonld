@@ -1,61 +1,81 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ThingProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties",
-      "@type": "@id"
-    },
-    "SensorProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/SensorProperties",
-      "@type": "@id"
-    },
     "DatastreamProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
       "@type": "@id"
     },
-    "ObservedPropertyProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservedPropertyProperties",
+    "Deployment": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment",
+      "@type": "@id"
+    },
+    "DeploymentProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DeploymentProperties",
+      "@type": "@id"
+    },
+    "LocationProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/LocationProperties",
       "@type": "@id"
     },
     "ObservationProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservationProperties",
       "@type": "@id"
     },
-    "StaObservingProcedure": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/StaObservingProcedure",
+    "ObservedPropertyProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservedPropertyProperties",
       "@type": "@id"
     },
-    "StaDeployment": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/StaDeployment",
+    "ObservingProcedure": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedure",
       "@type": "@id"
     },
-    "StaRelatedThing": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/StaRelatedThing",
-      "@type": "@id"
-    },
-    "StaRelationRole": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/StaRelationRole",
-      "@type": "@id"
-    },
-    "StaEntityProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/StaEntityProperties",
+    "ObservingProcedureProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedureProperties",
       "@type": "@id"
     },
     "Offset": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Offset",
       "@type": "@id"
     },
+    "RelatedThing": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/RelatedThing",
+      "@type": "@id"
+    },
+    "RelationRole": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/RelationRole",
+      "@type": "@id"
+    },
+    "SensorProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/SensorProperties",
+      "@type": "@id"
+    },
+    "ThingProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties",
+      "@type": "@id"
+    },
     "atDepth": {
       "@id": "schema:depth"
     },
-    "depthUom": {
-      "@id": "schema:unitCode"
+    "dataSource": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/dataSource"
     },
     "definition": {
       "@id": "schema:sameAs"
     },
+    "deployment": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deployment"
+    },
     "deploymentTime": {
       "@id": "schema:StartTime"
+    },
+    "depthUom": {
+      "@id": "schema:unitCode"
+    },
+    "encodingType": {
+      "@id": "schema:encodingFormat"
+    },
+    "function": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/function"
     },
     "inverseDefinition": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/inverseDefinition"
@@ -66,34 +86,23 @@
     "isVirtual": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/isVirtual"
     },
-    "responsiblePersons": {
-      "@id": "schema:member",
-      "@container": "@set"
-    },
-    "partOfProjects": {
-      "@id": "schema:memberOf",
-      "@container": "@set"
+    "measurementProperties": {
+      "@id": null
     },
     "metadata": {
       "@id": "schema:dataset"
     },
-    "encodingType": {
-      "@id": "schema:encodingFormat"
-    },
     "observingProcedure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedure"
     },
-    "deployment": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deployment"
+    "offsetX": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsetX"
     },
-    "sourceRelatedThings": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings"
+    "offsetY": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsetY"
     },
-    "relationRole": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole"
-    },
-    "properties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/properties"
+    "offsetZ": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsetZ"
     },
     "offsets": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsets"
@@ -101,26 +110,9 @@
     "offsetsUom": {
       "@id": "schema:unitCode"
     },
-    "offsetX": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsetX"
-    },
-    "x": {
-      "@id": "offsetX"
-    },
-    "offsetY": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsetY"
-    },
-    "y": {
-      "@id": "offsetY"
-    },
-    "offsetZ": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsetZ"
-    },
-    "z": {
-      "@id": "offsetZ"
-    },
-    "measurementProperties": {
-      "@id": null
+    "partOfProjects": {
+      "@id": "schema:memberOf",
+      "@container": "@set"
     },
     "period": {
       "@id": "schema:observationPeriod"
@@ -128,11 +120,27 @@
     "periodUom": {
       "@id": "schema:unitCode"
     },
-    "function": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/function"
+    "properties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/properties"
     },
-    "dataSource": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/dataSource"
+    "relationRole": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole"
+    },
+    "responsiblePersons": {
+      "@id": "schema:member",
+      "@container": "@set"
+    },
+    "sourceRelatedThings": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings"
+    },
+    "x": {
+      "@id": "offsetX"
+    },
+    "y": {
+      "@id": "offsetY"
+    },
+    "z": {
+      "@id": "offsetZ"
     }
   }
 }
