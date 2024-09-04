@@ -37,7 +37,7 @@
       "properties": {
         "@type": {
           "type": "string",
-          "const": "StaObservingProcedure"
+          "const": "ObservingProcedure"
         },
         "name": {
           "type": "string"
@@ -54,7 +54,7 @@
           "properties": {
             "@type": {
               "type": "string",
-              "const": "StaEntityProperties"
+              "const": "ObservingProcedureProperties"
             },
             "period": {
               "type": "number"
@@ -147,7 +147,7 @@
         },
         "@type": {
           "type": "string",
-          "const": "StaDeployment"
+          "const": "Deployment"
         },
         "name": {
           "type": "string"
@@ -169,7 +169,7 @@
           "properties": {
             "@type": {
               "type": "string",
-              "const": "StaEntityProperties"
+              "const": "DeploymentProperties"
             },
             "offsets": {
               "type": "object",
