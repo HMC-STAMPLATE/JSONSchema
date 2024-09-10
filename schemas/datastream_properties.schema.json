@@ -74,7 +74,134 @@
       ]
     },
     "measurementProperties": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "MeasurementProperties"
+        },
+        "measurementPrecision": {
+          "type": "number"
+        },
+        "measurementPrecisionUom": {
+          "type": "string"
+        },
+        "measurementFrequency": {
+          "type": "number"
+        },
+        "measurementFrequencyUom": {
+          "type": "string"
+        },
+        "measurementDepth": {
+          "type": "number"
+        },
+        "measurementDepthUom": {
+          "type": "string"
+        },
+        "operationTemperature": {
+          "type": "number"
+        },
+        "operationTemperatureUom": {
+          "type": "string"
+        },
+        "operationRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "operationRangeUom": {
+          "type": "string"
+        },
+        "measurementResolution": {
+          "type": "number"
+        },
+        "measurementResolutionUom": {
+          "type": "string"
+        },
+        "measurementDrift": {
+          "type": "number"
+        },
+        "measurementDriftUom": {
+          "type": "string"
+        },
+        "manufacturerRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "manufacturerRangeUom": {
+          "type": "string"
+        },
+        "measurementAccuracy": {
+          "type": "number"
+        },
+        "measurementAccuracyUom": {
+          "type": "string"
+        },
+        "gradientThreshold": {
+          "type": "number"
+        },
+        "gradientThresholdUom": {
+          "type": "string"
+        },
+        "spikeThreshold": {
+          "type": "number"
+        },
+        "spikeThresholdUom": {
+          "type": "string"
+        },
+        "capacitance": {
+          "type": "number"
+        },
+        "capacitanceUom": {
+          "type": "string"
+        },
+        "resistance": {
+          "type": "number"
+        },
+        "resistanceUom": {
+          "type": "string"
+        },
+        "sensitivity": {
+          "type": "number"
+        },
+        "sensitivityUom": {
+          "type": "string"
+        },
+        "polarity": {
+          "type": "number"
+        },
+        "polarityUom": {
+          "type": "string"
+        },
+        "normalisationFactor": {
+          "type": "number"
+        },
+        "poles": {
+          "type": "number"
+        },
+        "polesUom": {
+          "type": "number"
+        },
+        "zeros": {
+          "type": "number"
+        },
+        "zerosUom": {
+          "type": "number"
+        },
+        "maximumDepthDeployment": {
+          "type": "number"
+        },
+        "maximumDepthDeploymentUom": {
+          "type": "string"
+        }
+      }
     },
     "license": {
       "type": "object",

@@ -4,7 +4,7 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",
+  "@id": "https://sensors.gfz-potsdam.de/devices/786/measuredquantities/1513",
   "@type": "DatastreamProperties",
   "observingProcedure": {
     "@type": "ObservingProcedure",
@@ -19,11 +19,16 @@
     }
   },
   "measurementProperties": {
+    "@type": "MeasurementProperties",
     "measurementResolution": 0.2,
-    "resolutionUnit": "s",
-    "accuracy": "2",
-    "measuringRangeMin": -10,
-    "measuringRangeMax": 10
+    "measurementResolutionUom": "s",
+    "measurementAccuracy": 1.0,
+    "measurementAccuracyUom": "mbar",
+    "operationRange": [
+      500.0,
+      1500.0
+    ],
+    "measuringRangeUom": "mbar"
   },
   "license": {
     "@type": "CreativeWork",
