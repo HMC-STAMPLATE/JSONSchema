@@ -21,14 +21,14 @@
   "measurementProperties": {
     "@type": "MeasurementProperties",
     "measurementResolution": 0.2,
-    "measurementResolutionUom": { "code": "Sec", "label": "seconds", "symbol": "s" },
+    "measurementResolutionUom": { "code": "SEC", "label": "seconds", "symbol": "s" },
     "measurementAccuracy": 1.0,
-    "measurementAccuracyUom": { "code": "MBar", "label": "millibars", "symbol": "mbar" },
+    "measurementAccuracyUom": { "code": "MBR", "label": "millibars", "symbol": "mbar" },
     "operationRange": [
       500.0,
       1500.0
     ],
-    "measuringRangeUom": { "code": "MBar", "label": "millibars", "symbol": "mbar" }
+    "measuringRangeUom": { "code": "MBR", "label": "millibars", "symbol": "mbar" }
   },
   "license": {
     "@type": "CreativeWork",

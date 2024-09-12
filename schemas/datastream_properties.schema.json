@@ -386,7 +386,9 @@
           "const": "UnitOfMeasurement"
         },
         "code": {
-          "type": "string"
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
         },
         "label": {
           "type": "string"
