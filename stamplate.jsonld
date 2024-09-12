@@ -53,9 +53,6 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties",
       "@type": "@id"
     },
-    "atDepth": {
-      "@id": "schema:depth"
-    },
     "dataSource": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/dataSource"
     },
@@ -67,9 +64,6 @@
     },
     "deploymentTime": {
       "@id": "schema:StartTime"
-    },
-    "depthUom": {
-      "@id": "schema:unitCode"
     },
     "encodingType": {
       "@id": "schema:encodingFormat"
@@ -88,6 +82,12 @@
     },
     "measurementProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementProperties"
+    },
+    "code": {
+      "@id": "schema:unitCode"
+    },
+    "label": {
+      "@id": "schema:unitText"
     },
     "measurementPrecision": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementPrecision"
