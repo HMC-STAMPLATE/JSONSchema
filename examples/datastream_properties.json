@@ -21,14 +21,14 @@
   "measurementProperties": {
     "@type": "MeasurementProperties",
     "measurementResolution": 0.2,
-    "measurementResolutionUom": "s",
+    "measurementResolutionUom": { "code": "Sec", "label": "seconds", "symbol": "s" },
     "measurementAccuracy": 1.0,
-    "measurementAccuracyUom": "mbar",
+    "measurementAccuracyUom": { "code": "MBar", "label": "millibars", "symbol": "mbar" },
     "operationRange": [
       500.0,
       1500.0
     ],
-    "measuringRangeUom": "mbar"
+    "measuringRangeUom": { "code": "MBar", "label": "millibars", "symbol": "mbar" }
   },
   "license": {
     "@type": "CreativeWork",
@@ -39,8 +39,6 @@
   "deployment": {
     "@id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
     "@type": "Deployment",
-    "atDepth": 10,
-    "depthUom": "m",
     "deploymentTime": "2020-01-01T00:50-03:00",
     "properties": {
       "@type": "DeploymentProperties",
@@ -50,7 +48,7 @@
         "y": 2,
         "z": 10
       },
-      "offsetsUom": "m"
+      "offsetsUom": { "code": "m", "label": "meters", "symbol": "m" }
     }
   }
 }
