@@ -14,21 +14,37 @@
     "properties": {
       "@type": "ObservingProcedureProperties",
       "period": 600,
-      "periodUom": "s",
+      "periodUom": {
+        "code": "SEC",
+        "label": "seconds",
+        "symbol": "s"
+      },
       "function": "mean"
     }
   },
   "measurementProperties": {
     "@type": "MeasurementProperties",
     "measurementResolution": 0.2,
-    "measurementResolutionUom": { "code": "SEC", "label": "seconds", "symbol": "s" },
+    "measurementResolutionUom": {
+      "code": "SEC",
+      "label": "seconds",
+      "symbol": "s"
+    },
     "measurementAccuracy": 1.0,
-    "measurementAccuracyUom": { "code": "MBR", "label": "millibars", "symbol": "mbar" },
+    "measurementAccuracyUom": {
+      "code": "MBR",
+      "label": "millibars",
+      "symbol": "mbar"
+    },
     "operationRange": [
       500.0,
       1500.0
     ],
-    "measuringRangeUom": { "code": "MBR", "label": "millibars", "symbol": "mbar" }
+    "measuringRangeUom": {
+      "code": "MBR",
+      "label": "millibars",
+      "symbol": "mbar"
+    }
   },
   "license": {
     "@type": "CreativeWork",
@@ -48,7 +64,11 @@
         "y": 2,
         "z": 10
       },
-      "offsetsUom": { "code": "MTR", "label": "meters", "symbol": "m" }
+      "offsetsUom": {
+        "code": "MTR",
+        "label": "meters",
+        "symbol": "m"
+      }
     }
   }
 }
