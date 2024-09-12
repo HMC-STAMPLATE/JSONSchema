@@ -48,7 +48,7 @@
         "y": 2,
         "z": 10
       },
-      "offsetsUom": { "code": "m", "label": "meters", "symbol": "m" }
+      "offsetsUom": { "code": "MTR", "label": "meters", "symbol": "m" }
     }
   }
 }
