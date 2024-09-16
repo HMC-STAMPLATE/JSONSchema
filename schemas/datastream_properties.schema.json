@@ -59,7 +59,7 @@
             "period": {
               "type": "number"
             },
-            "periodUom": {
+            "unitOfPeriod": {
               "$ref": "#/$defs/unitOfMeasurement"
             },
             "function": {
@@ -83,25 +83,25 @@
         "measurementPrecision": {
           "type": "number"
         },
-        "measurementPrecisionUom": {
+        "unitOfMeasurementPrecision": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "measurementFrequency": {
           "type": "number"
         },
-        "measurementFrequencyUom": {
+        "unitOfMeasurementFrequency": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "measurementDepth": {
           "type": "number"
         },
-        "measurementDepthUom": {
+        "unitOfMeasurementDepth": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "operationTemperature": {
           "type": "number"
         },
-        "operationTemperatureUom": {
+        "unitOfOperationTemperature": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "operationRange": {
@@ -112,19 +112,19 @@
           "minItems": 2,
           "maxItems": 2
         },
-        "operationRangeUom": {
+        "unitOfOperationRange": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "measurementResolution": {
           "type": "number"
         },
-        "measurementResolutionUom": {
+        "unitOfMeasurementResolution": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "measurementDrift": {
           "type": "number"
         },
-        "measurementDriftUom": {
+        "unitOfMeasurementDrift": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "manufacturerRange": {
@@ -135,49 +135,49 @@
           "minItems": 2,
           "maxItems": 2
         },
-        "manufacturerRangeUom": {
+        "unitOfManufacturerRange": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "measurementAccuracy": {
           "type": "number"
         },
-        "measurementAccuracyUom": {
+        "unitOfMeasurementAccuracy": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "gradientThreshold": {
           "type": "number"
         },
-        "gradientThresholdUom": {
+        "unitOfGradientThreshold": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "spikeThreshold": {
           "type": "number"
         },
-        "spikeThresholdUom": {
+        "unitOfSpikeThreshold": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "capacitance": {
           "type": "number"
         },
-        "capacitanceUom": {
+        "unitOfCapacitance": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "resistance": {
           "type": "number"
         },
-        "resistanceUom": {
+        "unitOfResistance": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "sensitivity": {
           "type": "number"
         },
-        "sensitivityUom": {
+        "unitOfSensitivity": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "polarity": {
           "type": "number"
         },
-        "polarityUom": {
+        "unitOfPolarity": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "normalisationFactor": {
@@ -186,19 +186,19 @@
         "poles": {
           "type": "number"
         },
-        "polesUom": {
+        "unitOfPoles": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "zeros": {
           "type": "number"
         },
-        "zerosUom": {
+        "unitOfZeros": {
           "$ref": "#/$defs/unitOfMeasurement"
         },
         "maximumDepthDeployment": {
           "type": "number"
         },
-        "maximumDepthDeploymentUom": {
+        "unitOfMaximumDepthDeployment": {
           "$ref": "#/$defs/unitOfMeasurement"
         }
       }
@@ -310,7 +310,7 @@
                 }
               }
             },
-            "offsetsUom": {
+            "offsets": {
               "$ref": "#/$defs/unitOfMeasurement"
             }
           }
@@ -383,18 +383,17 @@
       "properties": {
         "@type": {
           "type": "string",
-          "const": "UnitOfMeasurement"
+          "const": "Unit"
         },
-        "code": {
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 3
-        },
-        "label": {
+        "name": {
           "type": "string"
         },
         "symbol": {
           "type": "string"
+        },
+        "definition": {
+          "type": "string",
+          "pattern": "^$|^https*://"
         }
       },
       "required": [

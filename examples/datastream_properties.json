@@ -14,10 +14,11 @@
     "properties": {
       "@type": "ObservingProcedureProperties",
       "period": 600,
-      "periodUom": {
-        "code": "SEC",
-        "label": "seconds",
-        "symbol": "s"
+      "unitOfPeriod": {
+        "@type": "Unit",
+        "name": "seconds",
+        "symbol": "s",
+        "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
       },
       "function": "mean"
     }
@@ -25,25 +26,28 @@
   "measurementProperties": {
     "@type": "MeasurementProperties",
     "measurementResolution": 0.2,
-    "measurementResolutionUom": {
-      "code": "SEC",
-      "label": "seconds",
-      "symbol": "s"
+    "unitOfMeasurementResolution": {
+      "@type": "Unit",
+      "name": "seconds",
+      "symbol": "sec",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/58"
     },
     "measurementAccuracy": 1.0,
-    "measurementAccuracyUom": {
-      "code": "MBR",
-      "label": "millibars",
-      "symbol": "mbar"
+    "unitOfMeasurementAccuracy": {
+      "@type": "Unit",
+      "name": "millibars",
+      "symbol": "mbar",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
     },
     "operationRange": [
       500.0,
       1500.0
     ],
-    "measuringRangeUom": {
-      "code": "MBR",
-      "label": "millibars",
-      "symbol": "mbar"
+    "unitOfMeasuringRange": {
+      "@type": "Unit",
+      "name": "millibars",
+      "symbol": "mbar",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
     }
   },
   "license": {
@@ -64,10 +68,11 @@
         "y": 2,
         "z": 10
       },
-      "offsetsUom": {
-        "code": "MTR",
-        "label": "meters",
-        "symbol": "m"
+      "unitOfOffsets": {
+        "@type": "Unit",
+        "name": "meters",
+        "symbol": "m",
+        "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
       }
     }
   }
