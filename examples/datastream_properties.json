@@ -8,19 +8,17 @@
   "@type": "DatastreamProperties",
   "observingProcedure": {
     "@type": "ObservingProcedure",
-    "name": "aggregation",
-    "description": "",
+    "name": "mean",
+    "description": "the arithmetic mean value",
     "definition": "https://sms-cv.helmholtz.cloud/foo/bar",
     "properties": {
-      "@type": "ObservingProcedureProperties",
       "period": 600,
       "unitOfPeriod": {
         "@type": "Unit",
         "name": "seconds",
         "symbol": "s",
         "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
-      },
-      "function": "mean"
+      }
     }
   },
   "measurementProperties": {
@@ -43,7 +41,7 @@
       500.0,
       1500.0
     ],
-    "unitOfMeasuringRange": {
+    "unitOfOperationRange": {
       "@type": "Unit",
       "name": "millibars",
       "symbol": "mbar",

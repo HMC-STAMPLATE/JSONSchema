@@ -7,7 +7,12 @@
     },
     "Deployment": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment",
-      "@type": "@id"
+      "@type": "@id",
+      "@context": {
+        "properties": {
+          "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deploymentProperties"
+        }
+      }
     },
     "DeploymentProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DeploymentProperties",
@@ -16,6 +21,9 @@
     "LocationProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/LocationProperties",
       "@type": "@id"
+    },
+    "MeasurementProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/MeasurementProperties"
     },
     "ObservationProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservationProperties",
@@ -27,11 +35,13 @@
     },
     "ObservingProcedure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedure",
-      "@type": "@id"
-    },
-    "ObservingProcedureProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservingProcedureProperties",
-      "@type": "@id"
+      "@type": "@id",
+      "@context": {
+        "properties": {
+          "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedureProperties",
+          "@type": "@json"
+        }
+      }
     },
     "Offset": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Offset",
@@ -53,6 +63,13 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties",
       "@type": "@id"
     },
+    "Unit": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Unit",
+      "@type": "@id"
+    },
+    "capacitance": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/capacitance"
+    },
     "dataSource": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/dataSource"
     },
@@ -60,16 +77,17 @@
       "@id": "schema:sameAs"
     },
     "deployment": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deployment"
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/deployment",
+      "@container": "@set"
     },
     "deploymentTime": {
-      "@id": "schema:StartTime"
+      "@id": "schema:temporalCoverage"
     },
     "encodingType": {
       "@id": "schema:encodingFormat"
     },
-    "function": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/function"
+    "gradientThreshold": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/gradientThreshold"
     },
     "inverseDefinition": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/inverseDefinition"
@@ -80,125 +98,39 @@
     "isVirtual": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/isVirtual"
     },
-    "measurementProperties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementProperties"
-    },
-    "symbol": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/symbol"
-    },
-    "measurementPrecision": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementPrecision"
-    },
-    "unitOfMeasurementPrecision": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementPrecision"
-    },
-    "measurementFrequency": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementFrequency"
-    },
-    "unitOfMeasurementFrequency": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementFrequency"
-    },
-    "measurementDepth": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementDepth"
-    },
-    "unitOfMeasurementDepth": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementDepth"
-    },
-    "operationTemperature": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/operationTemperature"
-    },
-    "unitOfOperationTemperature": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfOperationTemperature"
-    },
-    "operationRange": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/operationRange"
-    },
-    "unitOfOperationRange": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfOperationRange"
-    },
-    "measurementResolution": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementResolution"
-    },
-    "unitOfMeasurementResolution": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementResolution"
-    },
-    "measurementDrift": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementDrift"
-    },
-    "unitOfMeasurementDrift": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementDrift"
-    },
     "manufacturerRange": {
+      "@container": "@list",
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/manufacturerRange"
-    },
-    "unitOfManufacturerRange": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfManufacturerRange"
-    },
-    "measurementAccuracy": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementAccuracy"
-    },
-    "unitOfMeasurementAccuracy": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementAccuracy"
-    },
-    "gradientThreshold": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/gradientThreshold"
-    },
-    "unitOfGradientThreshold": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfGradientThreshold"
-    },
-    "spikeThreshold": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/spikeThreshold"
-    },
-    "unitOfSpikeThreshold": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfspikeThreshold"
-    },
-    "capacitance": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/capacitance"
-    },
-    "unitOfCapacitance": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfCapacitance"
-    },
-    "resistance": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/resistance"
-    },
-    "unitOfResistance": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfResistance"
-    },
-    "sensitivity": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sensitivity"
-    },
-    "unitOfSensitivity": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfSensitivity"
-    },
-    "polarity": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/polarity"
-    },
-    "unitOfPolarity": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfPolarity"
-    },
-    "normalisationFactor": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/normalisationFactor"
-    },
-    "poles": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/poles"
-    },
-    "unitOfPoles": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfPoles"
-    },
-    "zeros": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/zeros"
-    },
-    "unitOfZeros": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfZeros"
     },
     "maximumDepthDeployment": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/maximumDepthDeployment"
     },
-    "unitOfMaximumDepthDeployment": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMaximumDepthDeployment"
+    "measurementAccuracy": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementAccuracy"
+    },
+    "measurementDepth": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementDepth"
+    },
+    "measurementDrift": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementDrift"
+    },
+    "measurementFrequency": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementFrequency"
+    },
+    "measurementPrecision": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementPrecision"
+    },
+    "measurementProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementProperties"
+    },
+    "measurementResolution": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/measurementResolution"
     },
     "metadata": {
       "@id": "schema:dataset"
+    },
+    "normalisationFactor": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/normalisationFactor"
     },
     "observingProcedure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/observingProcedure"
@@ -215,31 +147,107 @@
     "offsets": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/offsets"
     },
-    "unitOfOffsets": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfOffsets"
+    "operationRange": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/operationRange",
+      "@container": "@list"
+    },
+    "operationTemperature": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/operationTemperature"
     },
     "partOfProjects": {
       "@id": "schema:memberOf",
       "@container": "@set"
     },
     "period": {
-      "@id": "schema:observationPeriod"
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/period"
     },
-    "unitOfPeriod": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfPeriod"
+    "polarity": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/polarity"
     },
-    "properties": {
-      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/properties"
+    "poles": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/poles"
     },
     "relationRole": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole"
+    },
+    "resistance": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/resistance"
     },
     "responsiblePersons": {
       "@id": "schema:member",
       "@container": "@set"
     },
+    "sensitivity": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sensitivity"
+    },
     "sourceRelatedThings": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings"
+    },
+    "spikeThreshold": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/spikeThreshold"
+    },
+    "symbol": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/symbol"
+    },
+    "unitOfCapacitance": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfCapacitance"
+    },
+    "unitOfGradientThreshold": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfGradientThreshold"
+    },
+    "unitOfManufacturerRange": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfManufacturerRange"
+    },
+    "unitOfMaximumDepthDeployment": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMaximumDepthDeployment"
+    },
+    "unitOfMeasurementAccuracy": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementAccuracy"
+    },
+    "unitOfMeasurementDepth": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementDepth"
+    },
+    "unitOfMeasurementDrift": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementDrift"
+    },
+    "unitOfMeasurementFrequency": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementFrequency"
+    },
+    "unitOfMeasurementPrecision": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementPrecision"
+    },
+    "unitOfMeasurementResolution": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfMeasurementResolution"
+    },
+    "unitOfOffsets": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfOffsets"
+    },
+    "unitOfOperationRange": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfOperationRange"
+    },
+    "unitOfOperationTemperature": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfOperationTemperature"
+    },
+    "unitOfPeriod": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfPeriod"
+    },
+    "unitOfPolarity": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfPolarity"
+    },
+    "unitOfPoles": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfPoles"
+    },
+    "unitOfResistance": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfResistance"
+    },
+    "unitOfSensitivity": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfSensitivity"
+    },
+    "unitOfSpikeThreshold": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfspikeThreshold"
+    },
+    "unitOfZeros": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/unitOfZeros"
     },
     "x": {
       "@id": "offsetX"
@@ -249,6 +257,9 @@
     },
     "z": {
       "@id": "offsetZ"
+    },
+    "zeros": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/zeros"
     }
   }
 }
