@@ -91,6 +91,7 @@
         },
         "responsibleParty": {
           "anyOf": [
+            { "type": "string" },
             {
               "$ref": "#/$defs/organization"
             },
