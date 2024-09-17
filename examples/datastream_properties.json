@@ -10,7 +10,7 @@
     "@type": "ObservingProcedure",
     "name": "mean",
     "description": "the arithmetic mean value",
-    "definition": "https://sms-cv.helmholtz.cloud/foo/bar",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/aggregationtypes/1",
     "properties": {
       "period": 600,
       "unitOfPeriod": {
