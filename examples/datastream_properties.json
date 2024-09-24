@@ -4,26 +4,49 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/device-properties/1513",
+  "@id": "https://sensors.gfz-potsdam.de/devices/786/measuredquantities/1513",
   "@type": "DatastreamProperties",
   "observingProcedure": {
     "@type": "ObservingProcedure",
-    "name": "aggregation",
-    "description": "",
-    "definition": "https://sms-cv.helmholtz.cloud/foo/bar",
+    "name": "mean",
+    "description": "the arithmetic mean value",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/aggregationtypes/1",
     "properties": {
-      "@type": "ObservingProcedureProperties",
       "period": 600,
-      "periodUom": "s",
-      "function": "mean"
+      "unitOfPeriod": {
+        "@type": "Unit",
+        "name": "seconds",
+        "symbol": "s",
+        "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
+      }
     }
   },
   "measurementProperties": {
+    "@type": "MeasurementProperties",
     "measurementResolution": 0.2,
-    "resolutionUnit": "s",
-    "accuracy": "2",
-    "measuringRangeMin": -10,
-    "measuringRangeMax": 10
+    "unitOfMeasurementResolution": {
+      "@type": "Unit",
+      "name": "seconds",
+      "symbol": "sec",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/58"
+    },
+    "measurementAccuracy": 1.0,
+    "unitOfMeasurementAccuracy": {
+      "@type": "Unit",
+      "name": "millibars",
+      "symbol": "mbar",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
+    },
+    "operationRange": [
+      500.0,
+      1500.0
+    ],
+    "unitOfOperationRange": {
+      "@type": "Unit",
+      "name": "millibars",
+      "symbol": "mbar",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
+    }
   },
   "license": {
     "@type": "CreativeWork",
@@ -35,8 +58,6 @@
   "deployment": {
     "@id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
     "@type": "Deployment",
-    "atDepth": 10,
-    "depthUom": "m",
     "deploymentTime": "2020-01-01T00:50-03:00",
     "properties": {
       "@type": "DeploymentProperties",
@@ -46,7 +67,12 @@
         "y": 2,
         "z": 10
       },
-      "offsetsUom": "m"
+      "unitOfOffsets": {
+        "@type": "Unit",
+        "name": "meters",
+        "symbol": "m",
+        "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
+      }
     }
   }
 }

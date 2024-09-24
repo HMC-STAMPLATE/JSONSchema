@@ -50,31 +50,145 @@
           "pattern": "^$|^https*://"
         },
         "properties": {
-          "type": "object",
-          "properties": {
-            "@type": {
-              "type": "string",
-              "const": "ObservingProcedureProperties"
-            },
-            "period": {
-              "type": "number"
-            },
-            "periodUom": {
-              "type": "string"
-            },
-            "function": {
-              "type": "string"
-            }
-          }
+          "type": "object"
         }
       },
       "required": [
         "@type",
-        "name"
+        "name",
+        "description",
+        "definition"
       ]
     },
     "measurementProperties": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "MeasurementProperties"
+        },
+        "measurementPrecision": {
+          "type": "number"
+        },
+        "unitOfMeasurementPrecision": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementFrequency": {
+          "type": "number"
+        },
+        "unitOfMeasurementFrequency": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementDepth": {
+          "type": "number"
+        },
+        "unitOfMeasurementDepth": {
+          "$ref": "#/$defs/unit"
+        },
+        "operationTemperature": {
+          "type": "number"
+        },
+        "unitOfOperationTemperature": {
+          "$ref": "#/$defs/unit"
+        },
+        "operationRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "unitOfOperationRange": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementResolution": {
+          "type": "number"
+        },
+        "unitOfMeasurementResolution": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementDrift": {
+          "type": "number"
+        },
+        "unitOfMeasurementDrift": {
+          "$ref": "#/$defs/unit"
+        },
+        "manufacturerRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "unitOfManufacturerRange": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementAccuracy": {
+          "type": "number"
+        },
+        "unitOfMeasurementAccuracy": {
+          "$ref": "#/$defs/unit"
+        },
+        "gradientThreshold": {
+          "type": "number"
+        },
+        "unitOfGradientThreshold": {
+          "$ref": "#/$defs/unit"
+        },
+        "spikeThreshold": {
+          "type": "number"
+        },
+        "unitOfSpikeThreshold": {
+          "$ref": "#/$defs/unit"
+        },
+        "capacitance": {
+          "type": "number"
+        },
+        "unitOfCapacitance": {
+          "$ref": "#/$defs/unit"
+        },
+        "resistance": {
+          "type": "number"
+        },
+        "unitOfResistance": {
+          "$ref": "#/$defs/unit"
+        },
+        "sensitivity": {
+          "type": "number"
+        },
+        "unitOfSensitivity": {
+          "$ref": "#/$defs/unit"
+        },
+        "polarity": {
+          "type": "number"
+        },
+        "unitOfPolarity": {
+          "$ref": "#/$defs/unit"
+        },
+        "normalisationFactor": {
+          "type": "number"
+        },
+        "poles": {
+          "type": "number"
+        },
+        "unitOfPoles": {
+          "$ref": "#/$defs/unit"
+        },
+        "zeros": {
+          "type": "number"
+        },
+        "unitOfZeros": {
+          "$ref": "#/$defs/unit"
+        },
+        "maximumDepthDeployment": {
+          "type": "number"
+        },
+        "unitOfMaximumDepthDeployment": {
+          "$ref": "#/$defs/unit"
+        }
+      }
     },
     "license": {
       "type": "object",
@@ -156,12 +270,6 @@
         "description": {
           "type": "string"
         },
-        "atDepth": {
-          "type": "number"
-        },
-        "depthUom": {
-          "type": "string"
-        },
         "deploymentTime": {
           "type": "string"
         },
@@ -190,8 +298,8 @@
                 }
               }
             },
-            "offsetsUom": {
-              "type": "string"
+            "unitOfOffsets": {
+              "$ref": "#/$defs/unit"
             }
           }
         }
@@ -226,6 +334,61 @@
       "required": [
         "@type",
         "name"
+      ]
+    },
+    "continuesRelationRole": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "RelationRole"
+        },
+        "name": {
+          "type": "string",
+          "const": "continues"
+        },
+        "definition": {
+          "type": "string",
+          "const": "https://support.datacite.org/docs/connecting-to-works"
+        },
+        "inverseName": {
+          "type": "string",
+          "const": "isContinuedBy"
+        },
+        "inverseDefinition": {
+          "type": "string",
+          "const": "https://support.datacite.org/docs/connecting-to-works"
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "definition"
+      ]
+    },
+    "unit": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Unit"
+        },
+        "name": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string",
+          "pattern": "^$|^https*://"
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "symbol",
+        "definition"
       ]
     }
   }
