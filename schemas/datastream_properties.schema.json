@@ -307,8 +307,8 @@
   },
   "required": [
     "@context",
-    "@type",
-    "@id"
+    "@id",
+    "@type"
   ],
   "$defs": {
     "url": {
