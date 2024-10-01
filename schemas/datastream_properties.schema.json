@@ -203,8 +203,9 @@
         "url": {
           "$ref": "#/$defs/url"
         },
-        "responsibleParty": {
+        "provider": {
           "anyOf": [
+            { "type": "string" },
             {
               "$ref": "#/$defs/organization"
             },

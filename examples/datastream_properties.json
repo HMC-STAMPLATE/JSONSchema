@@ -51,7 +51,8 @@
   "license": {
     "@type": "CreativeWork",
     "name": "GPLv3",
-    "url": "https://www.gnu.org/licenses/gpl-3.0.txt"
+    "url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+    "provider": "The HMC-STAMPLATE project consortium"
   },
   "providerMobility": "static",
   "deployment": {
