@@ -57,8 +57,7 @@
         },
         "required": [
           "@id",
-          "@type",
-          "relationRole"
+          "@type"
         ]
       }
     },
@@ -106,18 +105,13 @@
                 }
               },
               "required": [
-                "@type",
-                "givenName",
-                "familyName",
-                "affiliation"
+                "@type"
               ]
             }
           }
         },
         "required": [
-          "@type",
-          "roleName",
-          "responsiblePersons"
+          "@type"
         ]
       }
     },
@@ -135,8 +129,7 @@
           }
         },
         "required": [
-          "@type",
-          "name"
+          "@type"
         ]
       }
     },
@@ -167,8 +160,7 @@
             }
           },
           "required": [
-            "@type",
-            "url"
+            "@type"
           ]
         },
         "text": {
@@ -176,8 +168,7 @@
         }
       },
       "required": [
-        "@type",
-        "encodingType"
+        "@type"
       ],
       "oneOf": [
         {
@@ -196,8 +187,7 @@
   "required": [
     "@context",
     "@id",
-    "@type",
-    "responsiblePersons"
+    "@type"
   ],
   "$defs": {
     "url": {
@@ -220,8 +210,7 @@
         }
       },
       "required": [
-        "@type",
-        "name"
+        "@type"
       ]
     },
     "containedInPlaceRelationRole": {
@@ -249,9 +238,7 @@
         }
       },
       "required": [
-        "@type",
-        "name",
-        "definition"
+        "@type"
       ]
     }
   }

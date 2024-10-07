@@ -47,8 +47,7 @@
         }
       },
       "required": [
-        "@type",
-        "name"
+        "@type"
       ]
     },
     "isVirtual": {
@@ -105,18 +104,13 @@
                 }
               },
               "required": [
-                "@type",
-                "givenName",
-                "familyName",
-                "affiliation"
+                "@type"
               ]
             }
           }
         },
         "required": [
-          "@type",
-          "roleName",
-          "responsiblePersons"
+          "@type"
         ]
       }
     }
@@ -124,8 +118,7 @@
   "required": [
     "@context",
     "@id",
-    "@type",
-    "responsiblePersons"
+    "@type"
   ],
   "$defs": {
     "url": {
@@ -148,8 +141,7 @@
         }
       },
       "required": [
-        "@type",
-        "name"
+        "@type"
       ]
     }
   }
