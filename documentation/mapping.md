@@ -14,67 +14,66 @@ Originally, the JSON schemas are based on the requirements of the two sensor-met
 
 To increase readability, the constant fields `@type` are not shown here. The descriptions of the field semantics are given as links behind the fields. You can find all the details in the schema definitions.
 
-## `Thing.properties`
+## [`Thing.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/thing_properties.schema.json)
 
-| *Property* | O2A Registry | SMS         |
-|------------|--------------|-------------|
-|`@id`                |`https://registry.o2a-data.de/items/{item.id}` |
-|`partOfProjects`     | |
-|`identifier`         | |
-|`metadata`           | |
-|`sourceRelatedThings`| |
-|`responsiblePersons` | |
-
-
-
-## `Sensor.properties`
+| *Property*            | O2A Registry                                                        | SMS                                                 |
+|-----------------------|---------------------------------------------------------------------|-----------------------------------------------------|
+| `@id`                 | `https://registry.o2a-data.de/items/{item_id}`                      | `{SMS}/configurations/{configuration_id}`                                                   |
+| `partOfProjects`      | ?                                                                   | `configuration.project`                             |
+| `identifier`          | `item.@uuid`                                                        | `configuration.persistent_identifier`               |
+| `metadata`            | `https://registry.o2a-data.de/rest/v2/items/%7bitem.id%7d?with=all` | `{SMS}/backend/api/v1/devices/{device_id}/sensorml` |
+| `sourceRelatedThings` | ?                                                                   | ?                                                   |
+| `responsiblePersons`  | `item.contacts`                                                     | `configuration_contact_role.contact`                |
 
 
-| *Property* | O2A Registry | SMS         |
-|------------|--------------|-------------|
-| `@id`                | |
-| `isVariantOf`        | |
-| `manufacturer`       | |
-| `model`              | |
-| `serialNumber`       | |
-| `responsiblePersons` | |
-| `identifier`         | |
-| `isVirtual`          | |
+
+## [`Sensor.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/sensor_properties.schema.json)
+
+| *Property*           | O2A Registry                                   | SMS                                  |
+|----------------------|------------------------------------------------|--------------------------------------|
+| `@id`                | `https://registry.o2a-data.de/items/{item_id}` | `{SMS}/devices/{device_id}`          |
+| `isVariantOf`        | `item.type.generalName`                        | `device.device_type_name`            |
+| `manufacturer`       | `item.manufacturer`                            | `device.manufacturer_name`           |
+| `model`              | `item.model`                                   | `device.model`                       |
+| `serialNumber`       | `item.serial_number`                           | `device.serialNumber`                |
+| `responsiblePersons` | `item.contacts`                                | `configuration_contact_role.contact` |
+| `identifier`         | ?                                              | `device.persistent_identifier`       |
+| `isVirtual`          | ?                                              | ?                                    |
 
 
-### `Datastream.properties`
+## [`Datastream.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/datastream_properties.schema.json)
 
-| *Property* | O2A Registry | SMS         |
-|------------|--------------|-------------|
-| `@id`      | |
-| `observingProcedure` | |
-| `measurementProperties` | |
-| `license`             | |
-| `providerMobility`   | |
-| `deployment`         | |
-| `sourceRelatedDatastreams` | |
-| `dataSource` | |
-
-
-### `ObservedProperty.properties`
-
-| *Property* | O2A Registry | SMS         |
-|------------|--------------|-------------|
-| `@id`      | |
+| *Property*                 | O2A Registry                                                                      | SMS                                                                                                        | Remarks                                                                                                      |
+|----------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `@id`                      | `https://registry.o2a-data.de/rest/v2/items/{item_id}/parameters/{paramerter_id}` | `{SMS}/configurations/{configuration_id}/tsm-linking/{tsm_linking_id}`                                     |                                                                                                              |
+| `observingProcedure`       | ?                                                                                 | ?                                                                                                          |                                                                                                              |
+| `measurementProperties`    | `parameters.properties`                                                           | `device_property.{resolution|resolution_unit|accuracy|measuring_range_min|measuring_range_max}`            | All supported keys are available at `https://registry.o2a-data.de/rest/v2/vocables?where=vocableGroup.id==9` |
+| `license`                  | ?                                                                                 | ?                                                                                                          |                                                                                                              |
+| `providerMobility`         |                                                                                   | derived from `static_location_action` and/or `dynamic_location_action`                                     |                                                                                                              |
+| `deployment`               |                                                                                   | `{SMS}/configurations/{configuration_id}/platforms-and-devices?deviceMountAction={device_mount_action_id}` |                                                                                                              |
+| `sourceRelatedDatastreams` | ?                                                                                 | ?                                                                                                          |                                                                                                              |
+| `dataSource`               |                                                                                   |                                                                                                           | filled by TSM                                                                                                |
 
 
-### `Location.properties`
+## [`ObservedProperty.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/observed_property_properties.schema.json)
 
-| *Property* | O2A Registry | SMS         |
-|------------|--------------|-------------|
-| `@id`      | |
+| *Property* | O2A Registry                                                 | SMS                                                                                     |
+|------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| `@id`      | `https://registry.o2a-data.de/rest/v2/vocables/{vocable_id}` | `https://sms-cv.helmholtz.cloud/sms/cv/api/v1/measuredquantities/{measuredquantity_id}` |
 
 
-### `Observation.properties`
+## [`Location.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/location_properties.schema.json)
 
-| *Property* | O2A Registry | SMS         |
-|------------|--------------|-------------|
-| `@id`      | |
-| `dataSource`  | |
+| *Property* | O2A Registry | SMS                                                                                                     |
+|------------|--------------|---------------------------------------------------------------------------------------------------------|
+| `@id`      | ?            | `{SMS}/configurations/{configuration_id}/locations/static-location-actions/{static_location_action_id}` |
+
+
+## [`Observation.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/observation_properties.schema.json)
+
+| *Property*   | O2A Registry | SMS | Remarks       |
+|--------------|--------------|-----|---------------|
+| `@id`        | ?            | ?   |               |
+| `dataSource` |              |     | filled by TSM |
 
 
