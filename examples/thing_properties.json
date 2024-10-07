@@ -11,7 +11,7 @@
     {
       "@type": "Role",
       "roleName": "Owner",
-      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactrole/4",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
       "responsiblePersons": [
         {
           "@id": "https://sensors.gfz-potsdam.de/contacts/49",
