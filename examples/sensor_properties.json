@@ -9,19 +9,22 @@
   "identifier": "https://handle.net/1234567",
   "isVariantOf": {
     "@type": "ProductGroup",
-    "name": "Pressure transducer"
+    "name": "Pressure transducer",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/equipmenttype/42"
   },
   "isVirtual": false,
   "model": "AdconBP1",
   "manufacturer": {
     "@type": "Organization",
-    "name": "OTT HydroMet"
+    "name": "OTT HydroMet",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/manufacturer/48"
   },
   "serialNumber": "heydenhof1",
   "responsiblePersons": [
     {
       "@type": "Role",
       "roleName": "Owner",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactrole/4",
       "responsiblePersons": [
         {
           "@id": "https://sensors.gfz-potsdam.de/contacts/49",
