@@ -44,6 +44,9 @@
         },
         "name": {
           "type": "string"
+        },
+        "definition": {
+          "$ref": "#/$defs/optionalUrl"
         }
       },
       "required": [
@@ -74,6 +77,9 @@
           "roleName": {
             "type": "string"
           },
+          "definition": {
+            "$ref": "#/$defs/optionalUrl"
+          },
           "responsiblePersons": {
             "type": "array",
             "items": {
@@ -99,8 +105,7 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
-                  "type": "string",
-                  "pattern": "^$|^https*://"
+                  "$ref": "#/$defs/optionalUrl"
                 }
               },
               "required": [
@@ -125,6 +130,10 @@
       "type": "string",
       "pattern": "^https*://"
     },
+    "optionalUrl": {
+      "type": "string",
+      "pattern": "^$|^https*://"
+    },
     "organization": {
       "type": "object",
       "properties": {
@@ -136,8 +145,7 @@
           "type": "string"
         },
         "identifier": {
-          "type": "string",
-          "pattern": "^https*://"
+          "$ref": "#/$defs/url"
         }
       },
       "required": [
