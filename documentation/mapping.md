@@ -22,37 +22,37 @@ To increase readability, the constant fields `@type` are not shown here. The des
 | `partOfProjects`      | ?                                                                   | `configuration.project`                             |
 | `identifier`          | `item.@uuid`                                                        | `configuration.persistent_identifier`               |
 | `metadata`            | `https://registry.o2a-data.de/rest/v2/items/%7bitem.id%7d?with=all` | `{SMS}/backend/api/v1/devices/{device_id}/sensorml` |
-| `sourceRelatedThings` | ?                                                                   | ?                                                   |
+| `sourceRelatedThings` | ?                                                                   | `configuration.site`                                |
 | `responsiblePersons`  | `item.contacts`                                                     | `configuration_contact_role.contact`                |
 
 
 
 ## [`Sensor.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/sensor_properties.schema.json)
 
-| *Property*           | O2A Registry                                   | SMS                                  |
-|----------------------|------------------------------------------------|--------------------------------------|
-| `@id`                | `https://registry.o2a-data.de/items/{item_id}` | `{SMS}/devices/{device_id}`          |
-| `isVariantOf`        | `item.type.generalName`                        | `device.device_type_name`            |
-| `manufacturer`       | `item.manufacturer`                            | `device.manufacturer_name`           |
-| `model`              | `item.model`                                   | `device.model`                       |
-| `serialNumber`       | `item.serial_number`                           | `device.serialNumber`                |
-| `responsiblePersons` | `item.contacts`                                | `configuration_contact_role.contact` |
-| `identifier`         | ?                                              | `device.persistent_identifier`       |
-| `isVirtual`          | ?                                              | ?                                    |
+| *Property*           | O2A Registry                                   | SMS                                          |
+|----------------------|------------------------------------------------|----------------------------------------------|
+| `@id`                | `https://registry.o2a-data.de/items/{item_id}` | `{SMS}/devices/{device_id}`                  |
+| `isVariantOf`        | `item.type.generalName`                        | `device.device_type_name`                    |
+| `manufacturer`       | `item.manufacturer`                            | `device.manufacturer_name`                   |
+| `model`              | `item.model`                                   | `device.model`                               |
+| `serialNumber`       | `item.serial_number`                           | `device.serialNumber`                        |
+| `responsiblePersons` | `item.contacts`                                | `configuration_contact_role.contact`         |
+| `identifier`         | ?                                              | `device.persistent_identifier`               |
+| `isVirtual`          | ?                                              | `false` (only `true` for `{SMS}/procedures`) |
 
 
 ## [`Datastream.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/datastream_properties.schema.json)
 
-| *Property*                 | O2A Registry                                                                      | SMS                                                                                                        | Remarks                                                                                                      |
-|----------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `@id`                      | `https://registry.o2a-data.de/rest/v2/items/{item_id}/parameters/{paramerter_id}` | `{SMS}/configurations/{configuration_id}/tsm-linking/{tsm_linking_id}`                                     |                                                                                                              |
-| `observingProcedure`       | ?                                                                                 | ?                                                                                                          |                                                                                                              |
-| `measurementProperties`    | `parameters.properties`                                                           | `device_property.{resolution|resolution_unit|accuracy|measuring_range_min|measuring_range_max}`            | All supported keys are available at `https://registry.o2a-data.de/rest/v2/vocables?where=vocableGroup.id==9` |
-| `license`                  | ?                                                                                 | ?                                                                                                          |                                                                                                              |
-| `providerMobility`         |                                                                                   | derived from `static_location_action` and/or `dynamic_location_action`                                     |                                                                                                              |
-| `deployment`               |                                                                                   | `{SMS}/configurations/{configuration_id}/platforms-and-devices?deviceMountAction={device_mount_action_id}` |                                                                                                              |
-| `sourceRelatedDatastreams` | ?                                                                                 | ?                                                                                                          |                                                                                                              |
-| `dataSource`               |                                                                                   |                                                                                                           | filled by TSM                                                                                                |
+| *Property*                 | O2A Registry                                                                      | SMS                                                                                                                                              | Remarks      |
+|----------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| `@id`                      | `https://registry.o2a-data.de/rest/v2/items/{item_id}/parameters/{paramerter_id}` | `{SMS}/datastream-links/{datastream_link_id}`                                                                                                    |              |
+| `observingProcedure`       | ?                                                                                 | `{SMS}/device-properties/{device-property_id}/aggregation_type_name` joint with `{SMS}/datastream-links/{datastream_link_id}/aggregation_period` |              |
+| `measurementProperties`    | `parameters.properties`                                                           | `device_property.{resolution\|resolution_unit\|accuracy\|measuring_range_min\|measuring_range_max}`                                              | All supported keys are available at `https://registry.o2a-data.de/rest/v2/vocables?where=vocableGroup.id==9` |
+| `license`                  | ?                                                                                 | `{SMS}/datastream-links/{datastream_link_id}/license_{name\|uri}`                                                                                |              |
+| `providerMobility`         |                                                                                   | derived from `static_location_action` and/or `dynamic_location_action`                                                                           |              |
+| `deployment`               |                                                                                   | `{SMS}/configurations/{configuration_id}/platforms-and-devices?deviceMountAction={device_mount_action_id}`                                       |              |
+| `sourceRelatedDatastreams` | ?                                                                                 | related datastreams continuing or compiling this one                                                                                             |              |
+| `dataSource`               |                                                                                   |                                                                                                                                                  | filled by TSM |
 
 
 ## [`ObservedProperty.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/observed_property_properties.schema.json)
