@@ -35,7 +35,7 @@
     },
     "identifier": {
       "description": "link to a persistent identifier for the sensor",
-      "$ref": "#/$defs/url"
+      "$ref": "#/$defs/optionalUrl"
     },
     "isVariantOf": {
       "description": "device type of this sensor, e.g., thermometer",
@@ -153,7 +153,7 @@
         },
         "identifier": {
           "description": "link to a persistent identifier for the organization, e.g., the ROR",
-          "$ref": "#/$defs/url"
+          "$ref": "#/$defs/optionalUrl"
         }
       },
       "required": [

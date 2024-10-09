@@ -238,7 +238,7 @@
                 },
                 "identifier": {
                   "description": "link to a persistent identifier for the person, e.g., the ORCID",
-                  "$ref": "#/$defs/url"
+                  "$ref": "#/$defs/optionalUrl"
                 }
               }
             }
@@ -341,7 +341,7 @@
         },
         "identifier": {
           "description": "link to a persistent identifier for the organization, e.g., the ROR",
-          "$ref": "#/$defs/url"
+          "$ref": "#/$defs/optionalUrl"
         }
       },
       "required": [
