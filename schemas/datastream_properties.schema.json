@@ -48,7 +48,8 @@
           "type": "string"
         },
         "definition": {
-          "$ref": "#/$defs/optionalUrl"
+          "type": "string",
+          "pattern": "^$|^https*://"
         },
         "properties": {
           "description": "set of parameters of the observing procedure",
@@ -323,10 +324,6 @@
       "type": "string",
       "pattern": "^https*://"
     },
-    "optionalUrl": {
-      "type": "string",
-      "pattern": "^$|^https*://"
-    },
     "organization": {
       "type": "object",
       "properties": {
@@ -388,7 +385,8 @@
           "type": "string"
         },
         "definition": {
-          "$ref": "#/$defs/optionalUrl"
+          "type": "string",
+          "pattern": "^$|^https*://"
         }
       },
       "required": [
