@@ -230,7 +230,7 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
-                  "$ref": "#/$defs/url"
+                  "$ref": "#/$defs/optionalUrl"
                 }
               }
             }
@@ -329,7 +329,7 @@
           "type": "string"
         },
         "identifier": {
-          "$ref": "#/$defs/url"
+          "$ref": "#/$defs/optionalUrl"
         }
       },
       "required": [

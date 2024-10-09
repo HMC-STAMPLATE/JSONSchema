@@ -33,7 +33,7 @@
       "const": "SensorProperties"
     },
     "identifier": {
-      "$ref": "#/$defs/url"
+      "$ref": "#/$defs/optionalUrl"
     },
     "isVariantOf": {
       "type": "object",
@@ -145,7 +145,7 @@
           "type": "string"
         },
         "identifier": {
-          "$ref": "#/$defs/url"
+          "$ref": "#/$defs/optionalUrl"
         }
       },
       "required": [
