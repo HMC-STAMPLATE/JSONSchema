@@ -76,6 +76,9 @@
             "description": "name of the role the person has w.r.t. the thing, e.g., Owner",
             "type": "string"
           },
+          "definition": {
+            "$ref": "#/$defs/optionalUrl"
+          },
           "responsiblePersons": {
             "type": "array",
             "items": {
@@ -203,6 +206,10 @@
       "type": "string",
       "pattern": "^https*://"
     },
+    "optionalUrl": {
+      "type": "string",
+      "pattern": "^$|^https*://"
+    },
     "organization": {
       "type": "object",
       "properties": {
@@ -215,7 +222,7 @@
         },
         "identifier": {
           "description": "link to a persistent identifier for the organization, e.g., the ROR",
-          "$ref": "#/$defs/url"
+          "$ref": "#/$defs/optionalUrl"
         }
       },
       "required": [
