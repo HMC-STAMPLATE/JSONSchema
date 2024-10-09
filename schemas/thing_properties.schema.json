@@ -35,8 +35,7 @@
     },
     "identifier": {
       "description": "link to a persistent identifier for the entity",
-      "type": "string",
-      "pattern": "^$|^https*://"
+      "$ref": "#/$defs/optionalUrl"
     },
     "sourceRelatedThings": {
       "type": "array",
@@ -106,8 +105,7 @@
                 },
                 "identifier": {
                   "description": "link to a persistent identifier for the person, e.g., the ORCID",
-                  "type": "string",
-                  "pattern": "^$|^https*://"
+                  "$ref": "#/$defs/optionalUrl"
                 }
               },
               "required": [
@@ -217,8 +215,7 @@
         },
         "identifier": {
           "description": "link to a persistent identifier for the organization, e.g., the ROR",
-          "type": "string",
-          "pattern": "^$|^https*://"
+          "$ref": "#/$defs/url"
         }
       },
       "required": [
