@@ -336,8 +336,7 @@
         },
         "identifier": {
           "description": "link to a persistent identifier for the organization, e.g., the ROR",
-          "type": "string",
-          "pattern": "^https*://"
+          "$ref": "#/$defs/url"
         }
       },
       "required": [
