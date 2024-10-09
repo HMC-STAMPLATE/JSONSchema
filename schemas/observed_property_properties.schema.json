@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "ObservedPropertyProperties",
-  "description": "The JSON object of the `properties` property of an OGC STA `ObservedProperty` entity.",
+  "description": "JSON object of the `properties` property of an OGC STA `ObservedProperty` entity",
   "type": "object",
   "properties": {
     "@context": {
@@ -26,6 +26,7 @@
       ]
     },
     "@id": {
+      "description": "link to a view page of the respective entity in the vocabulary system",
       "$ref": "#/$defs/url"
     },
     "@type": {

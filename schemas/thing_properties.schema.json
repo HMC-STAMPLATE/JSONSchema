@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "ThingProperties",
-  "description": "The JSON object of the `properties` property of an OGC STA `Thing` entity.",
+  "description": "JSON object of the `properties` property of an OGC STA `Thing` entity",
   "type": "object",
   "properties": {
     "@context": {
@@ -26,6 +26,7 @@
       ]
     },
     "@id": {
+      "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
     "@type": {
@@ -33,6 +34,7 @@
       "const": "ThingProperties"
     },
     "identifier": {
+      "description": "link to a persistent identifier for the entity",
       "$ref": "#/$defs/optionalUrl"
     },
     "sourceRelatedThings": {
@@ -41,6 +43,7 @@
         "type": "object",
         "properties": {
           "@id": {
+            "description": "link to the related thing",
             "$ref": "#/$defs/url"
           },
           "@type": {
@@ -70,6 +73,7 @@
             "const": "Role"
           },
           "roleName": {
+            "description": "name of the role the person has w.r.t. the thing, e.g., Owner",
             "type": "string"
           },
           "definition": {
@@ -81,6 +85,7 @@
               "type": "object",
               "properties": {
                 "@id": {
+                  "description": "link to a view page of the respective entity in the source system",
                   "$ref": "#/$defs/url"
                 },
                 "@type": {
@@ -102,6 +107,7 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
+                  "description": "link to a persistent identifier for the person, e.g., the ORCID",
                   "$ref": "#/$defs/optionalUrl"
                 }
               },
@@ -117,6 +123,7 @@
       }
     },
     "partOfProjects": {
+      "description": "array of projects the thing is part of",
       "type": "array",
       "items": {
         "type": "object",
@@ -126,6 +133,7 @@
             "const": "ResearchProject"
           },
           "name": {
+            "description": "project name",
             "type": "string"
           }
         },
@@ -135,6 +143,7 @@
       }
     },
     "metadata": {
+      "description": "additional dataset describing the thing",
       "type": "object",
       "properties": {
         "@type": {
@@ -157,6 +166,7 @@
               "const": "DataDownload"
             },
             "url": {
+              "description": "download link for the dataset",
               "$ref": "#/$defs/url"
             }
           },
@@ -165,6 +175,7 @@
           ]
         },
         "text": {
+          "description": "text representation of the dataset",
           "type": "string"
         }
       },
@@ -210,6 +221,7 @@
           "type": "string"
         },
         "identifier": {
+          "description": "link to a persistent identifier for the organization, e.g., the ROR",
           "$ref": "#/$defs/optionalUrl"
         }
       },

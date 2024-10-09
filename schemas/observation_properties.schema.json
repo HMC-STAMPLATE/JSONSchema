@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "ObservationProperties",
-  "description": "The JSON object of the `properties` property of an OGC STA `Observation` entity.",
+  "description": "JSON object of the `properties` property of an OGC STA `Observation` entity",
   "type": "object",
   "properties": {
     "@context": {
@@ -30,6 +30,7 @@
       "const": "ObservationProperties"
     },
     "dataSource": {
+      "description": "additional information on the source of the observation, e.g., a file name",
       "type": "string"
     }
   },
