@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "DatastreamProperties",
-  "description": "The JSON object of the `properties` property of an OGC STA `DataStream` entity.",
+  "description": "JSON object of the `properties` property of an OGC STA `DataStream` entity",
   "type": "object",
   "properties": {
     "@context": {
@@ -26,6 +26,7 @@
       ]
     },
     "@id": {
+      "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
     "@type": {
@@ -33,6 +34,7 @@
       "const": "DatastreamProperties"
     },
     "observingProcedure": {
+      "description": "function applied to the observations of the datastream, e.g., an aggregation",
       "type": "object",
       "properties": {
         "@type": {
@@ -49,6 +51,7 @@
           "$ref": "#/$defs/optionalUrl"
         },
         "properties": {
+          "description": "set of parameters of the observing procedure",
           "type": "object"
         }
       },
@@ -57,6 +60,7 @@
       ]
     },
     "measurementProperties": {
+      "description": "set of properties further specifying the measurement",
       "type": "object",
       "properties": {
         "@type": {
@@ -187,6 +191,7 @@
       }
     },
     "license": {
+      "description": "license that applies to the data of the datastream",
       "type": "object",
       "properties": {
         "@type": {
@@ -201,7 +206,9 @@
         },
         "provider": {
           "anyOf": [
-            { "type": "string" },
+            {
+              "type": "string"
+            },
             {
               "$ref": "#/$defs/organization"
             },
@@ -230,6 +237,7 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
+                  "description": "link to a persistent identifier for the person, e.g., the ORCID",
                   "$ref": "#/$defs/optionalUrl"
                 }
               }
@@ -242,6 +250,7 @@
       ]
     },
     "providerMobility": {
+      "description": "movement ability of the datastream provider (static: not moving, dynamic: moving, profiling: moving vertically)",
       "type": "string",
       "enum": [
         "static",
@@ -250,6 +259,7 @@
       ]
     },
     "deployment": {
+      "description": "details of the datastream deployment w.r.t. the location of the thing",
       "type": "object",
       "properties": {
         "@id": {
@@ -301,6 +311,7 @@
       }
     },
     "dataSource": {
+      "description": "additional information on the source of the datastream data, e.g., an upload folder",
       "type": "string"
     }
   },
@@ -329,6 +340,7 @@
           "type": "string"
         },
         "identifier": {
+          "description": "link to a persistent identifier for the organization, e.g., the ROR",
           "$ref": "#/$defs/optionalUrl"
         }
       },

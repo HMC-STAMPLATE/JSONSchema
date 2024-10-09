@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "SensorProperties",
-  "description": "The JSON object of the `properties` property of an OGC STA `Sensor` entity.",
+  "description": "JSON object of the `properties` property of an OGC STA `Sensor` entity",
   "type": "object",
   "properties": {
     "@context": {
@@ -26,6 +26,7 @@
       ]
     },
     "@id": {
+      "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
     "@type": {
@@ -33,9 +34,11 @@
       "const": "SensorProperties"
     },
     "identifier": {
+      "description": "link to a persistent identifier for the sensor",
       "$ref": "#/$defs/optionalUrl"
     },
     "isVariantOf": {
+      "description": "device type of this sensor, e.g., thermometer",
       "type": "object",
       "properties": {
         "@type": {
@@ -43,6 +46,7 @@
           "const": "ProductGroup"
         },
         "name": {
+          "description": "device-type name",
           "type": "string"
         },
         "definition": {
@@ -54,6 +58,7 @@
       ]
     },
     "isVirtual": {
+      "description": "flag indicating whether the sensor is a physical device (false) or, e.g., a computation procedure",
       "type": "boolean"
     },
     "model": {
@@ -75,6 +80,7 @@
             "const": "Role"
           },
           "roleName": {
+            "description": "name of the role the person has w.r.t. the thing, e.g., Owner",
             "type": "string"
           },
           "definition": {
@@ -105,6 +111,7 @@
                   "$ref": "#/$defs/organization"
                 },
                 "identifier": {
+                  "description": "link to a persistent identifier for the person, e.g., the ORCID",
                   "$ref": "#/$defs/optionalUrl"
                 }
               },
@@ -145,6 +152,7 @@
           "type": "string"
         },
         "identifier": {
+          "description": "link to a persistent identifier for the organization, e.g., the ROR",
           "$ref": "#/$defs/optionalUrl"
         }
       },
