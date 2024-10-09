@@ -35,8 +35,7 @@
     },
     "identifier": {
       "description": "link to a persistent identifier for the entity",
-      "type": "string",
-      "pattern": "^$|^https*://"
+      "$ref": "#/$defs/optionalUrl"
     },
     "sourceRelatedThings": {
       "type": "array",
@@ -77,6 +76,9 @@
             "description": "name of the role the person has w.r.t. the thing, e.g., Owner",
             "type": "string"
           },
+          "definition": {
+            "$ref": "#/$defs/optionalUrl"
+          },
           "responsiblePersons": {
             "type": "array",
             "items": {
@@ -106,8 +108,7 @@
                 },
                 "identifier": {
                   "description": "link to a persistent identifier for the person, e.g., the ORCID",
-                  "type": "string",
-                  "pattern": "^$|^https*://"
+                  "$ref": "#/$defs/optionalUrl"
                 }
               },
               "required": [
@@ -205,6 +206,10 @@
       "type": "string",
       "pattern": "^https*://"
     },
+    "optionalUrl": {
+      "type": "string",
+      "pattern": "^$|^https*://"
+    },
     "organization": {
       "type": "object",
       "properties": {
@@ -217,8 +222,7 @@
         },
         "identifier": {
           "description": "link to a persistent identifier for the organization, e.g., the ROR",
-          "type": "string",
-          "pattern": "^$|^https*://"
+          "$ref": "#/$defs/url"
         }
       },
       "required": [
