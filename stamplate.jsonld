@@ -5,6 +5,15 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
       "@type": "@id"
     },
+    "ObservationResultQuality": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservationResultQuality",
+      "@type": "@id"
+    },
+    "ObservationResultQualityProperties": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservationResultQualityProperties",
+      "@type": "@id"
+    },
+
     "Deployment": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment",
       "@type": "@id",
@@ -260,6 +269,18 @@
     },
     "zeros": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/zeros"
+    },
+    "annotation": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/annotation"
+    },
+    "annotationType": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/annotationType"
+    },
+    "qualityMeasure": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/qualityMeasure"
+    },
+    "measure": {
+      "@id": "qualityMeasure"
     }
   }
 }
