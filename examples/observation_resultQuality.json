@@ -11,6 +11,6 @@
   "properties": {
     "version": "2.6",
     "measure": "flagUniLOF",
-    "definition": "/url/to/config"
+    "definition": "https://url/to/config"
   }
 }
