@@ -4,6 +4,7 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
+  "@id": "https://rdm-software.pages.ufz.de/saqc/",
   "@type": "ObservationResultQuality",
   "annotation": 99,
   "annotationType": "SaQC",
