@@ -6,7 +6,7 @@
   },
   "@id": "https://rdm-software.pages.ufz.de/saqc/",
   "@type": "ObservationResultQuality",
-  "annotation": 99,
+  "annotation": "99",
   "annotationType": "SaQC",
   "properties": {
     "version": "2.6",
