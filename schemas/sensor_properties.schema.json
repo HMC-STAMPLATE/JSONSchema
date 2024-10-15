@@ -70,6 +70,28 @@
     "serialNumber": {
       "type": "string"
     },
+    "images": {
+      "description": "array of images of the sensor",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "ImageObject"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "contentUrl": {
+            "$ref": "#/$defs/url"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    },
     "responsiblePersons": {
       "type": "array",
       "items": {
