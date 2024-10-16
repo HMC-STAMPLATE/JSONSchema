@@ -18,11 +18,11 @@ To increase readability, the constant fields `@type` are not shown here. The des
 
 | *Property*            | O2A Registry                                                        | SMS                                                 |
 |-----------------------|---------------------------------------------------------------------|-----------------------------------------------------|
-| `@id`                 | `https://registry.o2a-data.de/items/{item_id}`                      | `{SMS}/configurations/{configuration_id}`                                                   |
-| `partOfProjects`      | ?                                                                   | `configuration.project`                             |
+| `@id`                 | `https://registry.o2a-data.de/items/{item.@uuid}`                      | `{SMS}/configurations/{configuration_id}`                                                   |
+| `partOfProjects`      | candidate: `item.collections`                                                                    | `configuration.project`                             |
 | `identifier`          | `item.@uuid`                                                        | `configuration.persistent_identifier`               |
 | `metadata`            | `https://registry.o2a-data.de/rest/v2/items/%7bitem.id%7d?with=all` | `{SMS}/backend/api/v1/devices/{device_id}/sensorml` |
-| `sourceRelatedThings` | ?                                                                   | `configuration.site`                                |
+| `sourceRelatedThings` | TBD, `item.parentId`?                                                                   | `configuration.site`                                |
 | `responsiblePersons`  | `item.contacts`                                                     | `configuration_contact_role.contact`                |
 
 
@@ -37,8 +37,8 @@ To increase readability, the constant fields `@type` are not shown here. The des
 | `model`              | `item.model`                                   | `device.model`                               |
 | `serialNumber`       | `item.serial_number`                           | `device.serialNumber`                        |
 | `responsiblePersons` | `item.contacts`                                | `configuration_contact_role.contact`         |
-| `identifier`         | ?                                              | `device.persistent_identifier`               |
-| `isVirtual`          | ?                                              | `false` (only `true` for `{SMS}/procedures`) |
+| `identifier`         | `item.@uuid`                                              | `device.persistent_identifier`               |
+| `isVirtual`          | *NA*                                              | `false` (only `true` for `{SMS}/procedures`) |
 
 
 ## [`Datastream.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/datastream_properties.schema.json)
@@ -46,12 +46,12 @@ To increase readability, the constant fields `@type` are not shown here. The des
 | *Property*                 | O2A Registry                                                                      | SMS                                                                                                                                              | Remarks      |
 |----------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | `@id`                      | `https://registry.o2a-data.de/rest/v2/items/{item_id}/parameters/{paramerter_id}` | `{SMS}/datastream-links/{datastream_link_id}`                                                                                                    |              |
-| `observingProcedure`       | ?                                                                                 | `{SMS}/device-properties/{device-property_id}/aggregation_type_name` joint with `{SMS}/datastream-links/{datastream_link_id}/aggregation_period` |              |
+| `observingProcedure`       | *NA*                                                                                 | `{SMS}/device-properties/{device-property_id}/aggregation_type_name` joint with `{SMS}/datastream-links/{datastream_link_id}/aggregation_period` |              |
 | `measurementProperties`    | `parameters.properties`                                                           | `device_property.{resolution\|resolution_unit\|accuracy\|measuring_range_min\|measuring_range_max}`                                              | All supported keys are available at `https://registry.o2a-data.de/rest/v2/vocables?where=vocableGroup.id==9` |
-| `license`                  | ?                                                                                 | `{SMS}/datastream-links/{datastream_link_id}/license_{name\|uri}`                                                                                |              |
-| `providerMobility`         |                                                                                   | derived from `static_location_action` and/or `dynamic_location_action`                                                                           |              |
-| `deployment`               |                                                                                   | `{SMS}/configurations/{configuration_id}/platforms-and-devices?deviceMountAction={device_mount_action_id}`                                       |              |
-| `sourceRelatedDatastreams` | ?                                                                                 | related datastreams continuing or compiling this one                                                                                             |              |
+| `license`                  | filled by ingest, should default to `CC BY 4.0`                                                                                 | `{SMS}/datastream-links/{datastream_link_id}/license_{name\|uri}`                                                                                |              |
+| `providerMobility`         | filled by ingest                                                                                   | derived from `static_location_action` and/or `dynamic_location_action`                                                                           |              |
+| `deployment`               | `https://registry.o2a-data.de/rest/v2/items/{item.id}/events?where=type.uuid%3D%3D047a4f46-020b-4187-808a-6f245caebbc3`                                                                                  | `{SMS}/configurations/{configuration_id}/platforms-and-devices?deviceMountAction={device_mount_action_id}`                                       |              |
+| `sourceRelatedDatastreams` | *NA*                                                                                 | related datastreams continuing or compiling this one                                                                                             |              |
 | `dataSource`               |                                                                                   |                                                                                                                                                  | filled by TSM |
 
 
@@ -66,7 +66,7 @@ To increase readability, the constant fields `@type` are not shown here. The des
 
 | *Property* | O2A Registry | SMS                                                                                                     |
 |------------|--------------|---------------------------------------------------------------------------------------------------------|
-| `@id`      | ?            | `{SMS}/configurations/{configuration_id}/locations/static-location-actions/{static_location_action_id}` |
+| `@id`      | ? probably *NA*            | `{SMS}/configurations/{configuration_id}/locations/static-location-actions/{static_location_action_id}` |
 
 
 ## [`Observation.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/observation_properties.schema.json)
@@ -74,6 +74,6 @@ To increase readability, the constant fields `@type` are not shown here. The des
 | *Property*   | O2A Registry | SMS | Remarks       |
 |--------------|--------------|-----|---------------|
 | `@id`        | ?            | ?   |               |
-| `dataSource` |              |     | filled by TSM |
+| `dataSource` | filled by ingest |     | filled by TSM |
 
 
