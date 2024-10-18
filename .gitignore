@@ -1,6 +1,9 @@
 # Node.js
 node_modules/
 
+# GitLab pages
+public/
+
 # Vim files
 # Swap
 [._]*.s[a-v][a-z]

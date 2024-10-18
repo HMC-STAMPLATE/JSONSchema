@@ -28,6 +28,7 @@
     "Ulrich Loup <u.loup@fz-juelich.de>"
   ],
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "ajv-cli": "^5.0.0",
     "generate-schema": "^2.6.0",
     "jsonld-cli": "^2.0.0"

@@ -1,6 +1,5 @@
 stages:
   - test
-  - upload
   - release
 
 variables:
@@ -47,28 +46,6 @@ validate-jsonld:
     - "npm run lint:jsonld"
     - "npm run lint:jsonld-examples"
 
-upload:
-  stage: upload
-  image: node:lts
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: never
-    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-      changes:
-        - stamplate.jsonld
-  script:
-    - |
-      export PACKAGE_VERSION=$(node -p "require('./package.json').version")
-    - |
-      echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> build.env
-    - |
-      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file stamplate.jsonld "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
-  artifacts:
-    reports:
-      dotenv: build.env
-
 release:
   stage: release
   image: registry.gitlab.com/gitlab-org/release-cli:latest
@@ -79,7 +56,10 @@ release:
       when: never
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
       changes:
-        - stamplate.jsonld
+        paths:
+          - 'schemas/*.schema.json'
+          - 'examples/*.json'
+          - 'stamplate.jsonld'
   script:
     - 'true'
   release:
@@ -87,8 +67,24 @@ release:
     description: "Release ${PACKAGE_VERSION} of ${CI_PROJECT_NAME}"
     tag_name: "${PACKAGE_VERSION}"
     ref: "${PACKAGE_VERSION}"
-    assets:
-      links:
-        - name: "stamplate.jsonld"
-          filepath: "/stamplate.jsonld"
-          url: "${PACKAGE_REGISTRY_URL}/${PACKAGE_VERSION}/stamplate.jsonld"
+
+pages:
+  stage: release
+  image: node:lts
+  before_script:
+    - npm ci
+  script:
+    # cp static files to public/
+    - "mkdir -p public/schemas && cp schemas/*.schema.json public/schemas/."
+    - "mkdir -p public/vocab && cp stamplate.jsonld public/vocab/."
+    # build the site
+    - "npx @11ty/eleventy"
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
