@@ -1,6 +1,8 @@
 {
   "@context": {
     "schema": "http://schema.org/",
+    "jsonld.id": "@id",
+    "jsonld.type": "@type",
     "DatastreamProperties": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/DatastreamProperties",
       "@type": "@id"

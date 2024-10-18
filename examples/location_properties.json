@@ -4,6 +4,6 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://sensors.gfz-potsdam.de/configurations/35/locations/static-location-actions/15",
-  "@type": "LocationProperties"
+  "jsonld.id": "https://sensors.gfz-potsdam.de/configurations/35/locations/static-location-actions/15",
+  "jsonld.type": "LocationProperties"
 }

@@ -4,36 +4,36 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://sensors.gfz-potsdam.de/devices/786",
-  "@type": "SensorProperties",
+  "jsonld.id": "https://sensors.gfz-potsdam.de/devices/786",
+  "jsonld.type": "SensorProperties",
   "identifier": "https://handle.net/1234567",
   "isVariantOf": {
-    "@type": "ProductGroup",
+    "jsonld.type": "ProductGroup",
     "name": "Pressure transducer",
     "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/equipmenttypes/42"
   },
   "isVirtual": false,
   "model": "AdconBP1",
   "manufacturer": {
-    "@type": "Organization",
+    "jsonld.type": "Organization",
     "name": "OTT HydroMet",
     "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/manufacturers/48"
   },
   "serialNumber": "heydenhof1",
   "responsiblePersons": [
     {
-      "@type": "Role",
+      "jsonld.type": "Role",
       "roleName": "Owner",
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
       "responsiblePersons": [
         {
-          "@id": "https://sensors.gfz-potsdam.de/contacts/49",
-          "@type": "Person",
+          "jsonld.id": "https://sensors.gfz-potsdam.de/contacts/49",
+          "jsonld.type": "Person",
           "givenName": "Christian",
           "familyName": "Budach",
           "email": "christian.budach@gfz-potsdam.de",
           "affiliation": {
-            "@type": "Organization",
+            "jsonld.type": "Organization",
             "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
             "identifier": "https://ror.org/04z8jg394"
           },
