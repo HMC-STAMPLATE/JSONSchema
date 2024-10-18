@@ -25,11 +25,11 @@
         "@vocab"
       ]
     },
-    "@id": {
+    "jsonld.id": {
       "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
-    "@type": {
+    "jsonld.type": {
       "type": "string",
       "const": "SensorProperties"
     },
@@ -41,7 +41,7 @@
       "description": "device type of this sensor, e.g., thermometer",
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "ProductGroup"
         },
@@ -54,7 +54,7 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     },
     "isVirtual": {
@@ -75,7 +75,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "Role"
           },
@@ -91,10 +91,10 @@
             "items": {
               "type": "object",
               "properties": {
-                "@id": {
+                "jsonld.id": {
                   "$ref": "#/$defs/url"
                 },
-                "@type": {
+                "jsonld.type": {
                   "type": "string",
                   "const": "Person"
                 },
@@ -116,21 +116,21 @@
                 }
               },
               "required": [
-                "@type"
+                "jsonld.type"
               ]
             }
           }
         },
         "required": [
-          "@type"
+          "jsonld.type"
         ]
       }
     }
   },
   "required": [
     "@context",
-    "@id",
-    "@type"
+    "jsonld.id",
+    "jsonld.type"
   ],
   "$defs": {
     "url": {
@@ -144,7 +144,7 @@
     "organization": {
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "Organization"
         },
@@ -157,7 +157,7 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     }
   }

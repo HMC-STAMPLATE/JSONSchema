@@ -4,23 +4,23 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://sensors.gfz-potsdam.de/configurations/35",
-  "@type": "ThingProperties",
+  "jsonld.id": "https://sensors.gfz-potsdam.de/configurations/35",
+  "jsonld.type": "ThingProperties",
   "identifier": "https://handle.net/12345",
   "responsiblePersons": [
     {
-      "@type": "Role",
+      "jsonld.type": "Role",
       "roleName": "Owner",
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
       "responsiblePersons": [
         {
-          "@id": "https://sensors.gfz-potsdam.de/contacts/49",
-          "@type": "Person",
+          "jsonld.id": "https://sensors.gfz-potsdam.de/contacts/49",
+          "jsonld.type": "Person",
           "givenName": "Christian",
           "familyName": "Wille",
           "email": "christian.wille@gfz-potsdam.de",
           "affiliation": {
-            "@type": "Organization",
+            "jsonld.type": "Organization",
             "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
             "identifier": "https://ror.org/04z8jg394"
           },
@@ -31,24 +31,24 @@
   ],
   "partOfProjects": [
     {
-      "@type": "ResearchProject",
+      "jsonld.type": "ResearchProject",
       "name": "TERENO-NO"
     }
   ],
   "metadata": {
-    "@type": "Dataset",
+    "jsonld.type": "Dataset",
     "encodingType": "http://www.opengis.net/doc/IS/SensorML/2.0",
     "distribution": {
-      "@type": "DataDownload",
+      "jsonld.type": "DataDownload",
       "url": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
     }
   },
   "sourceRelatedThings": [
     {
-      "@id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
-      "@type": "RelatedThing",
+      "jsonld.id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
+      "jsonld.type": "RelatedThing",
       "relationRole": {
-        "@type": "RelationRole",
+        "jsonld.type": "RelationRole",
         "name": "containedInPlace",
         "definition": "https://schema.org/containedInPlace",
         "inverseName": "containsPlace",

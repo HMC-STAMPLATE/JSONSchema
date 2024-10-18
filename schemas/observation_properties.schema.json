@@ -25,7 +25,7 @@
         "@vocab"
       ]
     },
-    "@type": {
+    "jsonld.type": {
       "type": "string",
       "const": "ObservationProperties"
     },
@@ -36,6 +36,6 @@
   },
   "required": [
     "@context",
-    "@type"
+    "jsonld.type"
   ]
 }

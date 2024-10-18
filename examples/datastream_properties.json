@@ -4,17 +4,17 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://sensors.gfz-potsdam.de/devices/786/measuredquantities/1513",
-  "@type": "DatastreamProperties",
+  "jsonld.id": "https://sensors.gfz-potsdam.de/devices/786/measuredquantities/1513",
+  "jsonld.type": "DatastreamProperties",
   "observingProcedure": {
-    "@type": "ObservingProcedure",
+    "jsonld.type": "ObservingProcedure",
     "name": "mean",
     "description": "the arithmetic mean value",
     "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/aggregationtypes/1",
     "properties": {
       "period": 600,
       "unitOfPeriod": {
-        "@type": "Unit",
+        "jsonld.type": "Unit",
         "name": "seconds",
         "symbol": "s",
         "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
@@ -22,17 +22,17 @@
     }
   },
   "measurementProperties": {
-    "@type": "MeasurementProperties",
+    "jsonld.type": "MeasurementProperties",
     "measurementResolution": 0.2,
     "unitOfMeasurementResolution": {
-      "@type": "Unit",
+      "jsonld.type": "Unit",
       "name": "seconds",
       "symbol": "sec",
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/58"
     },
     "measurementAccuracy": 1.0,
     "unitOfMeasurementAccuracy": {
-      "@type": "Unit",
+      "jsonld.type": "Unit",
       "name": "millibars",
       "symbol": "mbar",
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
@@ -42,33 +42,33 @@
       1500.0
     ],
     "unitOfOperationRange": {
-      "@type": "Unit",
+      "jsonld.type": "Unit",
       "name": "millibars",
       "symbol": "mbar",
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
     }
   },
   "license": {
-    "@type": "CreativeWork",
+    "jsonld.type": "CreativeWork",
     "name": "GPLv3",
     "url": "https://www.gnu.org/licenses/gpl-3.0.txt",
     "provider": "The HMC-STAMPLATE project consortium"
   },
   "providerMobility": "static",
   "deployment": {
-    "@id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
-    "@type": "Deployment",
+    "jsonld.id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
+    "jsonld.type": "Deployment",
     "deploymentTime": "2020-01-01T00:50-03:00",
     "properties": {
-      "@type": "DeploymentProperties",
+      "jsonld.type": "DeploymentProperties",
       "offsets": {
-        "@type": "Offset",
+        "jsonld.type": "Offset",
         "x": -3,
         "y": 2,
         "z": 10
       },
       "unitOfOffsets": {
-        "@type": "Unit",
+        "jsonld.type": "Unit",
         "name": "meters",
         "symbol": "m",
         "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"

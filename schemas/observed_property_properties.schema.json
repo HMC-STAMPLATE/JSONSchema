@@ -25,19 +25,19 @@
         "@vocab"
       ]
     },
-    "@id": {
+    "jsonld.id": {
       "description": "link to a view page of the respective entity in the vocabulary system",
       "$ref": "#/$defs/url"
     },
-    "@type": {
+    "jsonld.type": {
       "type": "string",
       "const": "ObservedPropertyProperties"
     }
   },
   "required": [
     "@context",
-    "@id",
-    "@type"
+    "jsonld.id",
+    "jsonld.type"
   ],
   "$defs": {
     "url": {

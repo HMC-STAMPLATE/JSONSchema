@@ -25,11 +25,11 @@
         "@vocab"
       ]
     },
-    "@id": {
+    "jsonld.id": {
       "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
-    "@type": {
+    "jsonld.type": {
       "type": "string",
       "const": "ThingProperties"
     },
@@ -42,11 +42,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "@id": {
+          "jsonld.id": {
             "description": "link to the related thing",
             "$ref": "#/$defs/url"
           },
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "RelatedThing"
           },
@@ -58,8 +58,8 @@
           }
         },
         "required": [
-          "@id",
-          "@type"
+          "jsonld.id",
+          "jsonld.type"
         ]
       }
     },
@@ -68,7 +68,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "Role"
           },
@@ -84,11 +84,11 @@
             "items": {
               "type": "object",
               "properties": {
-                "@id": {
+                "jsonld.id": {
                   "description": "link to a view page of the respective entity in the source system",
                   "$ref": "#/$defs/url"
                 },
-                "@type": {
+                "jsonld.type": {
                   "type": "string",
                   "const": "Person"
                 },
@@ -112,13 +112,13 @@
                 }
               },
               "required": [
-                "@type"
+                "jsonld.type"
               ]
             }
           }
         },
         "required": [
-          "@type"
+          "jsonld.type"
         ]
       }
     },
@@ -128,7 +128,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "ResearchProject"
           },
@@ -138,7 +138,7 @@
           }
         },
         "required": [
-          "@type"
+          "jsonld.type"
         ]
       }
     },
@@ -146,7 +146,7 @@
       "description": "additional dataset describing the thing",
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "Dataset"
         },
@@ -161,7 +161,7 @@
         "distribution": {
           "type": "object",
           "properties": {
-            "@type": {
+            "jsonld.type": {
               "type": "string",
               "const": "DataDownload"
             },
@@ -171,7 +171,7 @@
             }
           },
           "required": [
-            "@type"
+            "jsonld.type"
           ]
         },
         "text": {
@@ -180,7 +180,7 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ],
       "oneOf": [
         {
@@ -198,8 +198,8 @@
   },
   "required": [
     "@context",
-    "@id",
-    "@type"
+    "jsonld.id",
+    "jsonld.type"
   ],
   "$defs": {
     "url": {
@@ -213,7 +213,7 @@
     "organization": {
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "Organization"
         },
@@ -226,13 +226,13 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     },
     "containedInPlaceRelationRole": {
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "RelationRole"
         },
@@ -254,7 +254,7 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     }
   }

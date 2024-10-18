@@ -25,11 +25,11 @@
         "@vocab"
       ]
     },
-    "@id": {
+    "jsonld.id": {
       "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
-    "@type": {
+    "jsonld.type": {
       "type": "string",
       "const": "DatastreamProperties"
     },
@@ -37,7 +37,7 @@
       "description": "function applied to the observations of the datastream, e.g., an aggregation",
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "ObservingProcedure"
         },
@@ -56,14 +56,14 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     },
     "measurementProperties": {
       "description": "set of properties further specifying the measurement",
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "MeasurementProperties"
         },
@@ -194,7 +194,7 @@
       "description": "license that applies to the data of the datastream",
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "CreativeWork"
         },
@@ -215,10 +215,10 @@
             {
               "type": "object",
               "properties": {
-                "@id": {
+                "jsonld.id": {
                   "$ref": "#/$defs/url"
                 },
-                "@type": {
+                "jsonld.type": {
                   "type": "string",
                   "const": "Person"
                 },
@@ -246,7 +246,7 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     },
     "providerMobility": {
@@ -262,10 +262,10 @@
       "description": "details of the datastream deployment w.r.t. the location of the thing",
       "type": "object",
       "properties": {
-        "@id": {
+        "jsonld.id": {
           "$ref": "#/$defs/url"
         },
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "Deployment"
         },
@@ -281,14 +281,14 @@
         "properties": {
           "type": "object",
           "properties": {
-            "@type": {
+            "jsonld.type": {
               "type": "string",
               "const": "DeploymentProperties"
             },
             "offsets": {
               "type": "object",
               "properties": {
-                "@type": {
+                "jsonld.type": {
                   "type": "string",
                   "const": "Offset"
                 },
@@ -317,8 +317,8 @@
   },
   "required": [
     "@context",
-    "@id",
-    "@type"
+    "jsonld.id",
+    "jsonld.type"
   ],
   "$defs": {
     "url": {
@@ -332,7 +332,7 @@
     "organization": {
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "Organization"
         },
@@ -345,13 +345,13 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     },
     "continuesRelationRole": {
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "RelationRole"
         },
@@ -373,13 +373,13 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     },
     "unit": {
       "type": "object",
       "properties": {
-        "@type": {
+        "jsonld.type": {
           "type": "string",
           "const": "Unit"
         },
@@ -394,7 +394,7 @@
         }
       },
       "required": [
-        "@type"
+        "jsonld.type"
       ]
     }
   }

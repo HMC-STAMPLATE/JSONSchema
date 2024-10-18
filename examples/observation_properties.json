@@ -4,6 +4,6 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@type": "ObservationProperties",
+  "jsonld.type": "ObservationProperties",
   "dataSource": "file01.csv"
 }
