@@ -35,6 +35,18 @@
       "name": "TERENO-NO"
     }
   ],
+  "images": [
+    {
+      "@type": "ImageObject",
+      "caption": "Echo Sound Transducer at backside of Speedboat",
+      "contentUrl": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "caption": "Platform in situ",
+      "contentUrl": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+    }
+  ],
   "metadata": {
     "jsonld.type": "Dataset",
     "encodingType": "http://www.opengis.net/doc/IS/SensorML/2.0",

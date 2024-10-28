@@ -169,6 +169,10 @@
       "@id": "schema:memberOf",
       "@container": "@set"
     },
+    "images": {
+      "@id": "schema:image",
+      "@container": "@set"
+    },
     "period": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/period"
     },
