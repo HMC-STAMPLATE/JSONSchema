@@ -4,7 +4,7 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "jsonld.id": "https://sensors.gfz-potsdam.de/devices/786/measuredquantities/1513",
+  "jsonld.id": "https://sensors.gfz-potsdam.de/datastream-links/6",
   "jsonld.type": "DatastreamProperties",
   "observingProcedure": {
     "jsonld.type": "ObservingProcedure",
