@@ -4,13 +4,29 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "@id": "https://rdm-software.pages.ufz.de/saqc/",
-  "@type": "ObservationResultQuality",
-  "annotation": "99",
-  "annotationType": "SaQC",
-  "properties": {
-    "version": "2.6",
-    "measure": "flagUniLOF",
-    "definition": "https://url/to/config"
-  }
+  "annotations": [
+    {
+      "@id": "https://rdm-software.pages.ufz.de/saqc/",
+      "@type": "ObservationResultQuality",
+      "annotation": "99",
+      "annotationType": "SaQC",
+      "properties": {
+        "version": "2.6",
+        "measure": "flagUniLOF",
+        "definition": "https://url/to/config"
+      }
+    },
+    {
+      "@id": "https://tereno.net/quality",
+      "@type": "ObservationResultQuality",
+      "annotation": "baddata",
+      "annotationType": "generic"
+    },
+    {
+      "@id": "https://tereno.net/quality",
+      "@type": "ObservationResultQuality",
+      "annotation": "Analysis error",
+      "annotationType": "specific"
+    }
+  ]
 }
