@@ -8,7 +8,7 @@
     {
       "@id": "https://rdm-software.pages.ufz.de/saqc/",
       "@type": "ObservationResultQuality",
-      "annotation": "drift",
+      "annotation": "99",
       "annotationType": "SaQC",
       "properties": {
         "version": "2.6",
@@ -20,7 +20,7 @@
     {
       "@id": "https://rdm-software.pages.ufz.de/saqc/",
       "@type": "ObservationResultQuality",
-      "annotation": "out of range",
+      "annotation": "80",
       "annotationType": "SaQC",
       "properties": {
         "version": "2.6",
