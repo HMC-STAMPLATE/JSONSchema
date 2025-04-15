@@ -14,19 +14,27 @@
         "version": "2.6",
         "measure": "flagUniLOF",
         "definition": "https://url/to/config"
-      }
+      },
+      "annotationTime": "2025-04-01T15:03:01Z"
     },
     {
-      "@id": "https://tereno.net/quality",
+      "@id": "https://rdm-software.pages.ufz.de/saqc/",
       "@type": "ObservationResultQuality",
-      "annotation": "baddata",
-      "annotationType": "generic"
+      "annotation": "80",
+      "annotationType": "SaQC",
+      "properties": {
+        "version": "2.6",
+        "measure": "flagUniLOF",
+        "definition": "https://url/to/config"
+      },
+      "annotationTime": "2025-04-01T16:03:01Z"
     },
     {
-      "@id": "https://tereno.net/quality",
+      "@id": "https://rdm-software.pages.ufz.de/saqc/",
       "@type": "ObservationResultQuality",
-      "annotation": "Analysis error",
-      "annotationType": "specific"
+      "annotation": "ok",
+      "annotationType": "manual",
+      "annotationTime": "2025-04-05T16:03:01Z"
     }
   ]
 }
