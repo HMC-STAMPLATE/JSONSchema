@@ -14,8 +14,8 @@ Small text...
 
 getting-started
 sta-data-model
+schemas/Thing
 ```
-
 
 ## Citing
 
