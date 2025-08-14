@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: "An enhanced SensorThings API data model for environmental monitoring systems"
+type: software
+abstract: >
+  The SensorThings API from the Open Geospatial Consortium (OGC) is a standard for accessing sensor data over the web. For improving the usability of STA particularly for environmental monitoring systems, we have enhanced the basic data model with additional attributes. 
+  # ⇩ Namen/ORCIDs ggf. anpassen
+  - family-names: Loup
+    given-names: Ulrich
+    orcid: "https://orcid.org/0009-0005-1370-6226"
+    affiliation: "Forschungszentrum Jülich (FZJ)"
+  - family-names: Hanisch
+    given-names: Marc
+    orcid: "https://orcid.org/0000-0001-5272-4674"
+    affiliation: "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+  - family-names: Brinckmann
+    given-names: Nils
+    orcid: "https://orcid.org/0000-0001-8159-3888"
+    affiliation: "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+  - family-names: Faber
+    given-names: Claas
+    affiliation: "GEOMAR"
+  - family-names: Lorenz
+    given-names: Christof
+    orcid: "https://orcid.org/0000-0001-5590-5470"
+    affiliation: "Karlsruhe Institute of Technology (KIT)"
+keywords:
+  - SensorThings API
+  - JSON Schema
+  - IoT
+  - Time series
+  - Environmental data
+  - STAMPLATE
