@@ -33,12 +33,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements-docs.txt
 
-      - name: Generate zenodo.json from CITATION.cff
-        run: |
-          python tools/cff_to_zenodo.py CITATION.cff zenodo.json
-          echo "Generated zenodo.json:"
-          cat zenodo.json
-
       - name: Build Sphinx docs to docs/_site
         run: |
           sphinx-build -b html docs docs/_site -W --keep-going
