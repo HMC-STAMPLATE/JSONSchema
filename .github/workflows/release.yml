@@ -67,7 +67,7 @@ jobs:
           import json, os, requests
           api_url = "${{ steps.target.outputs.api_url }}"
           token = "${{ steps.target.outputs.token }}"
-          with open("zenodo.json") as f:
+          with open(".zenodo.json") as f:
               metadata = json.load(f)
           r = requests.post(f"{api_url}/deposit/depositions",
                             params={"access_token": token},
