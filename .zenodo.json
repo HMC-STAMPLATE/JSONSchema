@@ -1,7 +1,6 @@
 {
   "title": "An enhanced SensorThings API data model for environmental monitoring systems",
   "upload_type": "software",
-  "publication_date": "",
   "creators": [
     {
       "name": "Loup, Ulrich",
@@ -44,12 +43,13 @@
     "STAMPLATE"
   ],
   "version": "0.0.4",
-  "license": "CCO 1.0",
+  "license": "CC0-1.0",
   "access_right": "open",
   "related_identifiers": [
     {
       "relation": "isSupplementTo",
-      "identifier": "https://github.com/HMC-STAMPLATE/JSONSchema"
+      "identifier": "https://github.com/HMC-STAMPLATE/JSONSchema",
+      "scheme": "url"
     }
   ]
 }

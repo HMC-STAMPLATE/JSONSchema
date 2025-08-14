@@ -65,15 +65,28 @@ jobs:
         run: |
           python - <<'EOF'
           import json, os, requests
+          
           api_url = "${{ steps.target.outputs.api_url }}"
           token = "${{ steps.target.outputs.token }}"
+          
           with open(".zenodo.json") as f:
               metadata = json.load(f)
+          
           r = requests.post(f"{api_url}/deposit/depositions",
                             params={"access_token": token},
-                            json={"metadata": metadata})
-          r.raise_for_status()
+                            json={"metadata": metadata},
+                            headers={"Accept": "application/json"}
+          )
+          if r.status_code >= 400:
+            print("Status:", r.status_code, file=sys.stderr)
+            try:
+              print("Error JSON:", r.json(), file=sys.stderr)
+            except Exception:
+              print("Error text:", r.text, file=sys.stderr)
+            r.raise_for_status()
+
           print("Zenodo response:", r.json())
+
           EOF
 
       - name: Create GitHub Release and upload assets
@@ -95,5 +108,5 @@ jobs:
           prerelease: false
           files: |
             docs-html.zip
-            zenodo.json
+            .zenodo.json
 
