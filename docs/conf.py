@@ -82,7 +82,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # ---- HTML output ----
 html_theme = "furo"  # or classic/alabaster
-html_static_path = ["_static"]
+#html_static_path = ["_static"]
 
 # ---- Build output directory (docs/_site) ----
 # If you use `make html`, set this in the Makefile; for sphinx-build CLI we set it there.

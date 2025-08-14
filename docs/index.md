@@ -11,7 +11,7 @@ Welcome! This site documents the JSON Schemas and guidance for using the `proper
 :maxdepth: 2
 
 getting-started
-sta-model
+sta-data-model
 schemas/Thing
 ```
 

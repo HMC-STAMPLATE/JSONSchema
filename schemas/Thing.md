@@ -1,8 +1,4 @@
-## Thing
-
-The *Thing* is 
-
-
+# Thing-properties
 
 [`Thing.properties`](https://codebase.helmholtz.cloud/stamplate/jsonschemas/-/blob/main/schemas/thing_properties.schema.json)
 
