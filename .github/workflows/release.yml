@@ -4,6 +4,11 @@ on:
   push:
     tags: [ 'v*' ]
   workflow_dispatch:
+    inputs:
+      sandbox:
+        description: 'Use Zenodo Sandbox?'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -51,19 +56,47 @@ jobs:
           VER=$(grep '^version:' CITATION.cff | awk '{print $2}')
           echo "version=$VER" >> $GITHUB_OUTPUT
 
+      - name: Determine Zenodo target
+        id: target
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == *"-sandbox" || "${{ github.event.inputs.sandbox }}" == "true" ]]; then
+            echo "api_url=https://sandbox.zenodo.org/api" >> $GITHUB_OUTPUT
+            echo "token=${{ secrets.ZENODO_SANDBOX_TOKEN }}" >> $GITHUB_OUTPUT
+          else
+            echo "api_url=https://zenodo.org/api" >> $GITHUB_OUTPUT
+            echo "token=${{ secrets.ZENODO_TOKEN }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload to Zenodo via API
+        run: |
+          python - <<'EOF'
+          import json, os, requests
+          api_url = "${{ steps.target.outputs.api_url }}"
+          token = "${{ steps.target.outputs.token }}"
+          with open("zenodo.json") as f:
+              metadata = json.load(f)
+          r = requests.post(f"{api_url}/deposit/depositions",
+                            params={"access_token": token},
+                            json={"metadata": metadata})
+          r.raise_for_status()
+          print("Zenodo response:", r.json())
+          EOF
+
       - name: Create GitHub Release and upload assets
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.getver.outputs.version }}
-          name: "STAMPLATE JSONSchema v${{ steps.getver.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          name: "STAMPLATE JSONSchema ${{ github.ref_name }}"
           body: |
-            Automated release for v${{ steps.getver.outputs.version }}.
+            Automated release for ${{ github.ref_name }}.
 
             Artifacts:
             - docs-html.zip (Sphinx HTML docs)
             - zenodo.json (DataCite metadata for Zenodo)
 
-            After Zenodo mints the DOI, add it to CITATION.cff and README.
+            DOI will be minted on Zenodo (${{
+              steps.target.outputs.api_url
+            }}).
           draft: false
           prerelease: false
           files: |
