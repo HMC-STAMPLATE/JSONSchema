@@ -1,9 +1,0 @@
-{
-  "@context": {
-    "@version": 1.1,
-    "@import": "stamplate.jsonld",
-    "@vocab": "http://schema.org/"
-  },
-  "jsonld.id": "https://sensors.gfz-potsdam.de/configurations/35/locations/static-location-actions/15",
-  "jsonld.type": "LocationProperties"
-}
