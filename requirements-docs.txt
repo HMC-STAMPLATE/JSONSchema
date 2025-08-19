@@ -4,3 +4,4 @@ myst-parser[linkify]
 furo
 sphinx-jsonschema
 sphinxcontrib-jsonschema
+sphinxcontrib-bibtex
