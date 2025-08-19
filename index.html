@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting started" href="getting-started.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The OGC SensorThings API" href="sta-data-model.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>An enhanced SensorThings API data model for environmental monitoring systems 0.0.4 documentation</title>
@@ -199,9 +199,9 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sta-data-model.html">The OGC SensorThings API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/Thing.html">The enhanced Thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/properties.html">Enhanced STA Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/mapping.html">STA Properties Mappings</a></li>
 </ul>
 
 </div>
@@ -247,16 +247,27 @@
 <p><strong>Authors:</strong> Ulrich Loup, Marc Hanisch, Nils Brinckmann, Claas Faber, David Schäfer, Christof Lorenz</p>
 <p><strong>DOI:</strong> {% if project_doi %}[](https://doi.org/){% else %}<em>to be assigned</em>{% endif %}</p>
 <p>Welcome! This site documents the JSON Schemas and guidance for using the <code class="docutils literal notranslate"><span class="pre">properties</span></code> objects of core <strong>OGC SensorThings API (STA)</strong> entities in the <strong>STAMPLATE</strong> context.</p>
-<p>Small text…</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#build-locally">Build locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sta-data-model.html">The OGC SensorThings API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sta-data-model.html#the-basic-sta-data-model">The basic STA data model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sta-data-model.html">The OGC SensorThings API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schemas/Thing.html">The enhanced Thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/properties.html">Enhanced STA Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="schemas/properties.html#the-enhanced-thing">The enhanced <em>Thing</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas/properties.html#the-enhanced-sensor">The enhanced <em>Sensor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="schemas/mapping.html">STA Properties Mappings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="schemas/mapping.html#thing-properties"><code class="docutils literal notranslate"><span class="pre">Thing.properties</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas/mapping.html#sensor-properties"><code class="docutils literal notranslate"><span class="pre">Sensor.properties</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas/mapping.html#datastream-properties"><code class="docutils literal notranslate"><span class="pre">Datastream.properties</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas/mapping.html#observedproperty-properties"><code class="docutils literal notranslate"><span class="pre">ObservedProperty.properties</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas/mapping.html#location-properties"><code class="docutils literal notranslate"><span class="pre">Location.properties</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas/mapping.html#observation-properties"><code class="docutils literal notranslate"><span class="pre">Observation.properties</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <section id="citing">
@@ -289,12 +300,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="getting-started.html">
+          <a class="next-page" href="sta-data-model.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Getting started</div>
+                <div class="title">The OGC SensorThings API</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

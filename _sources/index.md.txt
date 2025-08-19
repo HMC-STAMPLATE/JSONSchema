@@ -1,4 +1,4 @@
-# {{ project_title }} 
+# An enhanced SensorThings API data model for environmental monitoring systems
 
 **Authors:** {{ project_authors }}
 
@@ -6,16 +6,13 @@
 
 Welcome! This site documents the JSON Schemas and guidance for using the `properties` objects of core **OGC SensorThings API (STA)** entities in the **STAMPLATE** context.
 
-Small text...
-
 ```{toctree}
 :caption: Contents
 :maxdepth: 2
 
-getting-started
 sta-data-model
-schemas/Thing
-
+schemas/properties
+schemas/mapping
 ```
 
 ## Citing

@@ -1,2 +1,0 @@
-# The enhanced Thing
-TBA
