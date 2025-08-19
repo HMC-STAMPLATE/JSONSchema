@@ -4,6 +4,9 @@ on:
   push:
     branches: [ docs-add-sphinx-docs ]  # change to main or tags when ready
 
+permissions:
+  contents: write   # ← required to push to gh-pages
+
 jobs:
   build:
     runs-on: ubuntu-latest
