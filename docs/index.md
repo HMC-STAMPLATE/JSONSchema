@@ -15,8 +15,15 @@ Small text...
 getting-started
 sta-data-model
 schemas/Thing
+
 ```
 
 ## Citing
 
 If you use this profile, please cite the corresponding Zenodo record.
+
+## References
+
+```{bibliography}
+:cited:
+:style: unsrt

@@ -51,6 +51,7 @@ extensions = [
     "myst_parser",
     "sphinx.ext.autosectionlabel",
     "sphinx-jsonschema",   # or: "sphinx_jsonschema"
+    "sphinxcontrib.bibtex"
 ]
 
 myst_enable_extensions = [
@@ -95,3 +96,6 @@ jsonschema_options = {
     "auto_reference": True,
     "collapse_long_descriptions": True,
 }
+
+# Reference file
+bibtex_bibfiles = ["refs.bib"]
