@@ -19,7 +19,6 @@ jobs:
           pip install -r requirements-docs.txt
       - name: Build Sphinx
         run: |
-          cd docs
           make html
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
