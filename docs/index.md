@@ -2,7 +2,7 @@
 
 **Authors:** {{ project_authors }}
 
-**DOI:** {% if project_doi %}[{{ project_doi }}](https://doi.org/{{ project_doi }}){% else %}_to be assigned_{% endif %}
+**DOI:** {{ project_doi }}
 
 Welcome! This site documents the JSON Schemas and guidance for using the `properties` objects of core **OGC SensorThings API (STA)** entities in the **STAMPLATE** context.
 
@@ -17,7 +17,9 @@ schemas/mapping
 
 ## Citing
 
-If you use this profile, please cite the corresponding Zenodo record.
+If you use this profile, please cite it as
+
+{{ project_citation_full }}
 
 ## References
 

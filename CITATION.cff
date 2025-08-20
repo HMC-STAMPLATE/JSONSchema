@@ -6,6 +6,10 @@ version: 0.0.4
 license: "CCO 1.0"
 repository-code: "https://github.com/HMC-STAMPLATE/JSONSchema"
 
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.16874731
+    
 keywords:
   - SensorThings API
   - JSON Schema

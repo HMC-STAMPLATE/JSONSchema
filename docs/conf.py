@@ -22,6 +22,17 @@ if CFF_PATH.exists():
 else:
     print("[conf.py] Warning: CITATION.cff not found at repo root.")
 
+def get_doi(citation: dict) -> str:
+    # Top-level DOI (if present)
+    if "doi" in citation:
+        return citation["doi"]
+
+    # Or look inside identifiers
+    for ident in citation.get("identifiers", []):
+        if ident.get("type", "").lower() == "doi":
+            return ident.get("value", "")
+    return ""
+
 def cff(path, default=""):
     """Small helper to extract nested fields safely."""
     cur = citation
@@ -36,7 +47,7 @@ def cff(path, default=""):
 project = cff("title", "STAMPLATE: SensorThings API Domain Profile — JSON Schemas")
 release = cff("version", "")              # shown as “Release” in Sphinx
 version = release or ""                   # short X.Y if you prefer to slice it
-doi = cff("doi", "")
+doi = get_doi(citation)
 authors_list = []
 for a in citation.get("authors", []):
     given = a.get("given-names") or a.get("given_names") or ""
@@ -45,6 +56,10 @@ for a in citation.get("authors", []):
     if name:
         authors_list.append(name)
 author = ", ".join(authors_list) or cff("authors[0].name", "HMC STAMPLATE Team")
+
+citation_text = f"{author} ({release}). *{project}*. https://doi.org/{doi}" if doi else "To be assigned"
+
+
 
 # ---- General Sphinx config ----
 extensions = [
@@ -66,17 +81,19 @@ myst_substitutions = {
     "project_title": project,
     "project_authors": author,
     "project_version": release,
-    "project_doi": doi,
+    "project_doi": f"[{doi}](https://doi.org/{doi})" if doi else "_to be assigned_",
+    "project_citation_full": citation_text
 }
 
 # Also expose to templates / html pages as {{ project_doi }} etc.
-html_context = {
-    "project_title": project,
-    "project_authors": author,
-    "project_version": release,
-    "project_doi": doi,
-    "citation": citation,  # full dict if you need more fields in custom templates
-}
+#html_context = {
+#    "project_title": project,
+#    "project_authors": author,
+#    "project_version": release,
+#    "project_doi": doi,
+#    "citation": citation,  # full dict if you need more fields in custom templates
+#    "project_citation_full": citation_text
+#}
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -84,6 +101,13 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # ---- HTML output ----
 html_theme = "furo"  # or classic/alabaster
 #html_static_path = ["_static"]
+
+release = cff("version", "")
+version = ""  # empty so Furo won’t show a version badge in the sidebar
+
+html_title = project
+html_short_title = project
+html_logo = "_static/images/datahub_logo.png"
 
 # ---- Build output directory (docs/_site) ----
 # If you use `make html`, set this in the Makefile; for sphinx-build CLI we set it there.
