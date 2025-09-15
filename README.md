@@ -7,7 +7,9 @@ OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
 ## Goals
 
 With this project we want to standardize the use of the freely definable
-property `properties` of the OGC STA entities within the HMC STAMPLATE project.
+property `properties` of the [OGC
+STA](https://www.ogc.org/standards/sensorthings/) entities within the [HMC
+STAMPLATE](https://helmholtz-metadaten.de/inf-projects/stamplate) project.
 For this purpose, JSON schemas are defined that enable the validation of these
 properties on both the service and the client side. This ensures uniform access
 to this data across the centers.
@@ -202,5 +204,9 @@ which generates the following result:
 
 ## Authors
 
-- @u.loup
-- @marc.hanisch
+- [Ulrich Loup](https://orcid.org/0009-0005-1370-6226)
+- [Marc Hanisch](https://orcid.org/0000-0001-5272-4674)
+- [Nils Brinckmann](https://orcid.org/0000-0001-8159-3888)
+- [Class Faber](https://orcid.org/0000-0002-4861-3338)
+- [David Schäfer](https://orcid.org/0000-0003-4517-6459)
+- [Christof Lorenz](https://orcid.org/0000-0001-5590-5470)
