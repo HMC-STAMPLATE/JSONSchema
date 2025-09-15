@@ -8,7 +8,7 @@ The provided data structures use [JSON-LD](https://json-ld.org/) and are loosely
 based on [schema.org](https://schema.org). A corresponding [JSON
 Schema](https://json-schema.org/) has been created on each `properties` object.
 
-## The enhanced *Thing*
+## The enhanced *Thing properties* 
 
 ```{table} Table 1: The Thing properties
 :name: tbl-thing-properties
@@ -82,17 +82,17 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
       "responsiblePersons": [
         {
-          "jsonld.id": "https://sensors.gfz.de/contacts/49",
+          "jsonld.id": "https://sensors.gfz.de/contacts/12345",
           "jsonld.type": "Person",
-          "givenName": "Peter",
-          "familyName": "Technician",
-          "email": "christian.wille@gfz.de",
+          "givenName": "John",
+          "familyName": "Doe",
+          "email": "john.doe@example.org",
           "affiliation": {
             "jsonld.type": "Organization",
-            "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+            "name": "GFZ Helmholtz Centre for Geosciences",
             "identifier": "https://ror.org/04z8jg394"
           },
-          "identifier": "https://orcid.org/0000-0003-0930-6527"
+          "identifier": "https://orcid.org/0000-0000-0000-1234"
         }
       ]
     }
@@ -140,5 +140,97 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 ```
 
 ## The enhanced *Sensor*
+
+```{table} Table 2: The Sensor properties
+:name: tbl-sensor-properties
+:class: thing-table
+:align: left
+
+| *Name* | Description | Datatype | Multiplicity |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used. | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.type` | The type of the object, in this case 'SensorProperties'. | String | One (mandatory) |
+| `identifier` | Another unique identifier for the object, e.g., a PID. | String | Zero-to-one |
+| `isVariantOf` | Describes the product group the sensor belongs to. | Object | Zero-to-one |
+| `isVariantOf.jsonld.type` | The type of the object, in this case 'ProductGroup'. | String | One (mandatory) |
+| `isVariantOf.name` | The name of the product group. | String | Zero-to-one |
+| `isVariantOf.definition` | URL to the definition of the product group. | String | Zero-to-one |
+| `isVirtual` | Indicates if the sensor is virtual. | Boolean | Zero-to-one |
+| `model` | The model name of the sensor. | String | Zero-to-one |
+| `manufacturer` | Information about the manufacturer of the sensor. | Object | Zero-to-one |
+| `manufacturer.jsonld.type` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
+| `manufacturer.name` | The name of the manufacturer. | String | Zero-to-one |
+| `manufacturer.definition` | URL to the definition of the manufacturer. | String | Zero-to-one |
+| `serialNumber` | The serial number of the sensor. | String | Zero-to-one |
+| `responsiblePersons` | A list of persons responsible for the object. | Array of Objects | Zero-to-many |
+| `responsiblePersons.jsonld.type` | The type of the object, in this case 'Role'. | String | One (mandatory) |
+| `responsiblePersons.roleName` | The name of the role (e.g., 'Owner'). | String | Zero-to-one |
+| `responsiblePersons.definition` | URL to the definition of the role. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons` | A nested list of person objects fulfilling the role. | Array of Objects | Zero-to-many |
+| `responsiblePersons.responsiblePersons.jsonld.id` | Unique ID of the person. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons.jsonld.type` | The type of the object, in this case 'Person'. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons.givenName` | The person's given name. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.familyName` | The person's family name. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.email` | The person's email address. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation` | The organization the person is affiliated with. | Object | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation.jsonld.type` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons.affiliation.name` | The name of the organization. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation.identifier` | A unique identifier for the organization. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.identifier` | A unique identifier for the person (e.g., ORCID). | String | Zero-to-one |
+```
+
+*Example*: The properties of a Pressure Transducer sensor
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "jsonld.id": "https://sensors.gfz.de/devices/786",
+  "jsonld.type": "SensorProperties",
+  "identifier": "https://handle.net/1234567",
+  "isVariantOf": {
+    "jsonld.type": "ProductGroup",
+    "name": "Pressure transducer",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/equipmenttypes/42"
+  },
+  "isVirtual": false,
+  "model": "AdconBP1",
+  "manufacturer": {
+    "jsonld.type": "Organization",
+    "name": "OTT HydroMet",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/manufacturers/48"
+  },
+  "serialNumber": "heydenhof1",
+  "responsiblePersons": [
+    {
+      "jsonld.type": "Role",
+      "roleName": "Owner",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
+      "responsiblePersons": [
+        {
+          "jsonld.id": "https://sensors.gfz.de/contacts/12345",
+          "jsonld.type": "Person",
+          "givenName": "Jane",
+          "familyName": "Doe",
+          "email": "jane.doe@example.org",
+          "affiliation": {
+            "jsonld.type": "Organization",
+            "name": "GFZ Helmholtz Centre for Geosciences",
+            "identifier": "https://ror.org/04z8jg394"
+          },
+          "identifier": ""
+        }
+      ]
+    }
+  ]
+}
+```
 
 TBA
