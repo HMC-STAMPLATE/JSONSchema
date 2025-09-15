@@ -24,22 +24,22 @@ authors:
     given-names: Marc
     email: marc.hanisch@gfz.de
     orcid: "https://orcid.org/0000-0001-5272-4674"
-    affiliation: "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+    affiliation: "GFZ Helmholtz Centre for Geosciences"
   - family-names: Brinckmann
     given-names: Nils
     email: nils.brinckmann@gfz.de
     orcid: "https://orcid.org/0000-0001-8159-3888"
-    affiliation: "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+    affiliation: "GFZ Helmholtz Centre for Geosciences"
   - given-names: Claas
     family-names: Faber
-    affiliation: GEOMAR Helmholtz Centre for Ocean Research Kiel
     email: cfaber@geomar.de
-    orcid: 'https://orcid.org/0000-0002-4861-3338'
+    orcid: "https://orcid.org/0000-0002-4861-3338"
+    affiliation: GEOMAR Helmholtz Centre for Ocean Research Kiel
   - family-names: Schäfer
     given-names: David
     email: david.schaefer@ufz.de
-    affiliation: "Helmholtz Centre for Environmental Research - UFZ"
     orcid: "https://orcid.org/0000-0003-4517-6459"
+    affiliation: "Helmholtz Centre for Environmental Research - UFZ"
   - family-names: Lorenz
     given-names: Christof
     email: christof.lorenz@kit.edu
