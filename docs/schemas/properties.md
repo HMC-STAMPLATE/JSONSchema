@@ -10,7 +10,7 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 
 ## The enhanced *Thing*
 
-```{table} Table 1: The `properties` object of a Thing entity
+```{table} Table 1: The Thing properties
 :name: tbl-thing-properties
 :class: thing-table
 :align: left
