@@ -8,7 +8,7 @@ The provided data structures use [JSON-LD](https://json-ld.org/) and are loosely
 based on [schema.org](https://schema.org). A corresponding [JSON
 Schema](https://json-schema.org/) has been created on each `properties` object.
 
-## The enhanced *Thing properties* 
+## *Thing* properties 
 
 ```{table} Table 1: The Thing properties
 :name: tbl-thing-properties
@@ -139,7 +139,7 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 }
 ```
 
-## The enhanced *Sensor*
+## *Sensor* properties
 
 ```{table} Table 2: The Sensor properties
 :name: tbl-sensor-properties
@@ -233,4 +233,158 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 }
 ```
 
-TBA
+## *Datastream* properties 
+
+```{table} Table 3: The Datastream properties
+:name: tbl-datastream-properties
+:class: thing-table
+:align: left
+
+| *Name* | Definition | Data type | Multiplicity and use |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.type` | The type of the object, in this case 'DatastreamProperties'. | String | One (mandatory) |
+| `observingProcedure` | Details about the observing procedure. | Object | Zero-to-one |
+| `observingProcedure.jsonld.type` | The type of the object, in this case 'ObservingProcedure'. | String | One (mandatory) |
+| `observingProcedure.name` | The name of the procedure. | String | Zero-to-one |
+| `observingProcedure.description` | A description of the procedure. | String | Zero-to-one |
+| `observingProcedure.definition` | URL to the definition of the procedure. | String | Zero-to-one |
+| `observingProcedure.properties` | Additional properties of the procedure. | Object | Zero-to-one |
+| `observingProcedure.properties.period` | The duration of the observation period. | Number | Zero-to-one |
+| `observingProcedure.properties.unitOfPeriod` | The unit for the observation period. | Object | Zero-to-one |
+| `observingProcedure.properties.unitOfPeriod.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `observingProcedure.properties.unitOfPeriod.name` | The name of the unit. | String | Zero-to-one |
+| `observingProcedure.properties.unitOfPeriod.symbol` | The symbol for the unit. | String | Zero-to-one |
+| `observingProcedure.properties.unitOfPeriod.definition` | URL to the definition of the unit. | String | Zero-to-one |
+| `measurementProperties` | Properties of the measurement itself. | Object | Zero-to-one |
+| `measurementProperties.jsonld.type` | The type of the object, in this case 'MeasurementProperties'. | String | One (mandatory) |
+| `measurementProperties.measurementResolution` | The resolution of the measurement. | Number | Zero-to-one |
+| `measurementProperties.unitOfMeasurementResolution` | The unit for the measurement resolution. | Object | Zero-to-one |
+| `measurementProperties.unitOfMeasurementResolution.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `measurementProperties.unitOfMeasurementResolution.name` | The name of the unit. | String | Zero-to-one |
+| `measurementProperties.unitOfMeasurementResolution.symbol` | The symbol for the unit. | String | Zero-to-one |
+| `measurementProperties.unitOfMeasurementResolution.definition` | URL to the definition of the unit. | String | Zero-to-one |
+| `measurementProperties.measurementAccuracy` | The accuracy of the measurement. | Number | Zero-to-one |
+| `measurementProperties.unitOfMeasurementAccuracy` | The unit for the measurement accuracy. | Object | Zero-to-one |
+| `measurementProperties.unitOfMeasurementAccuracy.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `measurementProperties.unitOfMeasurementAccuracy.name` | The name of the unit. | String | Zero-to-one |
+| `measurementProperties.unitOfMeasurementAccuracy.symbol` | The symbol for the unit. | String | Zero-to-one |
+| `measurementProperties.unitOfMeasurementAccuracy.definition` | URL to the definition of the unit. | String | Zero-to-one |
+| `measurementProperties.operationRange` | The operational range of the measurement. | Array of Numbers | Zero-to-one |
+| `measurementProperties.unitOfOperationRange` | The unit for the operational range. | Object | Zero-to-one |
+| `measurementProperties.unitOfOperationRange.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `measurementProperties.unitOfOperationRange.name` | The name of the unit. | String | Zero-to-one |
+| `measurementProperties.unitOfOperationRange.symbol` | The symbol for the unit. | String | Zero-to-one |
+| `measurementProperties.unitOfOperationRange.definition` | URL to the definition of the unit. | String | Zero-to-one |
+| `license` | Information about the license for the data. | Object | Zero-to-one |
+| `license.jsonld.type` | The type of the object, in this case 'CreativeWork'. | String | One (mandatory) |
+| `license.name` | The name of the license. | String | Zero-to-one |
+| `license.url` | The URL to the full license text. | String | Zero-to-one |
+| `license.provider` | The provider of the license. | String | Zero-to-one |
+| `providerMobility` | The mobility of the data provider (e.g., 'static'). | String | Zero-to-one |
+| `deployment` | Details about the deployment of the datastream. | Object | Zero-to-one |
+| `deployment.jsonld.id` | Unique ID of the deployment. | String | One (mandatory) |
+| `deployment.jsonld.type` | The type of the object, in this case 'Deployment'. | String | One (mandatory) |
+| `deployment.deploymentTime` | The time of deployment. | String | Zero-to-one |
+| `deployment.properties` | Additional properties of the deployment. | Object | Zero-to-one |
+| `deployment.properties.jsonld.type` | The type of the object, in this case 'DeploymentProperties'. | String | One (mandatory) |
+| `deployment.properties.offsets` | The offsets of the deployment. | Object | Zero-to-one |
+| `deployment.properties.offsets.jsonld.type` | The type of the object, in this case 'Offset'. | String | One (mandatory) |
+| `deployment.properties.offsets.x` | The x-offset. | Number | Zero-to-one |
+| `deployment.properties.offsets.y` | The y-offset. | Number | Zero-to-one |
+| `deployment.properties.offsets.z` | The z-offset. | Number | Zero-to-one |
+| `deployment.properties.unitOfOffsets` | The unit for the offsets. | Object | Zero-to-one |
+| `deployment.properties.unitOfOffsets.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `deployment.properties.unitOfOffsets.name` | The name of the unit. | String | Zero-to-one |
+| `deployment.properties.unitOfOffsets.symbol` | The symbol for the unit. | String | Zero-to-one |
+| `deployment.properties.unitOfOffsets.definition` | URL to the definition of the unit. | String | Zero-to-one |
+| `dataSource` | The source of the data. | String | Zero-to-one |
+```
+
+*Example*: ...
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "jsonld.id": "https://sensors.gfz.de/datastream-links/6",
+  "jsonld.type": "DatastreamProperties",
+  "observingProcedure": {
+    "jsonld.type": "ObservingProcedure",
+    "name": "mean",
+    "description": "the arithmetic mean value",
+    "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/aggregationtypes/1",
+    "properties": {
+      "period": 600,
+      "unitOfPeriod": {
+        "jsonld.type": "Unit",
+        "name": "seconds",
+        "symbol": "s",
+        "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
+      }
+    }
+  },
+  "measurementProperties": {
+    "jsonld.type": "MeasurementProperties",
+    "measurementResolution": 0.2,
+    "unitOfMeasurementResolution": {
+      "jsonld.type": "Unit",
+      "name": "seconds",
+      "symbol": "sec",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/58"
+    },
+    "measurementAccuracy": 1.0,
+    "unitOfMeasurementAccuracy": {
+      "jsonld.type": "Unit",
+      "name": "millibars",
+      "symbol": "mbar",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
+    },
+    "operationRange": [
+      500.0,
+      1500.0
+    ],
+    "unitOfOperationRange": {
+      "jsonld.type": "Unit",
+      "name": "millibars",
+      "symbol": "mbar",
+      "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64"
+    }
+  },
+  "license": {
+    "jsonld.type": "CreativeWork",
+    "name": "GPLv3",
+    "url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+    "provider": "The HMC-STAMPLATE project consortium"
+  },
+  "providerMobility": "static",
+  "deployment": {
+    "jsonld.id": "https://sensors.gfz.de/configurations/35/platforms-and-devices?deviceMountAction=182",
+    "jsonld.type": "Deployment",
+    "deploymentTime": "2020-01-01T00:50-03:00",
+    "properties": {
+      "jsonld.type": "DeploymentProperties",
+      "offsets": {
+        "jsonld.type": "Offset",
+        "x": -3,
+        "y": 2,
+        "z": 10
+      },
+      "unitOfOffsets": {
+        "jsonld.type": "Unit",
+        "name": "meters",
+        "symbol": "m",
+        "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63"
+      }
+    }
+  },
+  "dataSource": "ftp/uploads01"
+}
+```
