@@ -20,7 +20,7 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
 | `@context.@version` | The version of the context. | String/Number | One (mandatory) |
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
-| `@context.@vocab` | The default vocabulary used (schema.org). | String | (One) mandatory |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
 | `jsonld.id` | Unique ID of the object. | String | (One) mandatory |
 | `jsonld.type` | The type of the object, in this case 'ThingProperties'. | String | One (mandatory) |
 | `identifier` | Another unique identifier for the object, eg. a PID. | String | Zero-to-one |
