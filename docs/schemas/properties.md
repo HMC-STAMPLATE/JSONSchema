@@ -388,3 +388,157 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
   "dataSource": "ftp/uploads01"
 }
 ```
+
+## *Observed Property* properties
+
+```{table} Table 4: The Observed Property properties
+:name: tbl-property-properties
+:class: thing-table
+:align: left
+
+| *Name* | Definition | Data type | Multiplicity and use |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.type` | The type of the object, in this case 'ObservedPropertyProperties'. | String | One (mandatory) |
+```
+
+*Example*: ...
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "jsonld.id": "https://sensors.gfz.de/cv/api/v1/measuredquantities/32/",
+  "jsonld.type": "ObservedPropertyProperties"
+}
+```
+
+## *Observation* properties
+
+```{table} Table 5: The Observation properties
+:name: tbl-observation-properties
+:class: thing-table
+:align: left
+
+| *Name* | Definition | Data type | Multiplicity and use |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
+| `jsonld.type` | The type of the object, in this case 'ObservationProperties'. | String | One (mandatory) |
+| `dataSource` | The source of the observation data. | String | Zero-to-one |
+```
+
+*Example*: ...
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "jsonld.type": "ObservationProperties",
+  "dataSource": "file01.csv"
+}
+```
+
+## *Observation ResultQuality* properties
+
+```{table} Table 5: The Observation Result Quality properties
+:name: tbl-observation-resultquality-properties
+:class: thing-table
+:align: left
+
+| *Name* | Definition | Data type | Multiplicity and use |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
+| `annotations` | A list of annotations for the object. | Array of Objects | Zero-to-many |
+| `annotations.@id` | Unique ID of the annotation. | String | Zero-to-one |
+| `annotations.@type` | The type of the annotation, in this case 'ObservationResultQuality'. | String | One (mandatory) |
+| `annotations.annotation` | The value of the annotation. | String | Zero-to-one |
+| `annotations.annotationType` | The type of the annotation (e.g., 'SaQC', 'generic'). | String | Zero-to-one |
+| `annotations.properties` | Additional properties of the annotation. | Object | Zero-to-one |
+| `annotations.properties.version` | The version of the annotation. | String | Zero-to-one |
+| `annotations.properties.measure` | The measure used for the annotation. | String | Zero-to-one |
+| `annotations.properties.definition` | URL to the definition of the properties. | String | Zero-to-one |
+```
+
+*Example*: ...
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "annotations": [
+    {
+      "@id": "https://rdm-software.pages.ufz.de/saqc/",
+      "@type": "ObservationResultQuality",
+      "annotation": "99",
+      "annotationType": "SaQC",
+      "properties": {
+        "version": "2.6",
+        "measure": "flagUniLOF",
+        "definition": "https://url/to/config"
+      }
+    },
+    {
+      "@id": "https://tereno.net/quality",
+      "@type": "ObservationResultQuality",
+      "annotation": "baddata",
+      "annotationType": "generic"
+    },
+    {
+      "@id": "https://tereno.net/quality",
+      "@type": "ObservationResultQuality",
+      "annotation": "Analysis error",
+      "annotationType": "specific"
+    }
+  ]
+}
+```
+
+## *Location* properties
+
+```{table} Table 6: The Location properties
+:name: tbl-location-properties
+:class: thing-table
+:align: left
+
+| *Name* | Definition | Data type | Multiplicity and use |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.type` | The type of the object, in this case 'LocationProperties'. | String | One (mandatory) |
+```
+
+*Example*: ...
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "jsonld.id": "https://sensors.gfz.de/configurations/35/locations/static-location-actions/15",
+  "jsonld.type": "LocationProperties"
+}
+```
