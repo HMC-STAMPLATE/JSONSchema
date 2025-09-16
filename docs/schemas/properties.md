@@ -21,49 +21,50 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context.@version` | The version of the context. | String/Number | One (mandatory) |
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
-| `jsonld.id` | Unique ID of the object. | String | (One) mandatory |
+| `jsonld.id` | Unique ID of the object (e.g., the URL to its representation in an application). | String | (One) mandatory |
 | `jsonld.type` | The type of the object, in this case 'ThingProperties'. | String | One (mandatory) |
 | `identifier` | Another unique identifier for the object, eg. a PID. | String | Zero-to-one |
-| `responsiblePersons` | A list of persons responsible for the object. | Array of Objects | Zero-to-many |
-| `responsiblePersons.jsonld.type` | The type of the object, in this case 'Role'. | String | One (mandatory) |
+| `responsiblePersons` | A list of persons responsible for the object. | Array of [Role](https://schema.org/Role)-Objects | Zero-to-many |
+| `responsiblePersons["jsonld.type"]` | The type of the object, in this case 'Role'. | String | One (mandatory) |
 | `responsiblePersons.roleName` | The name of the role (e.g., 'Owner'). | String | Zero-to-one |
 | `responsiblePersons.definition` | URL to the definition of the role. | String | Zero-to-one |
-| `responsiblePersons.responsiblePersons` | A nested list of person objects fulfilling the role. | Array of Objects | Zero-to-many |
-| `responsiblePersons.responsiblePersons.jsonld.id` | Unique ID of the person. | String | One (mandatory) |
-| `responsiblePersons.responsiblePersons.jsonld.type` | The type of the object, in this case 'Person'. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons` | A nested list of person objects fulfilling the role. | Array of [Person](https://schema.org/Person)-Objects | Zero-to-many |
+| `responsiblePersons.responsiblePersons["jsonld.id"]` | Unique ID of the person (e.g., the URL to its representation in an application). | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons["jsonld.type"]` | The type of the object, in this case 'Person'. | String | One (mandatory) |
 | `responsiblePersons.responsiblePersons.givenName` | The person's given name. | String | Zero-to-one |
 | `responsiblePersons.responsiblePersons.familyName` | The person's family name. | String | Zero-to-one |
 | `responsiblePersons.responsiblePersons.email` | The person's email address. | String | Zero-to-one |
-| `responsiblePersons.responsiblePersons.affiliation` | The organization the person is affiliated with. | Object | Zero-to-one |
-| `responsiblePersons.responsiblePersons.affiliation.jsonld.type` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons.affiliation` | The organization the person is affiliated with. | [Organization](https://schema.org/Organization)-Object | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation["jsonld.type"]` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
 | `responsiblePersons.responsiblePersons.affiliation.name` | Name of the organization. | String | Zero-to-one |
-| `responsiblePersons.responsiblePersons.affiliation.identifier` | Unique identifier of the organization. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation.identifier` | Unique identifier of the organization (e.g., ROR). | String | Zero-to-one |
 | `responsiblePersons.responsiblePersons.identifier` | Unique identifier of the person (e.g., ORCID). | String | Zero-to-one |
-| `partOfProjects` | A list of projects this object belongs to. | Array of Objects | Zero-to-many |
-| `partOfProjects.jsonld.type` | The type of the object, in this case 'ResearchProject'. | String | One (mandatory) |
+| `partOfProjects` | A list of projects this object belongs to. | Array of [ResearchProject](https://schema.org/ResearchProject)-Objects | Zero-to-many |
+| `partOfProjects["jsonld.type"]` | The type of the object, in this case 'ResearchProject'. | String | One (mandatory) |
 | `partOfProjects.name` | Name of the project. | String | Zero-to-one |
-| `images` | A list of images linked to the object. | Array of Objects | Zero-to-many |
+| `images` | A list of images linked to the object. | Array of [ImageObject](https://schema.org/ImageObject)-Objects | Zero-to-many |
 | `images.@type` | The type of the object, in this case 'ImageObject'. | String | One (mandatory) |
 | `images.caption` | A short caption for the image. | String | Zero-to-one |
 | `images.contentUrl` | The URL where the image can be accessed. | String | Zero-to-one |
-| `metadata` | Metadata for the object. | Object | Zero-to-one |
-| `metadata.jsonld.type` | The type of the object, in this case 'Dataset'. | String | One (mandatory) |
-| `metadata.encodingType` | The encoding type of the dataset. | String | Zero-to-one |
-| `metadata.distribution` | Information about the dataset's distribution. | Object | Zero-to-one |
-| `metadata.distribution.jsonld.type` | The type of the object, in this case 'DataDownload'. | String | One (mandatory) |
+| `metadata` | Additional Metadata describing the thing. | [Dataset](https://schema.org/Dataset)-Object | Zero-to-one |
+| `metadata["jsonld.type"]` | The type of the object, in this case 'Dataset'. | String | One (mandatory) |
+| `metadata.encodingType` | The encoding type of the dataset. Must be one of `application/pdf`, `http://www.opengis.net/doc/IS/SensorML/2.0`,  `text/html` | String | Zero-to-one |
+| `metadata.distribution` | Information about the dataset's distribution. Use this, if a download link is provided. | [DataDownload](https://schema.org/DataDownload)-Object | Zero-to-one |
+| `metadata.distribution["jsonld.type"]` | The type of the object, in this case 'DataDownload'. | String | One (mandatory) |
 | `metadata.distribution.url` | The URL to download the dataset. | String | Zero-to-one |
+| `metadata.text` | Text representation of the metadata. Use this, if a SensorML or plain text representation should be provided. | String | Zero-to-one |
 | `sourceRelatedThings` | A list of related things from which this object originates. | Array of Objects | Zero-to-many |
-| `sourceRelatedThings.jsonld.id` | Unique ID of the related object. | String | One (mandatory) |
-| `sourceRelatedThings.jsonld.type` | The type of the object, in this case 'RelatedThing'. | String | One (mandatory) |
+| `sourceRelatedThings["jsonld.id"]` | Unique ID of the related thing (e.g., the URL to its representation in an application). | String | One (mandatory) |
+| `sourceRelatedThings["jsonld.type"]` | The type of the object, in this case 'RelatedThing'. | String | One (mandatory) |
 | `sourceRelatedThings.relationRole` | The role the object plays in the relationship. | Object | Zero-to-one |
-| `sourceRelatedThings.relationRole.jsonld.type` | The type of the object, in this case 'RelationRole'. | String | One (mandatory) |
+| `sourceRelatedThings.relationRole["jsonld.type"]` | The type of the object, in this case 'RelationRole'. | String | One (mandatory) |
 | `sourceRelatedThings.relationRole.name` | The name of the relationship (e.g., 'containedInPlace'). | String | Zero-to-one |
 | `sourceRelatedThings.relationRole.definition` | URL to the definition of the relationship. | String | Zero-to-one |
 | `sourceRelatedThings.relationRole.inverseName` | The name of the inverse relationship. | String | Zero-to-one |
 | `sourceRelatedThings.relationRole.inverseDefinition` | URL to the definition of the inverse relationship. | String | Zero-to-one |
 ```
 
-*Example*: ...
+*Example*: Additional information for a *Thing*, in this case a climate station.
 
 ```JSON
 {
@@ -152,38 +153,38 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context.@version` | The version of the context. | Number | One (mandatory) |
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used. | String | One (mandatory) |
-| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the sensor (e.g., the URL to its representation in an application). | String | One (mandatory) |
 | `jsonld.type` | The type of the object, in this case 'SensorProperties'. | String | One (mandatory) |
 | `identifier` | Another unique identifier for the object, e.g., a PID. | String | Zero-to-one |
-| `isVariantOf` | Describes the product group the sensor belongs to. | Object | Zero-to-one |
-| `isVariantOf.jsonld.type` | The type of the object, in this case 'ProductGroup'. | String | One (mandatory) |
+| `isVariantOf` | Describes the product group the sensor belongs to. | [ProductGroup](https://schema.org/ProductGroup)-Object | Zero-to-one |
+| `isVariantOf["jsonld.type"]` | The type of the object, in this case 'ProductGroup'. | String | One (mandatory) |
 | `isVariantOf.name` | The name of the product group. | String | Zero-to-one |
 | `isVariantOf.definition` | URL to the definition of the product group. | String | Zero-to-one |
 | `isVirtual` | Indicates if the sensor is virtual. | Boolean | Zero-to-one |
 | `model` | The model name of the sensor. | String | Zero-to-one |
-| `manufacturer` | Information about the manufacturer of the sensor. | Object | Zero-to-one |
-| `manufacturer.jsonld.type` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
+| `manufacturer` | Information about the manufacturer of the sensor. | [Organization](https://schema.org/Organization)-Object | Zero-to-one |
+| `manufacturer["jsonld.type"]` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
 | `manufacturer.name` | The name of the manufacturer. | String | Zero-to-one |
 | `manufacturer.definition` | URL to the definition of the manufacturer. | String | Zero-to-one |
 | `serialNumber` | The serial number of the sensor. | String | Zero-to-one |
-| `responsiblePersons` | A list of persons responsible for the object. | Array of Objects | Zero-to-many |
-| `responsiblePersons.jsonld.type` | The type of the object, in this case 'Role'. | String | One (mandatory) |
+| `responsiblePersons` | A list of persons responsible for the object. | Array of [Role](https://schema.org/Role)-Objects | Zero-to-many |
+| `responsiblePersons["jsonld.type"]` | The type of the object, in this case 'Role'. | String | One (mandatory) |
 | `responsiblePersons.roleName` | The name of the role (e.g., 'Owner'). | String | Zero-to-one |
 | `responsiblePersons.definition` | URL to the definition of the role. | String | Zero-to-one |
-| `responsiblePersons.responsiblePersons` | A nested list of person objects fulfilling the role. | Array of Objects | Zero-to-many |
-| `responsiblePersons.responsiblePersons.jsonld.id` | Unique ID of the person. | String | One (mandatory) |
-| `responsiblePersons.responsiblePersons.jsonld.type` | The type of the object, in this case 'Person'. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons` | A nested list of person objects fulfilling the role. | Array of [Person](https://schema.org/Person)-Objects | Zero-to-many |
+| `responsiblePersons.responsiblePersons["jsonld.id"]` | Unique ID of the person (e.g., the URL to its representation in an application). | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons["jsonld.type"]` | The type of the object, in this case 'Person'. | String | One (mandatory) |
 | `responsiblePersons.responsiblePersons.givenName` | The person's given name. | String | Zero-to-one |
 | `responsiblePersons.responsiblePersons.familyName` | The person's family name. | String | Zero-to-one |
 | `responsiblePersons.responsiblePersons.email` | The person's email address. | String | Zero-to-one |
-| `responsiblePersons.responsiblePersons.affiliation` | The organization the person is affiliated with. | Object | Zero-to-one |
-| `responsiblePersons.responsiblePersons.affiliation.jsonld.type` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
+| `responsiblePersons.responsiblePersons.affiliation` | The organization the person is affiliated with. | [Organization](https://schema.org/Organization)-Object | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation["jsonld.type"]` | The type of the object, in this case 'Organization'. | String | One (mandatory) |
 | `responsiblePersons.responsiblePersons.affiliation.name` | The name of the organization. | String | Zero-to-one |
-| `responsiblePersons.responsiblePersons.affiliation.identifier` | A unique identifier for the organization. | String | Zero-to-one |
+| `responsiblePersons.responsiblePersons.affiliation.identifier` | A unique identifier for the organization (e.g., ROR). | String | Zero-to-one |
 | `responsiblePersons.responsiblePersons.identifier` | A unique identifier for the person (e.g., ORCID). | String | Zero-to-one |
 ```
 
-*Example*: The properties of a Pressure Transducer sensor
+*Example*: Additional information for a *Sensor*, in this case a Pressure Transducer.
 
 ```JSON
 {
@@ -207,7 +208,7 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
     "name": "OTT HydroMet",
     "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/manufacturers/48"
   },
-  "serialNumber": "heydenhof1",
+  "serialNumber": "12345",
   "responsiblePersons": [
     {
       "jsonld.type": "Role",
@@ -246,66 +247,66 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context.@version` | The version of the context. | String/Number | One (mandatory) |
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
-| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the datastream (e.g., the URL to its representation in an application). | String | One (mandatory) |
 | `jsonld.type` | The type of the object, in this case 'DatastreamProperties'. | String | One (mandatory) |
 | `observingProcedure` | Details about the observing procedure. | Object | Zero-to-one |
-| `observingProcedure.jsonld.type` | The type of the object, in this case 'ObservingProcedure'. | String | One (mandatory) |
+| `observingProcedure["jsonld.type"]` | The type of the object, in this case 'ObservingProcedure'. | String | One (mandatory) |
 | `observingProcedure.name` | The name of the procedure. | String | Zero-to-one |
 | `observingProcedure.description` | A description of the procedure. | String | Zero-to-one |
 | `observingProcedure.definition` | URL to the definition of the procedure. | String | Zero-to-one |
 | `observingProcedure.properties` | Additional properties of the procedure. | Object | Zero-to-one |
 | `observingProcedure.properties.period` | The duration of the observation period. | Number | Zero-to-one |
 | `observingProcedure.properties.unitOfPeriod` | The unit for the observation period. | Object | Zero-to-one |
-| `observingProcedure.properties.unitOfPeriod.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `observingProcedure.properties.unitOfPeriod["jsonld.type"]` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
 | `observingProcedure.properties.unitOfPeriod.name` | The name of the unit. | String | Zero-to-one |
 | `observingProcedure.properties.unitOfPeriod.symbol` | The symbol for the unit. | String | Zero-to-one |
 | `observingProcedure.properties.unitOfPeriod.definition` | URL to the definition of the unit. | String | Zero-to-one |
 | `measurementProperties` | Properties of the measurement itself. | Object | Zero-to-one |
-| `measurementProperties.jsonld.type` | The type of the object, in this case 'MeasurementProperties'. | String | One (mandatory) |
+| `measurementProperties["jsonld.type"]` | The type of the object, in this case 'MeasurementProperties'. | String | One (mandatory) |
 | `measurementProperties.measurementResolution` | The resolution of the measurement. | Number | Zero-to-one |
 | `measurementProperties.unitOfMeasurementResolution` | The unit for the measurement resolution. | Object | Zero-to-one |
-| `measurementProperties.unitOfMeasurementResolution.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `measurementProperties.unitOfMeasurementResolution["jsonld.type"]` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
 | `measurementProperties.unitOfMeasurementResolution.name` | The name of the unit. | String | Zero-to-one |
 | `measurementProperties.unitOfMeasurementResolution.symbol` | The symbol for the unit. | String | Zero-to-one |
 | `measurementProperties.unitOfMeasurementResolution.definition` | URL to the definition of the unit. | String | Zero-to-one |
 | `measurementProperties.measurementAccuracy` | The accuracy of the measurement. | Number | Zero-to-one |
 | `measurementProperties.unitOfMeasurementAccuracy` | The unit for the measurement accuracy. | Object | Zero-to-one |
-| `measurementProperties.unitOfMeasurementAccuracy.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `measurementProperties.unitOfMeasurementAccuracy["jsonld.type"]` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
 | `measurementProperties.unitOfMeasurementAccuracy.name` | The name of the unit. | String | Zero-to-one |
 | `measurementProperties.unitOfMeasurementAccuracy.symbol` | The symbol for the unit. | String | Zero-to-one |
 | `measurementProperties.unitOfMeasurementAccuracy.definition` | URL to the definition of the unit. | String | Zero-to-one |
 | `measurementProperties.operationRange` | The operational range of the measurement. | Array of Numbers | Zero-to-one |
 | `measurementProperties.unitOfOperationRange` | The unit for the operational range. | Object | Zero-to-one |
-| `measurementProperties.unitOfOperationRange.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `measurementProperties.unitOfOperationRange["jsonld.type"]` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
 | `measurementProperties.unitOfOperationRange.name` | The name of the unit. | String | Zero-to-one |
 | `measurementProperties.unitOfOperationRange.symbol` | The symbol for the unit. | String | Zero-to-one |
 | `measurementProperties.unitOfOperationRange.definition` | URL to the definition of the unit. | String | Zero-to-one |
-| `license` | Information about the license for the data. | Object | Zero-to-one |
-| `license.jsonld.type` | The type of the object, in this case 'CreativeWork'. | String | One (mandatory) |
+| `license` | Information about the license for the data. | [CreativeWork](https://schema.org/CreativeWork)-Object | Zero-to-one |
+| `license["jsonld.type"]` | The type of the object, in this case 'CreativeWork'. | String | One (mandatory) |
 | `license.name` | The name of the license. | String | Zero-to-one |
 | `license.url` | The URL to the full license text. | String | Zero-to-one |
 | `license.provider` | The provider of the license. | String | Zero-to-one |
 | `providerMobility` | The mobility of the data provider (e.g., 'static'). | String | Zero-to-one |
 | `deployment` | Details about the deployment of the datastream. | Object | Zero-to-one |
-| `deployment.jsonld.id` | Unique ID of the deployment. | String | One (mandatory) |
-| `deployment.jsonld.type` | The type of the object, in this case 'Deployment'. | String | One (mandatory) |
+| `deployment["jsonld.id"]` | Unique ID of the deployment (e.g., the URL to its representation in an application). | String | One (mandatory) |
+| `deployment["jsonld.type"]` | The type of the object, in this case 'Deployment'. | String | One (mandatory) |
 | `deployment.deploymentTime` | The time of deployment. | String | Zero-to-one |
 | `deployment.properties` | Additional properties of the deployment. | Object | Zero-to-one |
-| `deployment.properties.jsonld.type` | The type of the object, in this case 'DeploymentProperties'. | String | One (mandatory) |
+| `deployment.properties["jsonld.type"]` | The type of the object, in this case 'DeploymentProperties'. | String | One (mandatory) |
 | `deployment.properties.offsets` | The offsets of the deployment. | Object | Zero-to-one |
-| `deployment.properties.offsets.jsonld.type` | The type of the object, in this case 'Offset'. | String | One (mandatory) |
+| `deployment.properties.offsets["jsonld.type"]` | The type of the object, in this case 'Offset'. | String | One (mandatory) |
 | `deployment.properties.offsets.x` | The x-offset. | Number | Zero-to-one |
 | `deployment.properties.offsets.y` | The y-offset. | Number | Zero-to-one |
 | `deployment.properties.offsets.z` | The z-offset. | Number | Zero-to-one |
 | `deployment.properties.unitOfOffsets` | The unit for the offsets. | Object | Zero-to-one |
-| `deployment.properties.unitOfOffsets.jsonld.type` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
+| `deployment.properties.unitOfOffsets["jsonld.type"]` | The type of the object, in this case 'Unit'. | String | One (mandatory) |
 | `deployment.properties.unitOfOffsets.name` | The name of the unit. | String | Zero-to-one |
 | `deployment.properties.unitOfOffsets.symbol` | The symbol for the unit. | String | Zero-to-one |
 | `deployment.properties.unitOfOffsets.definition` | URL to the definition of the unit. | String | Zero-to-one |
-| `dataSource` | The source of the data. | String | Zero-to-one |
+| `dataSource` | A descriptive string indicating the source of the data. | String | Zero-to-one |
 ```
 
-*Example*: ...
+*Example*: Additional information for a *Datastream*
 
 ```JSON
 {
@@ -389,7 +390,9 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 }
 ```
 
-## *Observed Property* properties
+## *ObservedProperty* properties
+
+No specific properties have been defined so far.
 
 ```{table} Table 4: The Observed Property properties
 :name: tbl-property-properties
@@ -402,11 +405,11 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context.@version` | The version of the context. | String/Number | One (mandatory) |
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
-| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the Observed Property (e.g., the URL to its representation in an application). | String | One (mandatory) |
 | `jsonld.type` | The type of the object, in this case 'ObservedPropertyProperties'. | String | One (mandatory) |
 ```
 
-*Example*: ...
+*Example*: Additional information for an *ObservedProperty*
 
 ```JSON
 {
@@ -434,10 +437,10 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
 | `jsonld.type` | The type of the object, in this case 'ObservationProperties'. | String | One (mandatory) |
-| `dataSource` | The source of the observation data. | String | Zero-to-one |
+| `dataSource` | A descriptive string indicating the source of the observation data. | String | Zero-to-one |
 ```
 
-*Example*: ...
+*Example*: Additional information for an *Observation*
 
 ```JSON
 {
@@ -472,10 +475,10 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `annotations.properties` | Additional properties of the annotation. | Object | Zero-to-one |
 | `annotations.properties.version` | The version of the annotation. | String | Zero-to-one |
 | `annotations.properties.measure` | The measure used for the annotation. | String | Zero-to-one |
-| `annotations.properties.definition` | URL to the definition of the properties. | String | Zero-to-one |
+| `annotations.properties.definition` | URL to the definition of measure. | String | Zero-to-one |
 ```
 
-*Example*: ...
+*Example*: Additional information for the *ResultQuality*
 
 ```JSON
 {
@@ -514,6 +517,8 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 
 ## *Location* properties
 
+No specific properties have been defined so far.
+
 ```{table} Table 6: The Location properties
 :name: tbl-location-properties
 :class: thing-table
@@ -525,11 +530,11 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 | `@context.@version` | The version of the context. | String/Number | One (mandatory) |
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
-| `jsonld.id` | Unique ID of the object. | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the location (e.g., the URL to its representation in an application). | String | One (mandatory) |
 | `jsonld.type` | The type of the object, in this case 'LocationProperties'. | String | One (mandatory) |
 ```
 
-*Example*: ...
+*Example*: Additional information for a *Location*
 
 ```JSON
 {
