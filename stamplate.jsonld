@@ -15,7 +15,6 @@
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/ObservationResultQualityProperties",
       "@type": "@id"
     },
-
     "Deployment": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/Deployment",
       "@type": "@id",
@@ -282,6 +281,9 @@
     "annotationType": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/annotationType"
     },
+    "annotationTime": {
+      "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/annotationTime"
+    }
     "qualityMeasure": {
       "@id": "https://codebase.helmholtz.cloud/stamplate/vocab/qualityMeasure"
     },
