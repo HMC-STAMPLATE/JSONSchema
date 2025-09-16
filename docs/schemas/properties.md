@@ -10,6 +10,16 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 
 ## *Thing* properties 
 
+The `ThingProperties` schema definition serves as a structured extension for the
+OGC SensorThings API (STA) `Thing` entity. This schema allows for the enrichment
+of `Thing` entities with critical information, such as persistent identifiers
+(PIDs) for the Thing itself, details about the individuals or organizations
+responsible for the Thing including roles and affiliations, links to projects
+the Thing is associated with, a collection of images for visual documentation,
+links to external metadata records and data distributions like SensorML
+documents, and relationships to other Things, such as a sensor's relationship
+to a platform.
+
 ```{table} Table 1: The Thing properties
 :name: tbl-thing-properties
 :class: thing-table
@@ -142,6 +152,14 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 
 ## *Sensor* properties
 
+The `SensorProperties` schema definition serves as a structured extension for
+the OGC SensorThings API (STA) `Sensor` entity. This schema definition allows for
+the detailed documentation of sensors, including their unique identifiers, the
+product group they belong to, whether they are virtual or physical, their
+specific model and manufacturer details, serial numbers, and importantly,
+information about the responsible persons, complete with their roles,
+affiliations, and contact information.
+
 ```{table} Table 2: The Sensor properties
 :name: tbl-sensor-properties
 :class: thing-table
@@ -235,6 +253,17 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 ```
 
 ## *Datastream* properties 
+
+The `DatastreamProperties` schema definition serves as a structured extension
+for the OGC SensorThings API (STA) `Datastream` entity. It allows for a more
+comprehensive description of a datastream by providing details about its
+observing procedure, including specific parameters like the aggregation period
+and its unit, as well as defining the measurement properties such as
+resolution, accuracy, and operational range, complete with their respective
+units. Furthermore, this schema accommodates information regarding the license
+under which the data is provided, the mobility, specific deployment details
+including timestamps and spatial offsets, and the data source from which the
+datastream originates. 
 
 ```{table} Table 3: The Datastream properties
 :name: tbl-datastream-properties
@@ -390,11 +419,50 @@ Schema](https://json-schema.org/) has been created on each `properties` object.
 }
 ```
 
-## *ObservedProperty* properties
+## *Location* properties
+
+The `LocationProperties` schema definition serves as a structured extension for
+the OGC SensorThings API (STA) `Location` entity.
 
 No specific properties have been defined so far.
 
-```{table} Table 4: The Observed Property properties
+```{table} Table 4: The Location properties
+:name: tbl-location-properties
+:class: thing-table
+:align: left
+
+| *Name* | Definition | Data type | Multiplicity and use |
+| :--- | :--- | :--- | :--- |
+| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
+| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
+| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
+| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
+| `jsonld.id` | Unique ID of the location (e.g., the URL to its representation in an application). | String | One (mandatory) |
+| `jsonld.type` | The type of the object, in this case 'LocationProperties'. | String | One (mandatory) |
+```
+
+*Example*: Additional information for a *Location*
+
+```JSON
+{
+  "@context": {
+    "@version": 1.1,
+    "@import": "stamplate.jsonld",
+    "@vocab": "http://schema.org/"
+  },
+  "jsonld.id": "https://sensors.gfz.de/configurations/35/locations/static-location-actions/15",
+  "jsonld.type": "LocationProperties"
+}
+```
+
+## *ObservedProperty* properties
+
+The `ObservedPropertyProperties` schema definition serves as a structured
+extension for the OGC SensorThings API (STA) `ObservedProperty` entity.
+
+No specific properties have been defined so far.
+
+```{table} Table 5: The Observed Property properties
 :name: tbl-property-properties
 :class: thing-table
 :align: left
@@ -425,7 +493,10 @@ No specific properties have been defined so far.
 
 ## *Observation* properties
 
-```{table} Table 5: The Observation properties
+The `ObservationProperties` schema definition serves as a structured extension
+for the OGC SensorThings API (STA) `Observation` entity.
+
+```{table} Table 6: The Observation properties
 :name: tbl-observation-properties
 :class: thing-table
 :align: left
@@ -456,7 +527,10 @@ No specific properties have been defined so far.
 
 ## *Observation ResultQuality* properties
 
-```{table} Table 5: The Observation Result Quality properties
+> [!WARNING]
+> Work in progress
+
+```{table} Table 7: The Observation Result Quality properties
 :name: tbl-observation-resultquality-properties
 :class: thing-table
 :align: left
@@ -515,35 +589,3 @@ No specific properties have been defined so far.
 }
 ```
 
-## *Location* properties
-
-No specific properties have been defined so far.
-
-```{table} Table 6: The Location properties
-:name: tbl-location-properties
-:class: thing-table
-:align: left
-
-| *Name* | Definition | Data type | Multiplicity and use |
-| :--- | :--- | :--- | :--- |
-| `@context` | JSON-LD context for defining keywords and vocabulary. | Object | One (mandatory) |
-| `@context.@version` | The version of the context. | String/Number | One (mandatory) |
-| `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
-| `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
-| `jsonld.id` | Unique ID of the location (e.g., the URL to its representation in an application). | String | One (mandatory) |
-| `jsonld.type` | The type of the object, in this case 'LocationProperties'. | String | One (mandatory) |
-```
-
-*Example*: Additional information for a *Location*
-
-```JSON
-{
-  "@context": {
-    "@version": 1.1,
-    "@import": "stamplate.jsonld",
-    "@vocab": "http://schema.org/"
-  },
-  "jsonld.id": "https://sensors.gfz.de/configurations/35/locations/static-location-actions/15",
-  "jsonld.type": "LocationProperties"
-}
-```
