@@ -248,12 +248,1293 @@
         <article role="main" id="furo-main-content">
           <section id="enhanced-sta-properties">
 <h1>Enhanced STA Properties<a class="headerlink" href="#enhanced-sta-properties" title="Link to this heading">¶</a></h1>
-<section id="the-enhanced-thing">
-<h2>The enhanced <em>Thing</em><a class="headerlink" href="#the-enhanced-thing" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">properties</span></code> objects in the respective OGC STA entities are populated with
+additional information that is difficult or impossible to represent with the
+current STA data model (<a class="reference external" href="https://docs.ogc.org/is/18-088/18-088.html">OGC SensorThings API Part 1: Sensing Version 1.1</a>).</p>
+<p>The provided data structures use <a class="reference external" href="https://json-ld.org/">JSON-LD</a> and are loosely
+based on <a class="reference external" href="https://schema.org">schema.org</a>. A corresponding <a class="reference external" href="https://json-schema.org/">JSON
+Schema</a> has been created on each <code class="docutils literal notranslate"><span class="pre">properties</span></code> object.</p>
+<section id="thing-properties">
+<h2><em>Thing</em> properties<a class="headerlink" href="#thing-properties" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ThingProperties</span></code> schema definition serves as a structured extension for the
+OGC SensorThings API (STA) <code class="docutils literal notranslate"><span class="pre">Thing</span></code> entity. This schema allows for the enrichment
+of <code class="docutils literal notranslate"><span class="pre">Thing</span></code> entities with critical information, such as persistent identifiers
+(PIDs) for the Thing itself, details about the individuals or organizations
+responsible for the Thing including roles and affiliations, links to projects
+the Thing is associated with, a collection of images for visual documentation,
+links to external metadata records and data distributions like SensorML
+documents, and relationships to other Things, such as a sensor’s relationship
+to a platform.</p>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-thing-properties">
+<table class="thing-table docutils align-left" id="tbl-thing-properties">
+<caption><span class="caption-text">Table 1: The Thing properties</span><a class="headerlink" href="#tbl-thing-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Definition</p></th>
+<th class="head text-left"><p>Data type</p></th>
+<th class="head text-left"><p>Multiplicity and use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>String/Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used (schema.org).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.id</span></code></p></td>
+<td class="text-left"><p>Unique ID of the object (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>(One) mandatory</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ThingProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">identifier</span></code></p></td>
+<td class="text-left"><p>Another unique identifier for the object, eg. a PID.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons</span></code></p></td>
+<td class="text-left"><p>A list of persons responsible for the object.</p></td>
+<td class="text-left"><p>Array of <a class="reference external" href="https://schema.org/Role">Role</a>-Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Role’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.roleName</span></code></p></td>
+<td class="text-left"><p>The name of the role (e.g., ‘Owner’).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the role.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons</span></code></p></td>
+<td class="text-left"><p>A nested list of person objects fulfilling the role.</p></td>
+<td class="text-left"><p>Array of <a class="reference external" href="https://schema.org/Person">Person</a>-Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons[&quot;jsonld.id&quot;]</span></code></p></td>
+<td class="text-left"><p>Unique ID of the person (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Person’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.givenName</span></code></p></td>
+<td class="text-left"><p>The person’s given name.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.familyName</span></code></p></td>
+<td class="text-left"><p>The person’s family name.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.email</span></code></p></td>
+<td class="text-left"><p>The person’s email address.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation</span></code></p></td>
+<td class="text-left"><p>The organization the person is affiliated with.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/Organization">Organization</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Organization’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation.name</span></code></p></td>
+<td class="text-left"><p>Name of the organization.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation.identifier</span></code></p></td>
+<td class="text-left"><p>Unique identifier of the organization (e.g., ROR).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.identifier</span></code></p></td>
+<td class="text-left"><p>Unique identifier of the person (e.g., ORCID).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">partOfProjects</span></code></p></td>
+<td class="text-left"><p>A list of projects this object belongs to.</p></td>
+<td class="text-left"><p>Array of <a class="reference external" href="https://schema.org/ResearchProject">ResearchProject</a>-Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">partOfProjects[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ResearchProject’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">partOfProjects.name</span></code></p></td>
+<td class="text-left"><p>Name of the project.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">images</span></code></p></td>
+<td class="text-left"><p>A list of images linked to the object.</p></td>
+<td class="text-left"><p>Array of <a class="reference external" href="https://schema.org/ImageObject">ImageObject</a>-Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">images.&#64;type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ImageObject’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">images.caption</span></code></p></td>
+<td class="text-left"><p>A short caption for the image.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">images.contentUrl</span></code></p></td>
+<td class="text-left"><p>The URL where the image can be accessed.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code></p></td>
+<td class="text-left"><p>Additional Metadata describing the thing.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/Dataset">Dataset</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Dataset’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata.encodingType</span></code></p></td>
+<td class="text-left"><p>The encoding type of the dataset. Must be one of <code class="docutils literal notranslate"><span class="pre">application/pdf</span></code>, <code class="docutils literal notranslate"><span class="pre">http://www.opengis.net/doc/IS/SensorML/2.0</span></code>,  <code class="docutils literal notranslate"><span class="pre">text/html</span></code></p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata.distribution</span></code></p></td>
+<td class="text-left"><p>Information about the dataset’s distribution. Use this, if a download link is provided.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/DataDownload">DataDownload</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata.distribution[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘DataDownload’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata.distribution.url</span></code></p></td>
+<td class="text-left"><p>The URL to download the dataset.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">metadata.text</span></code></p></td>
+<td class="text-left"><p>Text representation of the metadata. Use this, if a SensorML or plain text representation should be provided.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings</span></code></p></td>
+<td class="text-left"><p>A list of related things from which this object originates.</p></td>
+<td class="text-left"><p>Array of Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings[&quot;jsonld.id&quot;]</span></code></p></td>
+<td class="text-left"><p>Unique ID of the related thing (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘RelatedThing’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings.relationRole</span></code></p></td>
+<td class="text-left"><p>The role the object plays in the relationship.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings.relationRole[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘RelationRole’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings.relationRole.name</span></code></p></td>
+<td class="text-left"><p>The name of the relationship (e.g., ‘containedInPlace’).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings.relationRole.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the relationship.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings.relationRole.inverseName</span></code></p></td>
+<td class="text-left"><p>The name of the inverse relationship.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sourceRelatedThings.relationRole.inverseDefinition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the inverse relationship.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for a <em>Thing</em>, in this case a climate station.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/configurations/35&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ThingProperties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://handle.net/12345&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;responsiblePersons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Role&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;roleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Owner&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;responsiblePersons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/contacts/12345&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Person&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;givenName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;familyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.org&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organization&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GFZ Helmholtz Centre for Geosciences&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://ror.org/04z8jg394&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://orcid.org/0000-0000-0000-1234&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;partOfProjects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ResearchProject&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TERENO-NO&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;images&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ImageObject&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Echo Sound Transducer at backside of Speedboat&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;contentUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ImageObject&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Platform in situ&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;contentUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;encodingType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.opengis.net/doc/IS/SensorML/2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;distribution&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DataDownload&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/backend/api/v1/devices/1/sensorml&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;sourceRelatedThings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sta.gfz.de/v1.1/Things(1)&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RelatedThing&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relationRole&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RelationRole&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containedInPlace&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schema.org/containedInPlace&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;inverseName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containsPlace&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;inverseDefinition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://schema.org/containsPlace&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
-<section id="the-enhanced-sensor">
-<h2>The enhanced <em>Sensor</em><a class="headerlink" href="#the-enhanced-sensor" title="Link to this heading">¶</a></h2>
-<p>TBA</p>
+<section id="sensor-properties">
+<h2><em>Sensor</em> properties<a class="headerlink" href="#sensor-properties" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">SensorProperties</span></code> schema definition serves as a structured extension for
+the OGC SensorThings API (STA) <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> entity. This schema definition allows for
+the detailed documentation of sensors, including their unique identifiers, the
+product group they belong to, whether they are virtual or physical, their
+specific model and manufacturer details, serial numbers, and importantly,
+information about the responsible persons, complete with their roles,
+affiliations, and contact information.</p>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-sensor-properties">
+<table class="thing-table docutils align-left" id="tbl-sensor-properties">
+<caption><span class="caption-text">Table 2: The Sensor properties</span><a class="headerlink" href="#tbl-sensor-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Datatype</p></th>
+<th class="head text-left"><p>Multiplicity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.id</span></code></p></td>
+<td class="text-left"><p>Unique ID of the sensor (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘SensorProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">identifier</span></code></p></td>
+<td class="text-left"><p>Another unique identifier for the object, e.g., a PID.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isVariantOf</span></code></p></td>
+<td class="text-left"><p>Describes the product group the sensor belongs to.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/ProductGroup">ProductGroup</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isVariantOf[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ProductGroup’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isVariantOf.name</span></code></p></td>
+<td class="text-left"><p>The name of the product group.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isVariantOf.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the product group.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">isVirtual</span></code></p></td>
+<td class="text-left"><p>Indicates if the sensor is virtual.</p></td>
+<td class="text-left"><p>Boolean</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">model</span></code></p></td>
+<td class="text-left"><p>The model name of the sensor.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">manufacturer</span></code></p></td>
+<td class="text-left"><p>Information about the manufacturer of the sensor.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/Organization">Organization</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">manufacturer[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Organization’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">manufacturer.name</span></code></p></td>
+<td class="text-left"><p>The name of the manufacturer.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">manufacturer.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the manufacturer.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">serialNumber</span></code></p></td>
+<td class="text-left"><p>The serial number of the sensor.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons</span></code></p></td>
+<td class="text-left"><p>A list of persons responsible for the object.</p></td>
+<td class="text-left"><p>Array of <a class="reference external" href="https://schema.org/Role">Role</a>-Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Role’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.roleName</span></code></p></td>
+<td class="text-left"><p>The name of the role (e.g., ‘Owner’).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the role.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons</span></code></p></td>
+<td class="text-left"><p>A nested list of person objects fulfilling the role.</p></td>
+<td class="text-left"><p>Array of <a class="reference external" href="https://schema.org/Person">Person</a>-Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons[&quot;jsonld.id&quot;]</span></code></p></td>
+<td class="text-left"><p>Unique ID of the person (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Person’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.givenName</span></code></p></td>
+<td class="text-left"><p>The person’s given name.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.familyName</span></code></p></td>
+<td class="text-left"><p>The person’s family name.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.email</span></code></p></td>
+<td class="text-left"><p>The person’s email address.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation</span></code></p></td>
+<td class="text-left"><p>The organization the person is affiliated with.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/Organization">Organization</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Organization’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation.name</span></code></p></td>
+<td class="text-left"><p>The name of the organization.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.affiliation.identifier</span></code></p></td>
+<td class="text-left"><p>A unique identifier for the organization (e.g., ROR).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">responsiblePersons.responsiblePersons.identifier</span></code></p></td>
+<td class="text-left"><p>A unique identifier for the person (e.g., ORCID).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for a <em>Sensor</em>, in this case a Pressure Transducer.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/devices/786&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SensorProperties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://handle.net/1234567&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;isVariantOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ProductGroup&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pressure transducer&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/equipmenttypes/42&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;isVirtual&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AdconBP1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;manufacturer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organization&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTT HydroMet&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/manufacturers/48&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;serialNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;responsiblePersons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Role&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;roleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Owner&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;responsiblePersons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/contacts/12345&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Person&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;givenName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;familyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jane.doe@example.org&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;affiliation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organization&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GFZ Helmholtz Centre for Geosciences&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://ror.org/04z8jg394&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="datastream-properties">
+<h2><em>Datastream</em> properties<a class="headerlink" href="#datastream-properties" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">DatastreamProperties</span></code> schema definition serves as a structured extension
+for the OGC SensorThings API (STA) <code class="docutils literal notranslate"><span class="pre">Datastream</span></code> entity. It allows for a more
+comprehensive description of a datastream by providing details about its
+observing procedure, including specific parameters like the aggregation period
+and its unit, as well as defining the measurement properties such as
+resolution, accuracy, and operational range, complete with their respective
+units. Furthermore, this schema accommodates information regarding the license
+under which the data is provided, the mobility, specific deployment details
+including timestamps and spatial offsets, and the data source from which the
+datastream originates.</p>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-datastream-properties">
+<table class="thing-table docutils align-left" id="tbl-datastream-properties">
+<caption><span class="caption-text">Table 3: The Datastream properties</span><a class="headerlink" href="#tbl-datastream-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Definition</p></th>
+<th class="head text-left"><p>Data type</p></th>
+<th class="head text-left"><p>Multiplicity and use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>String/Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used (schema.org).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.id</span></code></p></td>
+<td class="text-left"><p>Unique ID of the datastream (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘DatastreamProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure</span></code></p></td>
+<td class="text-left"><p>Details about the observing procedure.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ObservingProcedure’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.name</span></code></p></td>
+<td class="text-left"><p>The name of the procedure.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.description</span></code></p></td>
+<td class="text-left"><p>A description of the procedure.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the procedure.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties</span></code></p></td>
+<td class="text-left"><p>Additional properties of the procedure.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties.period</span></code></p></td>
+<td class="text-left"><p>The duration of the observation period.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties.unitOfPeriod</span></code></p></td>
+<td class="text-left"><p>The unit for the observation period.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties.unitOfPeriod[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Unit’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties.unitOfPeriod.name</span></code></p></td>
+<td class="text-left"><p>The name of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties.unitOfPeriod.symbol</span></code></p></td>
+<td class="text-left"><p>The symbol for the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">observingProcedure.properties.unitOfPeriod.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties</span></code></p></td>
+<td class="text-left"><p>Properties of the measurement itself.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘MeasurementProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.measurementResolution</span></code></p></td>
+<td class="text-left"><p>The resolution of the measurement.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementResolution</span></code></p></td>
+<td class="text-left"><p>The unit for the measurement resolution.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementResolution[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Unit’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementResolution.name</span></code></p></td>
+<td class="text-left"><p>The name of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementResolution.symbol</span></code></p></td>
+<td class="text-left"><p>The symbol for the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementResolution.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.measurementAccuracy</span></code></p></td>
+<td class="text-left"><p>The accuracy of the measurement.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementAccuracy</span></code></p></td>
+<td class="text-left"><p>The unit for the measurement accuracy.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementAccuracy[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Unit’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementAccuracy.name</span></code></p></td>
+<td class="text-left"><p>The name of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementAccuracy.symbol</span></code></p></td>
+<td class="text-left"><p>The symbol for the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfMeasurementAccuracy.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.operationRange</span></code></p></td>
+<td class="text-left"><p>The operational range of the measurement.</p></td>
+<td class="text-left"><p>Array of Numbers</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfOperationRange</span></code></p></td>
+<td class="text-left"><p>The unit for the operational range.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfOperationRange[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Unit’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfOperationRange.name</span></code></p></td>
+<td class="text-left"><p>The name of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfOperationRange.symbol</span></code></p></td>
+<td class="text-left"><p>The symbol for the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">measurementProperties.unitOfOperationRange.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">license</span></code></p></td>
+<td class="text-left"><p>Information about the license for the data.</p></td>
+<td class="text-left"><p><a class="reference external" href="https://schema.org/CreativeWork">CreativeWork</a>-Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">license[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘CreativeWork’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">license.name</span></code></p></td>
+<td class="text-left"><p>The name of the license.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">license.url</span></code></p></td>
+<td class="text-left"><p>The URL to the full license text.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">license.provider</span></code></p></td>
+<td class="text-left"><p>The provider of the license.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">providerMobility</span></code></p></td>
+<td class="text-left"><p>The mobility of the data provider (e.g., ‘static’).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment</span></code></p></td>
+<td class="text-left"><p>Details about the deployment of the datastream.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment[&quot;jsonld.id&quot;]</span></code></p></td>
+<td class="text-left"><p>Unique ID of the deployment (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Deployment’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.deploymentTime</span></code></p></td>
+<td class="text-left"><p>The time of deployment.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties</span></code></p></td>
+<td class="text-left"><p>Additional properties of the deployment.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘DeploymentProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.offsets</span></code></p></td>
+<td class="text-left"><p>The offsets of the deployment.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.offsets[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Offset’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.offsets.x</span></code></p></td>
+<td class="text-left"><p>The x-offset.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.offsets.y</span></code></p></td>
+<td class="text-left"><p>The y-offset.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.offsets.z</span></code></p></td>
+<td class="text-left"><p>The z-offset.</p></td>
+<td class="text-left"><p>Number</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.unitOfOffsets</span></code></p></td>
+<td class="text-left"><p>The unit for the offsets.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.unitOfOffsets[&quot;jsonld.type&quot;]</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘Unit’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.unitOfOffsets.name</span></code></p></td>
+<td class="text-left"><p>The name of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.unitOfOffsets.symbol</span></code></p></td>
+<td class="text-left"><p>The symbol for the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">deployment.properties.unitOfOffsets.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of the unit.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">dataSource</span></code></p></td>
+<td class="text-left"><p>A descriptive string indicating the source of the data.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for a <em>Datastream</em></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/datastream-links/6&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DatastreamProperties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;observingProcedure&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ObservingProcedure&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the arithmetic mean value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/aggregationtypes/1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;unitOfPeriod&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unit&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;measurementProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MeasurementProperties&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;measurementResolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unitOfMeasurementResolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unit&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/58&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;measurementAccuracy&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unitOfMeasurementAccuracy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unit&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;millibars&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mbar&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;operationRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="mf">500.0</span><span class="p">,</span>
+<span class="w">      </span><span class="mf">1500.0</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;unitOfOperationRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unit&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;millibars&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mbar&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/64&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CreativeWork&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GPLv3&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.gnu.org/licenses/gpl-3.0.txt&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The HMC-STAMPLATE project consortium&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;providerMobility&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;static&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/configurations/35/platforms-and-devices?deviceMountAction=182&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deployment&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deploymentTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-01-01T00:50-03:00&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DeploymentProperties&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;offsets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Offset&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;unitOfOffsets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unit&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meters&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sms-cv.helmholtz.cloud/sms/cv/api/v1/units/63&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;dataSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ftp/uploads01&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="location-properties">
+<h2><em>Location</em> properties<a class="headerlink" href="#location-properties" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">LocationProperties</span></code> schema definition serves as a structured extension for
+the OGC SensorThings API (STA) <code class="docutils literal notranslate"><span class="pre">Location</span></code> entity.</p>
+<p>No specific properties have been defined so far.</p>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-location-properties">
+<table class="thing-table docutils align-left" id="tbl-location-properties">
+<caption><span class="caption-text">Table 4: The Location properties</span><a class="headerlink" href="#tbl-location-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Definition</p></th>
+<th class="head text-left"><p>Data type</p></th>
+<th class="head text-left"><p>Multiplicity and use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>String/Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used (schema.org).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.id</span></code></p></td>
+<td class="text-left"><p>Unique ID of the location (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘LocationProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for a <em>Location</em></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/configurations/35/locations/static-location-actions/15&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LocationProperties&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="observedproperty-properties">
+<h2><em>ObservedProperty</em> properties<a class="headerlink" href="#observedproperty-properties" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ObservedPropertyProperties</span></code> schema definition serves as a structured
+extension for the OGC SensorThings API (STA) <code class="docutils literal notranslate"><span class="pre">ObservedProperty</span></code> entity.</p>
+<p>No specific properties have been defined so far.</p>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-property-properties">
+<table class="thing-table docutils align-left" id="tbl-property-properties">
+<caption><span class="caption-text">Table 5: The Observed Property properties</span><a class="headerlink" href="#tbl-property-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Definition</p></th>
+<th class="head text-left"><p>Data type</p></th>
+<th class="head text-left"><p>Multiplicity and use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>String/Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used (schema.org).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.id</span></code></p></td>
+<td class="text-left"><p>Unique ID of the Observed Property (e.g., the URL to its representation in an application).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ObservedPropertyProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for an <em>ObservedProperty</em></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://sensors.gfz.de/cv/api/v1/measuredquantities/32/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ObservedPropertyProperties&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="observation-properties">
+<h2><em>Observation</em> properties<a class="headerlink" href="#observation-properties" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ObservationProperties</span></code> schema definition serves as a structured extension
+for the OGC SensorThings API (STA) <code class="docutils literal notranslate"><span class="pre">Observation</span></code> entity.</p>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-observation-properties">
+<table class="thing-table docutils align-left" id="tbl-observation-properties">
+<caption><span class="caption-text">Table 6: The Observation properties</span><a class="headerlink" href="#tbl-observation-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Definition</p></th>
+<th class="head text-left"><p>Data type</p></th>
+<th class="head text-left"><p>Multiplicity and use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>String/Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used (schema.org).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code></p></td>
+<td class="text-left"><p>The type of the object, in this case ‘ObservationProperties’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">dataSource</span></code></p></td>
+<td class="text-left"><p>A descriptive string indicating the source of the observation data.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for an <em>Observation</em></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;jsonld.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ObservationProperties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;dataSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file01.csv&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="observation-resultquality-properties">
+<h2><em>Observation ResultQuality</em> properties<a class="headerlink" href="#observation-resultquality-properties" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>[!WARNING]
+Work in progress</p>
+</div></blockquote>
+<div class="table-wrapper colwidths-auto thing-table docutils container" id="tbl-observation-resultquality-properties">
+<table class="thing-table docutils align-left" id="tbl-observation-resultquality-properties">
+<caption><span class="caption-text">Table 7: The Observation Result Quality properties</span><a class="headerlink" href="#tbl-observation-resultquality-properties" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><em>Name</em></p></th>
+<th class="head text-left"><p>Definition</p></th>
+<th class="head text-left"><p>Data type</p></th>
+<th class="head text-left"><p>Multiplicity and use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context</span></code></p></td>
+<td class="text-left"><p>JSON-LD context for defining keywords and vocabulary.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;version</span></code></p></td>
+<td class="text-left"><p>The version of the context.</p></td>
+<td class="text-left"><p>String/Number</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;import</span></code></p></td>
+<td class="text-left"><p>Import URL for the STAMPLATE context.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&#64;context.&#64;vocab</span></code></p></td>
+<td class="text-left"><p>The default vocabulary used (schema.org).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations</span></code></p></td>
+<td class="text-left"><p>A list of annotations for the object.</p></td>
+<td class="text-left"><p>Array of Objects</p></td>
+<td class="text-left"><p>Zero-to-many</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.&#64;id</span></code></p></td>
+<td class="text-left"><p>Unique ID of the annotation.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.&#64;type</span></code></p></td>
+<td class="text-left"><p>The type of the annotation, in this case ‘ObservationResultQuality’.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>One (mandatory)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.annotation</span></code></p></td>
+<td class="text-left"><p>The value of the annotation.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.annotationType</span></code></p></td>
+<td class="text-left"><p>The type of the annotation (e.g., ‘SaQC’, ‘generic’).</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.properties</span></code></p></td>
+<td class="text-left"><p>Additional properties of the annotation.</p></td>
+<td class="text-left"><p>Object</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.properties.version</span></code></p></td>
+<td class="text-left"><p>The version of the annotation.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.properties.measure</span></code></p></td>
+<td class="text-left"><p>The measure used for the annotation.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">annotations.properties.definition</span></code></p></td>
+<td class="text-left"><p>URL to the definition of measure.</p></td>
+<td class="text-left"><p>String</p></td>
+<td class="text-left"><p>Zero-to-one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Example</em>: Additional information for the <em>ResultQuality</em></p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;@version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@import&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stamplate.jsonld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;@vocab&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://schema.org/&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://rdm-software.pages.ufz.de/saqc/&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ObservationResultQuality&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;annotation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;99&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;annotationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SaQC&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.6&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;measure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;flagUniLOF&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://url/to/config&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://tereno.net/quality&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ObservationResultQuality&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;annotation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;baddata&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;annotationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;generic&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://tereno.net/quality&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;@type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ObservationResultQuality&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;annotation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Analysis error&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;annotationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;specific&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -313,8 +1594,13 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Enhanced STA Properties</a><ul>
-<li><a class="reference internal" href="#the-enhanced-thing">The enhanced <em>Thing</em></a></li>
-<li><a class="reference internal" href="#the-enhanced-sensor">The enhanced <em>Sensor</em></a></li>
+<li><a class="reference internal" href="#thing-properties"><em>Thing</em> properties</a></li>
+<li><a class="reference internal" href="#sensor-properties"><em>Sensor</em> properties</a></li>
+<li><a class="reference internal" href="#datastream-properties"><em>Datastream</em> properties</a></li>
+<li><a class="reference internal" href="#location-properties"><em>Location</em> properties</a></li>
+<li><a class="reference internal" href="#observedproperty-properties"><em>ObservedProperty</em> properties</a></li>
+<li><a class="reference internal" href="#observation-properties"><em>Observation</em> properties</a></li>
+<li><a class="reference internal" href="#observation-resultquality-properties"><em>Observation ResultQuality</em> properties</a></li>
 </ul>
 </li>
 </ul>
