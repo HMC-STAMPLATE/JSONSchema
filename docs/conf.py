@@ -103,7 +103,7 @@ html_theme = "furo"  # or classic/alabaster
 #html_static_path = ["_static"]
 
 release = cff("version", "")
-version = ""  # empty so Furo won’t show a version badge in the sidebar
+version = release  # empty so Furo won’t show a version badge in the sidebar
 
 html_title = project
 html_short_title = project
