@@ -2,11 +2,13 @@
 <html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="STA Properties Mappings" href="schemas/mapping.html" /><link rel="prev" title="Enhanced STA Properties" href="schemas/properties.html" />
         <link rel="prefetch" href="_static/datahub_logo.png" as="image" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 --><title>Index - An enhanced SensorThings API data model for environmental monitoring systems</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+        <title>Usage of the enhanced STA Profile - An enhanced SensorThings API data model for environmental monitoring systems</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     
@@ -177,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -200,10 +202,10 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sta-data-model.html">The OGC SensorThings API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schemas/properties.html">Enhanced STA Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage of the enhanced STA Profile</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Usage of the enhanced STA Profile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schemas/mapping.html">STA Properties Mappings</a></li>
 </ul>
 
@@ -224,7 +226,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/usage.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -233,16 +241,69 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<section class="genindex-section">
-  <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"></div>
+          <section id="usage-of-the-enhanced-sta-profile">
+<h1>Usage of the enhanced STA Profile<a class="headerlink" href="#usage-of-the-enhanced-sta-profile" title="Link to this heading">¶</a></h1>
+<p>After explaining the additional attributes of our enhanced STA-Profile, we would like to present an actual use-case and how we can actually apply our profile.</p>
+<p>In the repository, you can find the two folders <code class="docutils literal notranslate"><span class="pre">schemas</span></code> and <code class="docutils literal notranslate"><span class="pre">examples</span></code>. The first contains the actual JSON-Schemas with detailed definitions, encodings, types and some controlled vocabulatires for all additional attributes. These can be seen as <em>rulebooks</em> or <em>templates</em> for our enhanced STA-profile against which I can validate a specific STA-ressource.</p>
+<p>The latter holds examples for each entity, that fulfull exactly these guidelines.</p>
+<section id="infer-an-empty-template-or-schema-from-an-example">
+<h2>Infer an empty template or schema from an example<a class="headerlink" href="#infer-an-empty-template-or-schema-from-an-example" title="Link to this heading">¶</a></h2>
+<p>If you start from scratch and I just want an empty JSON-file that is consistent with our enhanced STAMPLATE-profile, I can simply run</p>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>generate-schema<span class="w"> </span>-j<span class="w"> </span>examples/thing_properties.json<span class="w"> </span>&gt;<span class="w"> </span>example_thing_properties.schema.json
+</pre></div>
+</div>
+<p>This takes a pre-filled example, extracts the schema from this JSON and writes the extracted schema to a new file. This can then manually filled!</p>
+</section>
+<section id="validate-a-sta-entity-against-our-enhanced-profile">
+<h2>Validate a STA-entity against our enhanced profile<a class="headerlink" href="#validate-a-sta-entity-against-our-enhanced-profile" title="Link to this heading">¶</a></h2>
+<p>Usually, a STA-ressource is available via an STA-Endpoint (e.g., https://sta.gfz.de/v1.1/Things(1)). Here is a simple workflow for validating such an entity against our JSON-Schemas:</p>
+<ol class="arabic simple">
+<li><p>Download the entity</p></li>
+</ol>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-fsSL<span class="w"> </span><span class="s2">&quot;https://sta.gfz.de/v1.1/Things(1)&quot;</span><span class="w"> </span>-o<span class="w"> </span>tmp/thing_raw.json
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Extract the properties</p></li>
+</ol>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span><span class="s1">&#39;.properties&#39;</span><span class="w"> </span>thing_raw.json<span class="w"> </span>&gt;<span class="w"> </span>thing_properties.json
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>(Optional) Normalize <code class="docutils literal notranslate"><span class="pre">images</span></code> to match your schema:
+If STA-JSONs are retrieved from some of our endpoints, several attributes had to be renamed (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;type</span></code> to <code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code>). With this step, we transform the names back to the original schema-names.</p></li>
+</ol>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">  if (.images? | type) == &quot;array&quot; then</span>
+<span class="s1">    .images = (.images | map(</span>
+<span class="s1">      .[&quot;@type&quot;]      = (.&quot;@type&quot; // .[&quot;jsonld.type&quot;]) |</span>
+<span class="s1">      .contentUrl     = (.contentUrl // .url) |</span>
+<span class="s1">      del(.[&quot;jsonld.type&quot;], .url)</span>
+<span class="s1">    ))</span>
+<span class="s1">  elif (.images? | type) == &quot;object&quot; then</span>
+<span class="s1">    .images = (</span>
+<span class="s1">      .images</span>
+<span class="s1">      | .[&quot;@type&quot;]  = (.[&quot;@type&quot;] // .[&quot;jsonld.type&quot;])</span>
+<span class="s1">      | .contentUrl = (.contentUrl // .url)</span>
+<span class="s1">      | del(.[&quot;jsonld.type&quot;], .url)</span>
+<span class="s1">    )</span>
+<span class="s1">  else . end</span>
+<span class="s1">&#39;</span><span class="w"> </span>thing_properties.json<span class="w"> </span>&gt;<span class="w"> </span>thing_properties.norm.json
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Validate the extracted and normalized properties against our Schema:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">validate</span> <span class="o">--</span> <span class="o">-</span><span class="n">s</span> <span class="n">schemas</span><span class="o">/</span><span class="n">thing_properties</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">json</span> <span class="o">-</span><span class="n">d</span> <span class="n">thing_properties</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -250,8 +311,26 @@
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="schemas/mapping.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">STA Properties Mappings</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="schemas/properties.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Enhanced STA Properties</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -270,8 +349,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Usage of the enhanced STA Profile</a><ul>
+<li><a class="reference internal" href="#infer-an-empty-template-or-schema-from-an-example">Infer an empty template or schema from an example</a></li>
+<li><a class="reference internal" href="#validate-a-sta-entity-against-our-enhanced-profile">Validate a STA-entity against our enhanced profile</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -2,6 +2,8 @@
 
 **Authors:** {{ project_authors }}
 
+**Contributors:** Thomas Schnicke, Ulrike Kleeberg, Marie Ryan, many many more!
+
 **DOI:** {{ project_doi }}
 
 Welcome! This site documents the JSON Schemas and guidance for using the `properties` objects of core **OGC SensorThings API (STA)** entities in the **STAMPLATE** context.
@@ -12,6 +14,7 @@ Welcome! This site documents the JSON Schemas and guidance for using the `proper
 
 sta-data-model
 schemas/properties
+usage
 schemas/mapping
 ```
 
