@@ -22,17 +22,17 @@ Usually, a STA-ressource is available via an STA-Endpoint (e.g., https://sta.gfz
 1. Download the entity 
 
 ```BASH
-curl -fsSL "https://sta.gfz.de/v1.1/Things(1)" -o tmp/thing_raw.json
+curl -fsSL "https://sta.gfz.de/v1.1/Things(1)" -o thing.json
 ```
 
 2. Extract the properties
 
 ```BASH
-jq '.properties' thing_raw.json > thing_properties.json
+jq '.properties' thing.json > thing_properties.json
 ```
 
 3. Validate the extracted and normalized properties against our Schema:
 
-```
-npm run validate -- -s schemas/thing_properties.schema.json -d thing_properties.norm.json
+```BASH
+npm run validate -- -s schemas/thing_properties.schema.json -d thing_properties.json
 ```
