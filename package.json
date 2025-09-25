@@ -11,6 +11,7 @@
     "lint:schemas": "for f in ./schemas/*.schema.json; do npx ajv-cli compile -s $f || exit $?; done",
     "lint:schemas-examples": "for f in ./schemas/*.schema.json; do npx ajv-cli validate -s $f -d `echo $f | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done",
     "lint": "npm run lint:jsonld && npm run lint:jsonld-examples && npm run lint:schemas && npm run lint:schemas-examples",
+    "validate": "npx ajv-cli validate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,5 +32,11 @@
     "ajv-cli": "^5.0.0",
     "generate-schema": "^2.6.0",
     "jsonld-cli": "^2.0.0"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
   }
 }
