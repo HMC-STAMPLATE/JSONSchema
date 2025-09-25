@@ -17,12 +17,27 @@
         "@vocab": {
           "type": "string",
           "const": "http://schema.org/"
+        },
+        "jsonld": {
+          "type": "string",
+          "const": "https://www.w3.org/ns/json-ld#"
+        },
+        "jsonld.id": {
+          "type": "string",
+          "const": "@id"
+        },
+        "jsonld.type": {
+          "type": "string",
+          "const": "@type"
         }
       },
       "required": [
         "@version",
         "@import",
-        "@vocab"
+        "@vocab",
+        "jsonld",
+        "jsonld.id",
+        "jsonld.type"
       ]
     },
     "jsonld.id": {
@@ -100,8 +115,7 @@
                 },
                 "email": {
                   "type": "string",
-                  "pattern": "^\\S+@\\S+\\.\\S+$",
-                  "minLength": 6
+                  "format": "email"
                 },
                 "affiliation": {
                   "$ref": "#/$defs/organization"
@@ -148,7 +162,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "ImageObject"
           },
@@ -160,7 +174,7 @@
           }
         },
         "required": [
-          "@type"
+          "jsonld.type"
         ]
       }
     },
@@ -226,11 +240,13 @@
   "$defs": {
     "url": {
       "type": "string",
-      "pattern": "^https*://"
+      "pattern": "^https*://",
+      "format": "uri"
     },
     "optionalUrl": {
       "type": "string",
-      "pattern": "^$|^https*://"
+      "pattern": "^$|^https*://",
+      "format": "uri"
     },
     "organization": {
       "type": "object",
