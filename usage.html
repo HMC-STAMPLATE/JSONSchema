@@ -266,19 +266,19 @@
 <ol class="arabic simple">
 <li><p>Download the entity</p></li>
 </ol>
-<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-fsSL<span class="w"> </span><span class="s2">&quot;https://sta.gfz.de/v1.1/Things(1)&quot;</span><span class="w"> </span>-o<span class="w"> </span>tmp/thing_raw.json
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-fsSL<span class="w"> </span><span class="s2">&quot;https://sta.gfz.de/v1.1/Things(1)&quot;</span><span class="w"> </span>-o<span class="w"> </span>thing.json
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Extract the properties</p></li>
 </ol>
-<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span><span class="s1">&#39;.properties&#39;</span><span class="w"> </span>thing_raw.json<span class="w"> </span>&gt;<span class="w"> </span>thing_properties.json
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span><span class="s1">&#39;.properties&#39;</span><span class="w"> </span>thing.json<span class="w"> </span>&gt;<span class="w"> </span>thing_properties.json
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Validate the extracted and normalized properties against our Schema:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">validate</span> <span class="o">--</span> <span class="o">-</span><span class="n">s</span> <span class="n">schemas</span><span class="o">/</span><span class="n">thing_properties</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">json</span> <span class="o">-</span><span class="n">d</span> <span class="n">thing_properties</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">json</span>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>validate<span class="w"> </span>--<span class="w"> </span>-s<span class="w"> </span>schemas/thing_properties.schema.json<span class="w"> </span>-d<span class="w"> </span>thing_properties.json
 </pre></div>
 </div>
 </section>
