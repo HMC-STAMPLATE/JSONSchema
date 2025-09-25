@@ -276,28 +276,6 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>(Optional) Normalize <code class="docutils literal notranslate"><span class="pre">images</span></code> to match your schema:
-If STA-JSONs are retrieved from some of our endpoints, several attributes had to be renamed (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;type</span></code> to <code class="docutils literal notranslate"><span class="pre">jsonld.type</span></code>). With this step, we transform the names back to the original schema-names.</p></li>
-</ol>
-<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span><span class="s1">&#39;</span>
-<span class="s1">  if (.images? | type) == &quot;array&quot; then</span>
-<span class="s1">    .images = (.images | map(</span>
-<span class="s1">      .[&quot;@type&quot;]      = (.&quot;@type&quot; // .[&quot;jsonld.type&quot;]) |</span>
-<span class="s1">      .contentUrl     = (.contentUrl // .url) |</span>
-<span class="s1">      del(.[&quot;jsonld.type&quot;], .url)</span>
-<span class="s1">    ))</span>
-<span class="s1">  elif (.images? | type) == &quot;object&quot; then</span>
-<span class="s1">    .images = (</span>
-<span class="s1">      .images</span>
-<span class="s1">      | .[&quot;@type&quot;]  = (.[&quot;@type&quot;] // .[&quot;jsonld.type&quot;])</span>
-<span class="s1">      | .contentUrl = (.contentUrl // .url)</span>
-<span class="s1">      | del(.[&quot;jsonld.type&quot;], .url)</span>
-<span class="s1">    )</span>
-<span class="s1">  else . end</span>
-<span class="s1">&#39;</span><span class="w"> </span>thing_properties.json<span class="w"> </span>&gt;<span class="w"> </span>thing_properties.norm.json
-</pre></div>
-</div>
-<ol class="arabic simple">
 <li><p>Validate the extracted and normalized properties against our Schema:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">validate</span> <span class="o">--</span> <span class="o">-</span><span class="n">s</span> <span class="n">schemas</span><span class="o">/</span><span class="n">thing_properties</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">json</span> <span class="o">-</span><span class="n">d</span> <span class="n">thing_properties</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">json</span>

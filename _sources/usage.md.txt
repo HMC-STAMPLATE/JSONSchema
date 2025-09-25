@@ -31,29 +31,7 @@ curl -fsSL "https://sta.gfz.de/v1.1/Things(1)" -o tmp/thing_raw.json
 jq '.properties' thing_raw.json > thing_properties.json
 ```
 
-3. (Optional) Normalize `images` to match your schema:
-If STA-JSONs are retrieved from some of our endpoints, several attributes had to be renamed (e.g., `@type` to `jsonld.type`). With this step, we transform the names back to the original schema-names. 
-
-```BASH
-jq '
-  if (.images? | type) == "array" then
-    .images = (.images | map(
-      .["@type"]      = (."@type" // .["jsonld.type"]) |
-      .contentUrl     = (.contentUrl // .url) |
-      del(.["jsonld.type"], .url)
-    ))
-  elif (.images? | type) == "object" then
-    .images = (
-      .images
-      | .["@type"]  = (.["@type"] // .["jsonld.type"])
-      | .contentUrl = (.contentUrl // .url)
-      | del(.["jsonld.type"], .url)
-    )
-  else . end
-' thing_properties.json > thing_properties.norm.json
-```
-
-1. Validate the extracted and normalized properties against our Schema:
+3. Validate the extracted and normalized properties against our Schema:
 
 ```
 npm run validate -- -s schemas/thing_properties.schema.json -d thing_properties.norm.json
