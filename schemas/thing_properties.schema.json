@@ -34,10 +34,7 @@
       "required": [
         "@version",
         "@import",
-        "@vocab",
-        "jsonld",
-        "jsonld.id",
-        "jsonld.type"
+        "@vocab"
       ]
     },
     "jsonld.id": {
@@ -115,7 +112,8 @@
                 },
                 "email": {
                   "type": "string",
-                  "format": "email"
+                  "pattern": "^\\S+@\\S+\\.\\S+$",
+                  "minLength": 6
                 },
                 "affiliation": {
                   "$ref": "#/$defs/organization"
@@ -240,13 +238,11 @@
   "$defs": {
     "url": {
       "type": "string",
-      "pattern": "^https*://",
-      "format": "uri"
+      "pattern": "^https*://"
     },
     "optionalUrl": {
       "type": "string",
-      "pattern": "^$|^https*://",
-      "format": "uri"
+      "pattern": "^$|^https*://"
     },
     "organization": {
       "type": "object",
