@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "An enhanced SensorThings API data model for environmental monitoring systems"
 message: "Please cite this profile using these metadata."
 type: software
-version: 0.0.4
+version: 1.0.0
 license: "CCO 1.0"
 repository-code: "https://github.com/HMC-STAMPLATE/JSONSchema"
 
@@ -40,6 +40,15 @@ authors:
     email: david.schaefer@ufz.de
     orcid: "https://orcid.org/0000-0003-4517-6459"
     affiliation: "Helmholtz Centre for Environmental Research - UFZ"
+  - family-names: Rambhia
+    given-names: Mihir
+    email: Mihir.Rambhia@hereon.de
+    affiliation: "Helmholtz Zentrum Hereon" 
+  - family-names: van der Schaaf
+    given-names: Hylke
+    email: hylke.vanderschaaf@iosb.fraunhofer.de
+    orcid: "https://orcid.org/0000-0001-6110-8902"
+    affiliation: "Fraunhofer Institute of Optronics, System Technologies and Image Exploitation IOSB"
   - family-names: Lorenz
     given-names: Christof
     email: christof.lorenz@kit.edu
