@@ -254,7 +254,7 @@
 <p>The latter holds examples for each entity, that fulfull exactly these guidelines.</p>
 <section id="infer-an-empty-template-or-schema-from-an-example">
 <h2>Infer an empty template or schema from an example<a class="headerlink" href="#infer-an-empty-template-or-schema-from-an-example" title="Link to this heading">¶</a></h2>
-<p>If you start from scratch and I just want an empty JSON-file that is consistent with our enhanced STAMPLATE-profile, I can simply run</p>
+<p>If you start from scratch and just want an empty JSON-file that is consistent with our enhanced STAMPLATE-profile, simply run</p>
 <div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>generate-schema<span class="w"> </span>-j<span class="w"> </span>examples/thing_properties.json<span class="w"> </span>&gt;<span class="w"> </span>example_thing_properties.schema.json
 </pre></div>
 </div>
@@ -262,7 +262,7 @@
 </section>
 <section id="validate-a-sta-entity-against-our-enhanced-profile">
 <h2>Validate a STA-entity against our enhanced profile<a class="headerlink" href="#validate-a-sta-entity-against-our-enhanced-profile" title="Link to this heading">¶</a></h2>
-<p>Usually, a STA-ressource is available via an STA-Endpoint (e.g., https://sta.gfz.de/v1.1/Things(1)). Here is a simple workflow for validating such an entity against our JSON-Schemas:</p>
+<p>Usually, a STA-ressource is available via an STA-Endpoint (e.g., <a class="reference external" href="https://sta.gfz.de/v1.1/Things(1)">https://sta.gfz.de/v1.1/Things(1)</a>). Here is a simple workflow for validating such an entity against our JSON-Schemas:</p>
 <ol class="arabic simple">
 <li><p>Download the entity</p></li>
 </ol>
@@ -281,6 +281,7 @@
 <div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>validate<span class="w"> </span>--<span class="w"> </span>-s<span class="w"> </span>schemas/thing_properties.schema.json<span class="w"> </span>-d<span class="w"> </span>thing_properties.json
 </pre></div>
 </div>
+<p>All other entities can be validated in a similar way - just replace the respective Schema and URL!</p>
 </section>
 </section>
 
