@@ -1,5 +1,6 @@
 # Usage of the enhanced STA Profile
-After explaining the additional attributes of our enhanced STA-Profile, we would like to present an actual use-case and how we can actually apply our profile. 
+
+After explaining the additional attributes of our enhanced STA-Profile, we would like to present an actual use-case and how we can actually apply our profile.
 
 In the repository, you can find the two folders `schemas` and `examples`. The first contains the actual JSON-Schemas with detailed definitions, encodings, types and some controlled vocabulatires for all additional attributes. These can be seen as *rulebooks* or *templates* for our enhanced STA-profile against which I can validate a specific STA-ressource.
 
@@ -21,20 +22,20 @@ Usually, a STA-ressource is available via an STA-Endpoint (e.g., <https://sta.gf
 
 1. Download the entity
 
-```BASH
-curl -fsSL "https://sta.gfz.de/v1.1/Things(1)" -o thing.json
-```
+    ```BASH
+    curl -fsSL "https://sta.gfz.de/v1.1/Things(1)" -o thing.json
+    ```
 
 2. Extract the properties
 
-```BASH
-jq '.properties' thing.json > thing_properties.json
-```
+   ```BASH
+    jq '.properties' thing.json > thing_properties.json
+   ```
 
 3. Validate the extracted and normalized properties against our Schema:
 
-```BASH
-npm run validate -- -s schemas/thing_properties.schema.json -d thing_properties.json
-```
+    ```BASH
+    npm run validate -- -s schemas/thing_properties.schema.json -d thing_properties.json
+    ```
 
 All other entities can be validated in a similar way - just replace the respective Schema and URL!
