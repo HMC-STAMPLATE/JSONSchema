@@ -7,7 +7,7 @@ The latter holds examples for each entity, that fulfull exactly these guidelines
 
 ## Infer an empty template or schema from an example
 
-If you start from scratch and I just want an empty JSON-file that is consistent with our enhanced STAMPLATE-profile, I can simply run
+If you start from scratch and just want an empty JSON-file that is consistent with our enhanced STAMPLATE-profile, simply run
 
 ```BASH
 npx generate-schema -j examples/thing_properties.json > example_thing_properties.schema.json
@@ -17,9 +17,9 @@ This takes a pre-filled example, extracts the schema from this JSON and writes t
 
 ## Validate a STA-entity against our enhanced profile
 
-Usually, a STA-ressource is available via an STA-Endpoint (e.g., https://sta.gfz.de/v1.1/Things(1)). Here is a simple workflow for validating such an entity against our JSON-Schemas:
+Usually, a STA-ressource is available via an STA-Endpoint (e.g., <https://sta.gfz.de/v1.1/Things(1)>). Here is a simple workflow for validating such an entity against our JSON-Schemas:
 
-1. Download the entity 
+1. Download the entity
 
 ```BASH
 curl -fsSL "https://sta.gfz.de/v1.1/Things(1)" -o thing.json
@@ -36,3 +36,5 @@ jq '.properties' thing.json > thing_properties.json
 ```BASH
 npm run validate -- -s schemas/thing_properties.schema.json -d thing_properties.json
 ```
+
+All other entities can be validated in a similar way - just replace the respective Schema and URL!
