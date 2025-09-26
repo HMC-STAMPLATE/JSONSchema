@@ -46,7 +46,7 @@ def cff(path, default=""):
 # ---- Project info from CFF (with sensible fallbacks) ----
 project = cff("title", "STAMPLATE: SensorThings API Domain Profile — JSON Schemas")
 release = cff("version", "")              # shown as “Release” in Sphinx
-version = release or ""                   # short X.Y if you prefer to slice it
+version = release                    # short X.Y if you prefer to slice it
 doi = get_doi(citation)
 authors_list = []
 for a in citation.get("authors", []):
@@ -86,21 +86,25 @@ myst_substitutions = {
 }
 
 # Also expose to templates / html pages as {{ project_doi }} etc.
-#html_context = {
-#    "project_title": project,
-#    "project_authors": author,
-#    "project_version": release,
-#    "project_doi": doi,
-#    "citation": citation,  # full dict if you need more fields in custom templates
-#    "project_citation_full": citation_text
-#}
+html_context = {
+    "project_title": project,
+    "project_authors": author,
+    "project_version": release,
+    "project_doi": doi,
+    "citation": citation,  # full dict if you need more fields in custom templates
+    "project_citation_full": citation_text
+}
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # ---- HTML output ----
 html_theme = "furo"  # or classic/alabaster
-#html_static_path = ["_static"]
+html_theme_options = {
+    "sidebar_hide_name": False,   # <- important
+}
+
+html_static_path = ["_static"]
 html_extra_path = ['../schemas', '../stamplate.jsonld', '.nojekyll']
 
 #release = cff("version", "")
@@ -124,3 +128,5 @@ jsonschema_options = {
 
 # Reference file
 bibtex_bibfiles = ["refs.bib"]
+
+print(f"[conf.py] project={project!r} release={release!r} version={version!r}")
