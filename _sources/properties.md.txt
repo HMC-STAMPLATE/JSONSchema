@@ -21,7 +21,7 @@ documents, and relationships to other Things, such as a sensor's relationship
 to a platform.
 
 ```{table} Table 1: The Thing properties
-:name: tbl-thing-properties
+:name: tbl-enhanced-thing-properties
 :class: thing-table
 :align: left
 

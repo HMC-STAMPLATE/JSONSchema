@@ -1,5 +1,7 @@
 # An enhanced SensorThings API data model for environmental monitoring systems
 
+<small>Version {{ project_version }}</small>
+
 **Authors:** {{ project_authors }}
 
 **Contributors:** Thomas Schnicke, Ulrike Kleeberg, Marie Ryan, many many more!
