@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ObservedPropertyProperties",
+  "description": "JSON object of the `properties` property of an OGC STA `ObservedProperty` entity",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@version": {
+          "type": "number",
+          "const": 1.1
+        },
+        "@import": {
+          "type": "string"
+        },
+        "@vocab": {
+          "type": "string",
+          "const": "http://schema.org/"
+        }
+      },
+      "required": [
+        "@version",
+        "@import",
+        "@vocab"
+      ]
+    },
+    "jsonld.id": {
+      "description": "link to a view page of the respective entity in the vocabulary system",
+      "$ref": "#/$defs/url"
+    },
+    "jsonld.type": {
+      "type": "string",
+      "const": "ObservedPropertyProperties"
+    }
+  },
+  "required": [
+    "@context",
+    "jsonld.id",
+    "jsonld.type"
+  ],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    }
+  }
+}

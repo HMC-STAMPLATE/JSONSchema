@@ -1,0 +1,283 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "ThingProperties",
+  "description": "JSON object of the `properties` property of an OGC STA `Thing` entity",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@version": {
+          "type": "number",
+          "const": 1.1
+        },
+        "@import": {
+          "type": "string"
+        },
+        "@vocab": {
+          "type": "string",
+          "const": "http://schema.org/"
+        }
+      },
+      "required": [
+        "@version",
+        "@import",
+        "@vocab"
+      ]
+    },
+    "jsonld.id": {
+      "description": "link to a view page of the respective entity in the source system",
+      "$ref": "#/$defs/url"
+    },
+    "jsonld.type": {
+      "type": "string",
+      "const": "ThingProperties"
+    },
+    "identifier": {
+      "description": "link to a persistent identifier for the entity",
+      "$ref": "#/$defs/optionalUrl"
+    },
+    "sourceRelatedThings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "jsonld.id": {
+            "description": "link to the related thing",
+            "$ref": "#/$defs/url"
+          },
+          "jsonld.type": {
+            "type": "string",
+            "const": "RelatedThing"
+          },
+          "externalTarget": {
+            "type": "string"
+          },
+          "relationRole": {
+            "$ref": "#/$defs/containedInPlaceRelationRole"
+          }
+        },
+        "required": [
+          "jsonld.id",
+          "jsonld.type"
+        ]
+      }
+    },
+    "responsiblePersons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "jsonld.type": {
+            "type": "string",
+            "const": "Role"
+          },
+          "roleName": {
+            "description": "name of the role the person has w.r.t. the thing, e.g., Owner",
+            "type": "string"
+          },
+          "definition": {
+            "$ref": "#/$defs/optionalUrl"
+          },
+          "responsiblePersons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "jsonld.id": {
+                  "description": "link to a view page of the respective entity in the source system",
+                  "$ref": "#/$defs/url"
+                },
+                "jsonld.type": {
+                  "type": "string",
+                  "const": "Person"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "familyName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "pattern": "^\\S+@\\S+\\.\\S+$",
+                  "minLength": 6
+                },
+                "affiliation": {
+                  "$ref": "#/$defs/organization"
+                },
+                "identifier": {
+                  "description": "link to a persistent identifier for the person, e.g., the ORCID",
+                  "$ref": "#/$defs/optionalUrl"
+                }
+              },
+              "required": [
+                "jsonld.type"
+              ]
+            }
+          }
+        },
+        "required": [
+          "jsonld.type"
+        ]
+      }
+    },
+    "partOfProjects": {
+      "description": "array of projects the thing is part of",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "jsonld.type": {
+            "type": "string",
+            "const": "ResearchProject"
+          },
+          "name": {
+            "description": "project name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "jsonld.type"
+        ]
+      }
+    },
+    "images": {
+      "description": "array of images of the thing",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "ImageObject"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "contentUrl": {
+            "$ref": "#/$defs/url"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    },
+    "metadata": {
+      "description": "additional dataset describing the thing",
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "Dataset"
+        },
+        "encodingType": {
+          "type": "string",
+          "enum": [
+            "application/pdf",
+            "http://www.opengis.net/doc/IS/SensorML/2.0",
+            "text/html"
+          ]
+        },
+        "distribution": {
+          "type": "object",
+          "properties": {
+            "jsonld.type": {
+              "type": "string",
+              "const": "DataDownload"
+            },
+            "url": {
+              "description": "download link for the dataset",
+              "$ref": "#/$defs/url"
+            }
+          },
+          "required": [
+            "jsonld.type"
+          ]
+        },
+        "text": {
+          "description": "text representation of the dataset",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "distribution"
+          ]
+        },
+        {
+          "required": [
+            "text"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "jsonld.id",
+    "jsonld.type"
+  ],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "optionalUrl": {
+      "type": "string",
+      "pattern": "^$|^https*://"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "description": "link to a persistent identifier for the organization, e.g., the ROR",
+          "$ref": "#/$defs/optionalUrl"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    },
+    "containedInPlaceRelationRole": {
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "RelationRole"
+        },
+        "name": {
+          "type": "string",
+          "const": "containedInPlace"
+        },
+        "definition": {
+          "type": "string",
+          "const": "https://schema.org/containedInPlace"
+        },
+        "inverseName": {
+          "type": "string",
+          "const": "containsPlace"
+        },
+        "inverseDefinition": {
+          "type": "string",
+          "const": "https://schema.org/containsPlace"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    }
+  }
+}

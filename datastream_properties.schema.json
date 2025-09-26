@@ -1,0 +1,401 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "DatastreamProperties",
+  "description": "JSON object of the `properties` property of an OGC STA `DataStream` entity",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@version": {
+          "type": "number",
+          "const": 1.1
+        },
+        "@import": {
+          "type": "string"
+        },
+        "@vocab": {
+          "type": "string",
+          "const": "http://schema.org/"
+        }
+      },
+      "required": [
+        "@version",
+        "@import",
+        "@vocab"
+      ]
+    },
+    "jsonld.id": {
+      "description": "link to a view page of the respective entity in the source system",
+      "$ref": "#/$defs/url"
+    },
+    "jsonld.type": {
+      "type": "string",
+      "const": "DatastreamProperties"
+    },
+    "observingProcedure": {
+      "description": "function applied to the observations of the datastream, e.g., an aggregation",
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "ObservingProcedure"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "definition": {
+          "$ref": "#/$defs/optionalUrl"
+        },
+        "properties": {
+          "description": "set of parameters of the observing procedure",
+          "type": "object"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    },
+    "measurementProperties": {
+      "description": "set of properties further specifying the measurement",
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "MeasurementProperties"
+        },
+        "measurementPrecision": {
+          "type": "number"
+        },
+        "unitOfMeasurementPrecision": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementFrequency": {
+          "type": "number"
+        },
+        "unitOfMeasurementFrequency": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementDepth": {
+          "type": "number"
+        },
+        "unitOfMeasurementDepth": {
+          "$ref": "#/$defs/unit"
+        },
+        "operationTemperature": {
+          "type": "number"
+        },
+        "unitOfOperationTemperature": {
+          "$ref": "#/$defs/unit"
+        },
+        "operationRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "unitOfOperationRange": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementResolution": {
+          "type": "number"
+        },
+        "unitOfMeasurementResolution": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementDrift": {
+          "type": "number"
+        },
+        "unitOfMeasurementDrift": {
+          "$ref": "#/$defs/unit"
+        },
+        "manufacturerRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "unitOfManufacturerRange": {
+          "$ref": "#/$defs/unit"
+        },
+        "measurementAccuracy": {
+          "type": "number"
+        },
+        "unitOfMeasurementAccuracy": {
+          "$ref": "#/$defs/unit"
+        },
+        "gradientThreshold": {
+          "type": "number"
+        },
+        "unitOfGradientThreshold": {
+          "$ref": "#/$defs/unit"
+        },
+        "spikeThreshold": {
+          "type": "number"
+        },
+        "unitOfSpikeThreshold": {
+          "$ref": "#/$defs/unit"
+        },
+        "capacitance": {
+          "type": "number"
+        },
+        "unitOfCapacitance": {
+          "$ref": "#/$defs/unit"
+        },
+        "resistance": {
+          "type": "number"
+        },
+        "unitOfResistance": {
+          "$ref": "#/$defs/unit"
+        },
+        "sensitivity": {
+          "type": "number"
+        },
+        "unitOfSensitivity": {
+          "$ref": "#/$defs/unit"
+        },
+        "polarity": {
+          "type": "number"
+        },
+        "unitOfPolarity": {
+          "$ref": "#/$defs/unit"
+        },
+        "normalisationFactor": {
+          "type": "number"
+        },
+        "poles": {
+          "type": "number"
+        },
+        "unitOfPoles": {
+          "$ref": "#/$defs/unit"
+        },
+        "zeros": {
+          "type": "number"
+        },
+        "unitOfZeros": {
+          "$ref": "#/$defs/unit"
+        },
+        "maximumDepthDeployment": {
+          "type": "number"
+        },
+        "unitOfMaximumDepthDeployment": {
+          "$ref": "#/$defs/unit"
+        }
+      }
+    },
+    "license": {
+      "description": "license that applies to the data of the datastream",
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "CreativeWork"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/organization"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "jsonld.id": {
+                  "$ref": "#/$defs/url"
+                },
+                "jsonld.type": {
+                  "type": "string",
+                  "const": "Person"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "familyName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "pattern": "^\\S+@\\S+\\.\\S+$",
+                  "minLength": 6
+                },
+                "affiliation": {
+                  "$ref": "#/$defs/organization"
+                },
+                "identifier": {
+                  "description": "link to a persistent identifier for the person, e.g., the ORCID",
+                  "$ref": "#/$defs/optionalUrl"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    },
+    "providerMobility": {
+      "description": "movement ability of the datastream provider (static: not moving, dynamic: moving, profiling: moving vertically)",
+      "type": "string",
+      "enum": [
+        "static",
+        "dynamic",
+        "profiling"
+      ]
+    },
+    "deployment": {
+      "description": "details of the datastream deployment w.r.t. the location of the thing",
+      "type": "object",
+      "properties": {
+        "jsonld.id": {
+          "$ref": "#/$defs/url"
+        },
+        "jsonld.type": {
+          "type": "string",
+          "const": "Deployment"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "deploymentTime": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "jsonld.type": {
+              "type": "string",
+              "const": "DeploymentProperties"
+            },
+            "offsets": {
+              "type": "object",
+              "properties": {
+                "jsonld.type": {
+                  "type": "string",
+                  "const": "Offset"
+                },
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                }
+              }
+            },
+            "unitOfOffsets": {
+              "$ref": "#/$defs/unit"
+            }
+          }
+        }
+      }
+    },
+    "dataSource": {
+      "description": "additional information on the source of the datastream data, e.g., an upload folder",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@context",
+    "jsonld.id",
+    "jsonld.type"
+  ],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    },
+    "optionalUrl": {
+      "type": "string",
+      "pattern": "^$|^https*://"
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        },
+        "identifier": {
+          "description": "link to a persistent identifier for the organization, e.g., the ROR",
+          "$ref": "#/$defs/optionalUrl"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    },
+    "continuesRelationRole": {
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "RelationRole"
+        },
+        "name": {
+          "type": "string",
+          "const": "continues"
+        },
+        "definition": {
+          "type": "string",
+          "const": "https://support.datacite.org/docs/connecting-to-works"
+        },
+        "inverseName": {
+          "type": "string",
+          "const": "isContinuedBy"
+        },
+        "inverseDefinition": {
+          "type": "string",
+          "const": "https://support.datacite.org/docs/connecting-to-works"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    },
+    "unit": {
+      "type": "object",
+      "properties": {
+        "jsonld.type": {
+          "type": "string",
+          "const": "Unit"
+        },
+        "name": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "definition": {
+          "$ref": "#/$defs/optionalUrl"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ]
+    }
+  }
+}
