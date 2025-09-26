@@ -2,7 +2,7 @@ name: Build and Deploy Docs
 
 on:
   push:
-    branches: [ docs-add-sphinx-docs ]  # change to main or tags when ready
+    branches: [ release_version_1.0.0 ]  # change to main or tags when ready
 
 permissions:
   contents: write   # ← required to push to gh-pages
