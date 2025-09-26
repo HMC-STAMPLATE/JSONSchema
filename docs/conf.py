@@ -101,6 +101,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # ---- HTML output ----
 html_theme = "furo"  # or classic/alabaster
 #html_static_path = ["_static"]
+html_extra_path = ['../schemas', '../stamplate.jsonld', '.nojekyll']
 
 release = cff("version", "")
 version = release  # empty so Furo won’t show a version badge in the sidebar
