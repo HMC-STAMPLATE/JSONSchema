@@ -13,9 +13,9 @@ Welcome! This site documents the JSON Schemas and guidance for using the `proper
 :maxdepth: 2
 
 sta-data-model
-schemas/properties
+properties
 usage
-schemas/mapping
+mapping
 ```
 
 ## Citing
