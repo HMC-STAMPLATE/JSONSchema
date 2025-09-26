@@ -6,6 +6,17 @@
   },
   "jsonld.id": "https://sensors.gfz-potsdam.de/datastream-links/6",
   "jsonld.type": "DatastreamProperties",
+  "sourceRelatedDatastreams": [
+    {
+      "jsonld.id": "https://sta.gfz-potsdam.de/v1.1/Datastreams(123)",
+      "jsonld.type": "RelatedDatastream",
+      "relationRole": {
+        "jsonld.type": "RelationRole",
+        "name": "isRelatedTo",
+        "definition": "https://schema.org/isRelatedTo"
+      }
+    }
+  ],
   "observingProcedure": {
     "jsonld.type": "ObservingProcedure",
     "name": "mean",
