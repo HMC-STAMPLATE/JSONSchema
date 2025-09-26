@@ -29,6 +29,32 @@
       "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
     },
+    "sourceRelatedDatastreams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "jsonld.id": {
+            "description": "link to the related datastream",
+            "$ref": "#/$defs/url"
+          },
+          "jsonld.type": {
+            "type": "string",
+            "const": "RelatedDatastream"
+          },
+          "externalTarget": {
+            "type": "string"
+          },
+          "relationRole": {
+            "$ref": "#/$defs/isRelatedToRelationRole"
+          }
+        },
+        "required": [
+          "jsonld.id",
+          "jsonld.type"
+        ]
+      }
+    },
     "jsonld.type": {
       "type": "string",
       "const": "DatastreamProperties"
