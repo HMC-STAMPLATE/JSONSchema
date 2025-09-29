@@ -6,8 +6,8 @@
   },
   "annotations": [
     {
-      "@id": "https://rdm-software.pages.ufz.de/saqc/",
-      "@type": "ObservationResultQuality",
+      "jsonld.id": "https://rdm-software.pages.ufz.de/saqc/",
+      "jsonld.type": "ObservationResultQuality",
       "annotation": "99",
       "annotationType": "SaQC",
       "properties": {
@@ -17,14 +17,14 @@
       }
     },
     {
-      "@id": "https://tereno.net/quality",
-      "@type": "ObservationResultQuality",
+      "jsonld.id": "https://tereno.net/quality",
+      "jsonld.type": "ObservationResultQuality",
       "annotation": "baddata",
       "annotationType": "generic"
     },
     {
-      "@id": "https://tereno.net/quality",
-      "@type": "ObservationResultQuality",
+      "jsonld.id": "https://tereno.net/quality",
+      "jsonld.type": "ObservationResultQuality",
       "annotation": "Analysis error",
       "annotationType": "specific"
     }
