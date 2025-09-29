@@ -95,11 +95,40 @@ which generates the following result:
         "@value": "https://handle.net/12345"
       }
     ],
+    "http://schema.org/image": [
+      {
+        "http://schema.org/caption": [
+          {
+            "@value": "Echo Sound Transducer at backside of Speedboat"
+          }
+        ],
+        "http://schema.org/contentUrl": [
+          {
+            "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+          }
+        ],
+        "@type": [
+          "http://schema.org/ImageObject"
+        ]
+      },
+      {
+        "http://schema.org/caption": [
+          {
+            "@value": "Platform in situ"
+          }
+        ],
+        "http://schema.org/contentUrl": [
+          {
+            "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+          }
+        ],
+        "@type": [
+          "http://schema.org/ImageObject"
+        ]
+      }
+    ],
     "http://schema.org/dataset": [
       {
-        "@type": [
-          "http://schema.org/Dataset"
-        ],
         "http://schema.org/distribution": [
           {
             "@type": [
@@ -116,6 +145,9 @@ which generates the following result:
           {
             "@value": "http://www.opengis.net/doc/IS/SensorML/2.0"
           }
+        ],
+        "@type": [
+          "http://schema.org/Dataset"
         ]
       }
     ],
@@ -131,31 +163,27 @@ which generates the following result:
         ]
       }
     ],
-    "http://schema.org/providerMobility": [
-      {
-        "@value": "static"
-      }
-    ],
     "http://schema.org/member": [
       {
+        "http://schema.org/sameAs": [
+          {
+            "@value": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4"
+          }
+        ],
         "@type": [
           "http://schema.org/Role"
         ],
         "http://schema.org/member": [
           {
-            "@id": "https://sensors.gfz-potsdam.de/contacts/49",
-            "@type": [
-              "http://schema.org/Person"
-            ],
             "http://schema.org/affiliation": [
               {
-                "@type": [
-                  "http://schema.org/Organization"
-                ],
                 "http://schema.org/identifier": [
                   {
                     "@value": "https://ror.org/04z8jg394"
                   }
+                ],
+                "@type": [
+                  "http://schema.org/Organization"
                 ],
                 "http://schema.org/name": [
                   {
@@ -183,6 +211,10 @@ which generates the following result:
               {
                 "@value": "https://orcid.org/0000-0003-0930-6527"
               }
+            ],
+            "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+            "@type": [
+              "http://schema.org/Person"
             ]
           }
         ],
@@ -193,9 +225,39 @@ which generates the following result:
         ]
       }
     ],
-    "http://schema.org/status": [
+    "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings": [
       {
-        "@value": "active"
+        "@id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
+        "@type": [
+          "https://codebase.helmholtz.cloud/stamplate/vocab/RelatedThing"
+        ],
+        "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole": [
+          {
+            "http://schema.org/sameAs": [
+              {
+                "@value": "https://schema.org/containedInPlace"
+              }
+            ],
+            "https://codebase.helmholtz.cloud/stamplate/vocab/inverseDefinition": [
+              {
+                "@value": "https://schema.org/containsPlace"
+              }
+            ],
+            "https://codebase.helmholtz.cloud/stamplate/vocab/inverseName": [
+              {
+                "@value": "containsPlace"
+              }
+            ],
+            "@type": [
+              "https://codebase.helmholtz.cloud/stamplate/vocab/RelationRole"
+            ],
+            "http://schema.org/name": [
+              {
+                "@value": "containedInPlace"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
