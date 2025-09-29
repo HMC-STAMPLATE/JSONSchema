@@ -1,8 +1,8 @@
-# HMC STAMPLATE JSON-Schemas
+# HMC STAMPLATE JSON Schemas
 
-This repo provides JSON-Schema definitions for the `properties` objects of the
+This repository provides JSON Schema definitions for the `properties` objects of the
 OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
-`Location`, `Observation` and `FeatureOfInterest`.
+`Location` and `Observation`.
 
 ## Goals
 
@@ -15,15 +15,15 @@ properties on both the service and the client side. This ensures uniform access
 to this data across the centers.
 
 We also want to semantically label the data by using the terms already defined
-at https://schema.org.
+at, e.g., https://schema.org.
 
 ## Structure of this Repository
 
-- `stamplate.jsonld`, contains the necessary adoptions and definitions of terms
+- `stamplate.jsonld` contains the necessary adoptions and definitions of terms
     used in the JSON documents
-- `schemas/`, contains the JSON-Schema definitions for each OGC STA entity
+- `schemas/` contains the JSON-Schema definitions for each OGC STA entity
     property
-- `examples/`, contains examples of JSON-Schema and JSON-LD valid documents for
+- `examples/` contains JSON-Schema and JSON-LD valid documents examples for
     each OGC STA entity property
 
 ## Examples
@@ -55,7 +55,7 @@ To validate the examples against the schemas, run
 npm run lint:schemas-examples
 ```
 
-## JSON-LD Compability
+## JSON-LD Compatibility
 
 To check for JSON-LD compatibility lint the `stamplate.jsonld` context file
 with:
@@ -70,8 +70,8 @@ To check the examples for JSON-LD compatibility, run:
 npm run lint:jsonld-examples
 ```
 
-⚠️ The `json-ld` linter just takes care that the file is correct to the JSON-LD
-specifications, it does not resolve or checks types from
+⚠️ The `json-ld` linter ensures that the file is formatted correctly according to JSON-LD specifications.
+specifications. It does not resolve or check types from
 [schema.org](https://schema.org).
 
 ⚠️ The examples refer to the remote resource of the `stamplate.jsonld`
