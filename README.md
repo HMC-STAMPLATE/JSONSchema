@@ -86,7 +86,7 @@ which generates the following result:
 ```json
 [
   {
-    "@id": "https://sensors.gfz-potsdam.de/configurations/35",
+    "@id": "https://sensors.gfz.de/configurations/35",
     "@type": [
       "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties"
     ],
@@ -104,7 +104,7 @@ which generates the following result:
         ],
         "http://schema.org/contentUrl": [
           {
-            "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
           }
         ],
         "@type": [
@@ -119,7 +119,7 @@ which generates the following result:
         ],
         "http://schema.org/contentUrl": [
           {
-            "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
           }
         ],
         "@type": [
@@ -136,7 +136,7 @@ which generates the following result:
             ],
             "http://schema.org/url": [
               {
-                "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
+                "@value": "https://sensors.gfz.de/backend/api/v1/devices/1/sensorml"
               }
             ]
           }
@@ -187,32 +187,32 @@ which generates the following result:
                 ],
                 "http://schema.org/name": [
                   {
-                    "@value": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ"
+                    "@value": "GFZ Helmholtz Centre for Geosciences"
                   }
                 ]
               }
             ],
             "http://schema.org/email": [
               {
-                "@value": "christian.wille@gfz-potsdam.de"
+                "@value": "john.doe@example.org"
               }
             ],
             "http://schema.org/familyName": [
               {
-                "@value": "Wille"
+                "@value": "Doe"
               }
             ],
             "http://schema.org/givenName": [
               {
-                "@value": "Christian"
+                "@value": "John"
               }
             ],
             "http://schema.org/identifier": [
               {
-                "@value": "https://orcid.org/0000-0003-0930-6527"
+                "@value": "https://orcid.org/0000-0000-0000-1234"
               }
             ],
-            "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+            "@id": "https://sensors.gfz.de/contacts/12345",
             "@type": [
               "http://schema.org/Person"
             ]
@@ -227,7 +227,7 @@ which generates the following result:
     ],
     "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings": [
       {
-        "@id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
+        "@id": "https://sta.gfz.de/v1.1/Things(1)",
         "@type": [
           "https://codebase.helmholtz.cloud/stamplate/vocab/RelatedThing"
         ],
