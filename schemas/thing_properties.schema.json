@@ -17,18 +17,6 @@
         "@vocab": {
           "type": "string",
           "const": "http://schema.org/"
-        },
-        "jsonld": {
-          "type": "string",
-          "const": "https://www.w3.org/ns/json-ld#"
-        },
-        "jsonld.id": {
-          "type": "string",
-          "const": "@id"
-        },
-        "jsonld.type": {
-          "type": "string",
-          "const": "@type"
         }
       },
       "required": [
