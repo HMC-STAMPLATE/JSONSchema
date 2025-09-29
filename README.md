@@ -74,6 +74,10 @@ npm run lint:jsonld-examples
 specifications, it does not resolve or checks types from
 [schema.org](https://schema.org).
 
+⚠️ The examples refer to the remote resource of the `stamplate.jsonld`
+definition. If you have made changes to the local definition and want to test it
+against the examples, be sure you refer to the local file.
+
 To see if the terms are correctly resolved, expand the examples with the
 `jsonld-cli` tool:
 
