@@ -47,6 +47,11 @@
             "description": "quality-measure scheme/tool, e.g., SaQC",
             "type": "string"
           },
+          "annotationTime": {
+            "description": "date and time in ISO 8601 format",
+            "type": "string",
+            "format": "date-time"
+          },
           "properties": {
             "description": "parameters of the quality-measure scheme/tool",
             "type": "object",
