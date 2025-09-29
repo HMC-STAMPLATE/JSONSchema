@@ -18,6 +18,7 @@ sta-data-model
 properties
 usage
 mapping
+sta_endpoints
 ```
 
 ## Citing
