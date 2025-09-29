@@ -12,8 +12,8 @@
       "jsonld.type": "RelatedDatastream",
       "relationRole": {
         "jsonld.type": "RelationRole",
-        "name": "isRelatedTo",
-        "definition": "https://schema.org/isRelatedTo"
+        "name": "continues",
+        "definition": "https://support.datacite.org/docs/connecting-to-works"
       }
     }
   ],
