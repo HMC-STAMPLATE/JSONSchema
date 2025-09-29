@@ -88,7 +88,7 @@ which generates the following result:
   {
     "@id": "https://sensors.gfz.de/configurations/35",
     "@type": [
-      "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties"
+      "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties"
     ],
     "http://schema.org/identifier": [
       {
@@ -225,31 +225,31 @@ which generates the following result:
         ]
       }
     ],
-    "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings": [
+    "https://hmc-stamplate.github.io/JSONSchema/jsonld/sourceRelatedThings": [
       {
         "@id": "https://sta.gfz.de/v1.1/Things(1)",
         "@type": [
-          "https://codebase.helmholtz.cloud/stamplate/vocab/RelatedThing"
+          "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelatedThing"
         ],
-        "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole": [
+        "https://hmc-stamplate.github.io/JSONSchema/jsonld/relationRole": [
           {
             "http://schema.org/sameAs": [
               {
                 "@value": "https://schema.org/containedInPlace"
               }
             ],
-            "https://codebase.helmholtz.cloud/stamplate/vocab/inverseDefinition": [
+            "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseDefinition": [
               {
                 "@value": "https://schema.org/containsPlace"
               }
             ],
-            "https://codebase.helmholtz.cloud/stamplate/vocab/inverseName": [
+            "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseName": [
               {
                 "@value": "containsPlace"
               }
             ],
             "@type": [
-              "https://codebase.helmholtz.cloud/stamplate/vocab/RelationRole"
+              "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelationRole"
             ],
             "http://schema.org/name": [
               {
