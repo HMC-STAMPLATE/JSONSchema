@@ -148,7 +148,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "ImageObject"
           },
@@ -160,7 +160,7 @@
           }
         },
         "required": [
-          "@type"
+          "jsonld.type"
         ]
       }
     },
