@@ -4,7 +4,7 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "jsonld.id": "https://sensors.gfz-potsdam.de/configurations/35",
+  "jsonld.id": "https://sensors.gfz.de/configurations/35",
   "jsonld.type": "ThingProperties",
   "identifier": "https://handle.net/12345",
   "responsiblePersons": [
@@ -14,17 +14,17 @@
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
       "responsiblePersons": [
         {
-          "jsonld.id": "https://sensors.gfz-potsdam.de/contacts/49",
+          "jsonld.id": "https://sensors.gfz.de/contacts/12345",
           "jsonld.type": "Person",
-          "givenName": "Christian",
-          "familyName": "Wille",
-          "email": "christian.wille@gfz-potsdam.de",
+          "givenName": "John",
+          "familyName": "Doe",
+          "email": "john.doe@example.org",
           "affiliation": {
             "jsonld.type": "Organization",
-            "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+            "name": "GFZ Helmholtz Centre for Geosciences",
             "identifier": "https://ror.org/04z8jg394"
           },
-          "identifier": "https://orcid.org/0000-0003-0930-6527"
+          "identifier": "https://orcid.org/0000-0000-0000-1234"
         }
       ]
     }
@@ -39,12 +39,12 @@
     {
       "jsonld.type": "ImageObject",
       "caption": "Echo Sound Transducer at backside of Speedboat",
-      "contentUrl": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+      "contentUrl": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
     },
     {
       "jsonld.type": "ImageObject",
       "caption": "Platform in situ",
-      "contentUrl": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+      "contentUrl": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
     }
   ],
   "metadata": {
@@ -52,12 +52,12 @@
     "encodingType": "http://www.opengis.net/doc/IS/SensorML/2.0",
     "distribution": {
       "jsonld.type": "DataDownload",
-      "url": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
+      "url": "https://sensors.gfz.de/backend/api/v1/devices/1/sensorml"
     }
   },
   "sourceRelatedThings": [
     {
-      "jsonld.id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
+      "jsonld.id": "https://sta.gfz.de/v1.1/Things(1)",
       "jsonld.type": "RelatedThing",
       "relationRole": {
         "jsonld.type": "RelationRole",

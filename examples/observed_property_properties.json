@@ -4,6 +4,6 @@
     "@import": "stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "jsonld.id": "https://sensors.gfz-potsdam.de/cv/api/v1/measuredquantities/32/",
+  "jsonld.id": "https://sensors.gfz.de/cv/api/v1/measuredquantities/32/",
   "jsonld.type": "ObservedPropertyProperties"
 }
