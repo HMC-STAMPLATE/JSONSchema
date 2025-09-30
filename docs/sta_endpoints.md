@@ -9,7 +9,6 @@ Our enhanced STA-profile is currently used across several STA-endpoints. But ple
   - URL
 * - Forschungszentrum Jülich (FZJ)
   - [eifelrur.earth-data.fz-juelich.de/FROST-Server](https://eifelrur.earth-data.fz-juelich.de/FROST-Server)
-* -
   - [soilcan.earth-data.fz-juelich.de/FROST-Server](https://soilcan.earth-data.fz-juelich.de/FROST-Server)
 * - GFZ Helmholtz Centre for Geosciences
   - [sta.gfz.de](https://sta.gfz.de)
