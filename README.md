@@ -55,6 +55,16 @@ To validate the examples against the schemas, run
 npm run lint:schemas-examples
 ```
 
+To validate your own JSON against the schemas in this project, run
+
+```
+npm run validate -- -s schemas/SCHEMA.json -d DATA.json
+```
+
+Where `DATA.json` is a JSON object from the `properties` property of an STA
+entity from your STA endpoint, and `schemas/SCHEMA.json` is the schema
+corresponding to the entity, as defined in this project.
+
 ## JSON-LD Compatibility
 
 To check for JSON-LD compatibility lint the `stamplate.jsonld` context file
@@ -70,8 +80,8 @@ To check the examples for JSON-LD compatibility, run:
 npm run lint:jsonld-examples
 ```
 
-⚠️ The `json-ld` linter ensures that the file is formatted correctly according to JSON-LD specifications.
-specifications. It does not resolve or check types from
+⚠️ The `json-ld` linter ensures that the file is formatted correctly according to
+JSON-LD specifications. It does not resolve or check types from
 [schema.org](https://schema.org).
 
 ⚠️ The examples refer to the remote resource of the `stamplate.jsonld`
