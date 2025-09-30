@@ -61,7 +61,7 @@ To validate your own JSON against the schemas in this project, run
 npm run validate -- -s schemas/SCHEMA.json -d DATA.json
 ```
 
-Where `DATA.json` is a JSON object from the `properties` property of an STA
+where `DATA.json` is a JSON object from the `properties` property of an STA
 entity from your STA endpoint, and `schemas/SCHEMA.json` is the schema
 corresponding to the entity, as defined in this project.
 
