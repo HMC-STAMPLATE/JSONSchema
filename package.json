@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://codebase.helmholtz.cloud/stamplate/jsonschemas"
+    "url": "https://github.com/HMC-STAMPLATE/JSONSchema"
   },
   "keywords": [
     "HMC",
@@ -25,8 +25,12 @@
     "SensorThingsAPI"
   ],
   "contributors": [
-    "Marc Hanisch <marc.hanisch@gfz-potsdam.de>",
-    "Ulrich Loup <u.loup@fz-juelich.de>"
+    "Marc Hanisch <marc.hanisch@gfz.de>",
+    "Ulrich Loup <u.loup@fz-juelich.de>",
+    "Nils Brinckmann <nils.brinckmann@gfz.de>",
+    "Claas Faber <cfaber@geomar.de>",
+    "David Schäfer <david.schaefer@ufz.de>",
+    "Christof Lorenz <christof.lorenz@kit.edu>"
   ],
   "devDependencies": {
     "ajv-cli": "^5.0.0",

@@ -1,8 +1,8 @@
-# HMC STAMPLATE JSON-Schemas
+# HMC STAMPLATE JSON Schemas
 
-This repo provides JSON-Schema definitions for the `properties` objects of the
+This repository provides JSON Schema definitions for the `properties` objects of the
 OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
-`Location`, `Observation` and `FeatureOfInterest`.
+`Location` and `Observation`.
 
 ## Goals
 
@@ -15,15 +15,15 @@ properties on both the service and the client side. This ensures uniform access
 to this data across the centers.
 
 We also want to semantically label the data by using the terms already defined
-at https://schema.org.
+at, e.g., https://schema.org.
 
 ## Structure of this Repository
 
-- `stamplate.jsonld`, contains the necessary adoptions and definitions of terms
+- `stamplate.jsonld` contains the necessary adoptions and definitions of terms
     used in the JSON documents
-- `schemas/`, contains the JSON-Schema definitions for each OGC STA entity
+- `schemas/` contains the JSON-Schema definitions for each OGC STA entity
     property
-- `examples/`, contains examples of JSON-Schema and JSON-LD valid documents for
+- `examples/` contains JSON-Schema and JSON-LD valid documents examples for
     each OGC STA entity property
 
 ## Examples
@@ -55,7 +55,7 @@ To validate the examples against the schemas, run
 npm run lint:schemas-examples
 ```
 
-## JSON-LD Compability
+## JSON-LD Compatibility
 
 To check for JSON-LD compatibility lint the `stamplate.jsonld` context file
 with:
@@ -70,9 +70,13 @@ To check the examples for JSON-LD compatibility, run:
 npm run lint:jsonld-examples
 ```
 
-⚠️ The `json-ld` linter just takes care that the file is correct to the JSON-LD
-specifications, it does not resolve or checks types from
+⚠️ The `json-ld` linter ensures that the file is formatted correctly according to JSON-LD specifications.
+specifications. It does not resolve or check types from
 [schema.org](https://schema.org).
+
+⚠️ The examples refer to the remote resource of the `stamplate.jsonld`
+definition. If you have made changes to the local definition and want to test it
+against the examples, be sure you refer to the local file.
 
 To see if the terms are correctly resolved, expand the examples with the
 `jsonld-cli` tool:
@@ -86,9 +90,9 @@ which generates the following result:
 ```json
 [
   {
-    "@id": "https://sensors.gfz-potsdam.de/configurations/35",
+    "@id": "https://sensors.gfz.de/configurations/35",
     "@type": [
-      "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties"
+      "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties"
     ],
     "http://schema.org/identifier": [
       {
@@ -104,7 +108,7 @@ which generates the following result:
         ],
         "http://schema.org/contentUrl": [
           {
-            "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
           }
         ],
         "@type": [
@@ -119,7 +123,7 @@ which generates the following result:
         ],
         "http://schema.org/contentUrl": [
           {
-            "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
           }
         ],
         "@type": [
@@ -136,7 +140,7 @@ which generates the following result:
             ],
             "http://schema.org/url": [
               {
-                "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
+                "@value": "https://sensors.gfz.de/backend/api/v1/devices/1/sensorml"
               }
             ]
           }
@@ -187,32 +191,32 @@ which generates the following result:
                 ],
                 "http://schema.org/name": [
                   {
-                    "@value": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ"
+                    "@value": "GFZ Helmholtz Centre for Geosciences"
                   }
                 ]
               }
             ],
             "http://schema.org/email": [
               {
-                "@value": "christian.wille@gfz-potsdam.de"
+                "@value": "john.doe@example.org"
               }
             ],
             "http://schema.org/familyName": [
               {
-                "@value": "Wille"
+                "@value": "Doe"
               }
             ],
             "http://schema.org/givenName": [
               {
-                "@value": "Christian"
+                "@value": "John"
               }
             ],
             "http://schema.org/identifier": [
               {
-                "@value": "https://orcid.org/0000-0003-0930-6527"
+                "@value": "https://orcid.org/0000-0000-0000-1234"
               }
             ],
-            "@id": "https://sensors.gfz-potsdam.de/contacts/49",
+            "@id": "https://sensors.gfz.de/contacts/12345",
             "@type": [
               "http://schema.org/Person"
             ]
@@ -225,31 +229,31 @@ which generates the following result:
         ]
       }
     ],
-    "https://codebase.helmholtz.cloud/stamplate/vocab/sourceRelatedThings": [
+    "https://hmc-stamplate.github.io/JSONSchema/jsonld/sourceRelatedThings": [
       {
-        "@id": "https://sta.gfz-potsdam.de/v1.1/Things(1)",
+        "@id": "https://sta.gfz.de/v1.1/Things(1)",
         "@type": [
-          "https://codebase.helmholtz.cloud/stamplate/vocab/RelatedThing"
+          "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelatedThing"
         ],
-        "https://codebase.helmholtz.cloud/stamplate/vocab/relationRole": [
+        "https://hmc-stamplate.github.io/JSONSchema/jsonld/relationRole": [
           {
             "http://schema.org/sameAs": [
               {
                 "@value": "https://schema.org/containedInPlace"
               }
             ],
-            "https://codebase.helmholtz.cloud/stamplate/vocab/inverseDefinition": [
+            "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseDefinition": [
               {
                 "@value": "https://schema.org/containsPlace"
               }
             ],
-            "https://codebase.helmholtz.cloud/stamplate/vocab/inverseName": [
+            "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseName": [
               {
                 "@value": "containsPlace"
               }
             ],
             "@type": [
-              "https://codebase.helmholtz.cloud/stamplate/vocab/RelationRole"
+              "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelationRole"
             ],
             "http://schema.org/name": [
               {
