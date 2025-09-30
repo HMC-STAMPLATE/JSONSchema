@@ -11,7 +11,7 @@ Our enhanced STA-profile is currently used across several STA-endpoints. But ple
   - [eifelrur.earth-data.fz-juelich.de/FROST-Server](https://eifelrur.earth-data.fz-juelich.de/FROST-Server)
 * -
   - [soilcan.earth-data.fz-juelich.de/FROST-Server](https://soilcan.earth-data.fz-juelich.de/FROST-Server)
-* - GeoForschungsZentrum Potsdam (GFZ)
+* - GFZ Helmholtz Centre for Geosciences
   - [sta.gfz.de](https://sta.gfz.de)
 * - GEOMAR Helmholtz Centre for Ocean Research Kiel
   - [timeseries.geomar.de/soop/FROST-Server](https://timeseries.geomar.de/soop/FROST-Server)
