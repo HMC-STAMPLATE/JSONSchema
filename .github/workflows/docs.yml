@@ -1,0 +1,28 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches: [ release_version_1.0.0 ]  # change to main or tags when ready
+
+permissions:
+  contents: write   # ← required to push to gh-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-docs.txt
+          # ensure these are included: sphinx myst-parser sphinxcontrib-bibtex
+      - name: Build Sphinx
+        run: sphinx-build -b html docs docs/_build/html
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html

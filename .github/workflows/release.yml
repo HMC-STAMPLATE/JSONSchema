@@ -1,0 +1,124 @@
+name: Build & Release (Zenodo-ready)
+
+on:
+  push:
+    tags: [ 'v*' ]
+  workflow_dispatch:
+    inputs:
+      sandbox:
+        description: 'Use Zenodo Sandbox?'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install docs deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-docs.txt
+          python -m pip install requests
+
+      - name: Build Sphinx docs to docs/_site
+        run: |
+          sphinx-build -b html docs docs/_site -W --keep-going
+
+      - name: Create docs archive
+        run: |
+          cd docs/_site
+          zip -r ../../docs-html.zip .
+          cd ../../
+          echo "::notice title=Artifacts::Prepared .zenodo.json and docs-html.zip"
+
+      - name: Read version from CITATION.cff
+        id: getver
+        run: |
+          VER=$(grep '^version:' CITATION.cff | awk '{print $2}')
+          echo "version=$VER" >> $GITHUB_OUTPUT
+
+      - name: Determine Zenodo target
+        id: target
+        run: |
+          if [[ "${GITHUB_REF_NAME}" == *"-sandbox" || "${{ github.event.inputs.sandbox }}" == "true" ]]; then
+            echo "api_url=https://sandbox.zenodo.org/api" >> $GITHUB_OUTPUT
+            echo "token=${{ secrets.ZENODO_SANDBOX_TOKEN }}" >> $GITHUB_OUTPUT
+          else
+            echo "api_url=https://zenodo.org/api" >> $GITHUB_OUTPUT
+            echo "token=${{ secrets.ZENODO_TOKEN }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload to Zenodo via API
+        run: |
+          python - <<'EOF'
+          import json, os, requests
+          
+          api_url = "${{ steps.target.outputs.api_url }}"
+          token = "${{ steps.target.outputs.token }}"
+          
+          with open(".zenodo.json") as f:
+              metadata = json.load(f)
+          
+          r = requests.post(f"{api_url}/deposit/depositions",
+                            params={"access_token": token},
+                            json={"metadata": metadata},
+                            headers={"Accept": "application/json"}
+          )
+          if r.status_code >= 400:
+            print("Status:", r.status_code, file=sys.stderr)
+            try:
+              print("Error JSON:", r.json(), file=sys.stderr)
+            except Exception:
+              print("Error text:", r.text, file=sys.stderr)
+            r.raise_for_status()
+
+          resp = r.json()
+          dep_id = resp["id"]
+          bucket = resp["links"]["bucket"]
+          # Optional: pre-reserved DOI (before publish)
+          preres_doi = resp.get("metadata", {}).get("prereserve_doi", {}).get("doi", "")
+
+          print(f"Created deposition {dep_id}")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as gh:
+              gh.write(f"deposition_id={dep_id}\n")
+              gh.write(f"bucket_url={bucket}\n")
+              gh.write(f"prereserved_doi={preres_doi}\n")
+          PY
+
+          EOF
+
+      - name: Create GitHub Release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "STAMPLATE JSONSchema ${{ github.ref_name }}"
+          body: |
+            Automated release for ${{ github.ref_name }}.
+
+            Artifacts:
+            - docs-html.zip (Sphinx HTML docs)
+            - .zenodo.json (DataCite metadata for Zenodo)
+
+            DOI will be minted on Zenodo (${{
+              steps.target.outputs.api_url
+            }}).
+          draft: false
+          prerelease: false
+          files: |
+            docs-html.zip
+            .zenodo.json
+

@@ -1,10 +1,10 @@
 {
   "@context": {
     "@version": 1.1,
-    "@import": "stamplate.jsonld",
+    "@import": "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "jsonld.id": "https://sensors.gfz-potsdam.de/devices/786",
+  "jsonld.id": "https://sensors.gfz.de/devices/786",
   "jsonld.type": "SensorProperties",
   "identifier": "https://handle.net/1234567",
   "isVariantOf": {
@@ -27,14 +27,14 @@
       "definition": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4",
       "responsiblePersons": [
         {
-          "jsonld.id": "https://sensors.gfz-potsdam.de/contacts/49",
+          "jsonld.id": "https://sensors.gfz.de/contacts/12345",
           "jsonld.type": "Person",
-          "givenName": "Christian",
-          "familyName": "Budach",
-          "email": "christian.budach@gfz-potsdam.de",
+          "givenName": "Jane",
+          "familyName": "Doe",
+          "email": "jane.doe@example.org",
           "affiliation": {
             "jsonld.type": "Organization",
-            "name": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ",
+            "name": "GFZ Helmholtz Centre for Geosciences",
             "identifier": "https://ror.org/04z8jg394"
           },
           "identifier": ""
