@@ -66,13 +66,15 @@ extensions = [
     "myst_parser",
     "sphinx.ext.autosectionlabel",
     "sphinx-jsonschema",   # or: "sphinx_jsonschema"
-    "sphinxcontrib.bibtex"
+    "sphinxcontrib.bibtex",
+    "sphinx_design"
 ]
 
 myst_enable_extensions = [
     "colon_fence",
     "deflist",
     "substitution",
+    "colon_fence"
     # Enable if you installed it: "linkify",
 ]
 
