@@ -1,6 +1,6 @@
 {
-  "name": "jsonschemas",
-  "version": "0.0.3",
+  "name": "stamplate-jsonschema",
+  "version": "1.0.0",
   "description": "JSON Schema definitions for the HMC STAMPLATE project",
   "directories": {
     "example": "examples"
