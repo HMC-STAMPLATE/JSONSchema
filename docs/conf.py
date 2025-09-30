@@ -44,7 +44,7 @@ def cff(path, default=""):
     return cur
 
 # ---- Project info from CFF (with sensible fallbacks) ----
-project = cff("title", "STAMPLATE: SensorThings API Domain Profile — JSON Schemas")
+project = cff("title", "STAMPLATE Schema")
 release = cff("version", "")              # shown as “Release” in Sphinx
 version = release                    # short X.Y if you prefer to slice it
 doi = get_doi(citation)
@@ -113,7 +113,7 @@ html_extra_path = ['../schemas', '../stamplate.jsonld', '.nojekyll']
 #version = release  # empty so Furo won’t show a version badge in the sidebar
 
 html_title = project
-html_short_title = project
+html_short_title = "STAMPLATE Schema"
 html_logo = "_static/images/datahub_logo.png"
 
 # ---- Build output directory (docs/_site) ----
