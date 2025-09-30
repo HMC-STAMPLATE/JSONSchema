@@ -1,14 +1,10 @@
-# An enhanced SensorThings API data model for environmental monitoring systems
+# STAMPLATE Schema Documentation
 
 <small>Version {{ project_version }}</small>
 
 **Authors:** {{ project_authors }}
 
-**Contributors:** Thomas Schnicke, Ulrike Kleeberg, Marie Ryan, many many more!
-
-**DOI:** {{ project_doi }}
-
-Welcome! This site documents the JSON Schemas and guidance for using the `properties` objects of core **OGC SensorThings API (STA)** entities in the **STAMPLATE** context.
+Welcome! This site documents the JSON Schemas and guidance for using the extended `properties` objects of core **OGC SensorThings API (STA)** entities in the **STAMPLATE** context.
 
 ```{toctree}
 :caption: Contents
@@ -32,3 +28,21 @@ If you use this profile, please cite it as
 ```{bibliography}
 :cited:
 :style: unsrt
+```
+
+## Acknowledgements
+
+This work was carried out within the framework of the DataHub of the Helmholtz Research Field Earth and Environment and was accompanied by the Helmholtz Metadata Collaboration.
+
+We would like to express our special thanks to the following individuals and teams whose commitment and expertise were instrumental in the development and implementation of our schema:
+
+- Alfred Wegener Institute (AWI): Roland Koppe
+- Forschungszentrum Jülich (FZJ): Ralf Kunkel, Jürgen Sorg
+- GEOMAR Helmholtz Centre for Ocean Research Kiel: Marc Adolf, Andreas Lehmann
+- GFZ Helmholtz Centre for Geosciences: Kirsten Elger
+- Helmholtz Metadata Collaboration (HMC): Emmanuel Söding, Andrea Pörsch, Dorothee Kottmeier
+- Hereon: Linda Baldewein, Ulrike Kleeberg, Marie Ryan
+- Karlsruhe Institute of Technology (KIT): Sabine Barthlott, Benjamin Louisot, Florian Obersteiner, Jasper Schalla
+- Umweltforschungszentrum Leipzig (UFZ): Thomas Schnicke, Jan Bumberger, Martin Abbrent
+
+

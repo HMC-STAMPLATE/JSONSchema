@@ -1,4 +1,5 @@
-# HMC STAMPLATE JSON Schemas
+# The STAMPLATE Schema
+## An extended SensorThings API data model for environmental monitoring systems
 
 This repository provides JSON Schema definitions for the `properties` objects of the
 OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
