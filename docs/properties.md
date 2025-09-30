@@ -53,7 +53,7 @@ to a platform.
 | `partOfProjects["jsonld.type"]` | The type of the object, in this case 'ResearchProject'. | String | One (mandatory) |
 | `partOfProjects.name` | Name of the project. | String | Zero-to-one |
 | `images` | A list of images linked to the object. | Array of [ImageObject](https://schema.org/ImageObject)-Objects | Zero-to-many |
-| `images.@type` | The type of the object, in this case 'ImageObject'. | String | One (mandatory) |
+| `images["jsonld.type"]` | The type of the object, in this case 'ImageObject'. | String | One (mandatory) |
 | `images.caption` | A short caption for the image. | String | Zero-to-one |
 | `images.contentUrl` | The URL where the image can be accessed. | String | Zero-to-one |
 | `metadata` | Additional Metadata describing the thing. | [Dataset](https://schema.org/Dataset)-Object | Zero-to-one |
@@ -542,8 +542,8 @@ for the OGC SensorThings API (STA) `Observation` entity.
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
 | `annotations` | A list of annotations for the object. | Array of Objects | Zero-to-many |
-| `annotations.@id` | Unique ID of the annotation. | String | Zero-to-one |
-| `annotations.@type` | The type of the annotation, in this case 'ObservationResultQuality'. | String | One (mandatory) |
+| `annotations["jsonld.id"]` | Unique ID of the annotation. | String | Zero-to-one |
+| `annotations["jsonld.type"]` | The type of the annotation, in this case 'ObservationResultQuality'. | String | One (mandatory) |
 | `annotations.annotation` | The value of the annotation. | String | Zero-to-one |
 | `annotations.annotationType` | The type of the annotation (e.g., 'SaQC', 'generic'). | String | Zero-to-one |
 | `annotations.properties` | Additional properties of the annotation. | Object | Zero-to-one |

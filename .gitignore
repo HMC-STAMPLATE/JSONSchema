@@ -1,6 +1,9 @@
 # Node.js
 node_modules/
 
+# Sphinx build
+docs/_build/
+
 # Vim files
 # Swap
 [._]*.s[a-v][a-z]

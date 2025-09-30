@@ -1,14 +1,14 @@
 {
   "@context": {
     "@version": 1.1,
-    "@import": "stamplate.jsonld",
+    "@import": "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld",
     "@vocab": "http://schema.org/"
   },
-  "jsonld.id": "https://sensors.gfz-potsdam.de/datastream-links/6",
+  "jsonld.id": "https://sensors.gfz.de/datastream-links/6",
   "jsonld.type": "DatastreamProperties",
   "sourceRelatedDatastreams": [
     {
-      "jsonld.id": "https://sta.gfz-potsdam.de/v1.1/Datastreams(123)",
+      "jsonld.id": "https://sta.gfz.de/v1.1/Datastreams(123)",
       "jsonld.type": "RelatedDatastream",
       "relationRole": {
         "jsonld.type": "RelationRole",
@@ -67,7 +67,7 @@
   },
   "providerMobility": "static",
   "deployment": {
-    "jsonld.id": "https://sensors.gfz-potsdam.de/configurations/35/platforms-and-devices?deviceMountAction=182",
+    "jsonld.id": "https://sensors.gfz.de/configurations/35/platforms-and-devices?deviceMountAction=182",
     "jsonld.type": "Deployment",
     "deploymentTime": "2020-01-01T00:50-03:00",
     "properties": {

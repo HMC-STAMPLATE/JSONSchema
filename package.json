@@ -1,6 +1,6 @@
 {
-  "name": "jsonschemas",
-  "version": "0.0.3",
+  "name": "stamplate-jsonschema",
+  "version": "1.0.0",
   "description": "JSON Schema definitions for the HMC STAMPLATE project",
   "directories": {
     "example": "examples"
@@ -11,11 +11,12 @@
     "lint:schemas": "for f in ./schemas/*.schema.json; do npx ajv-cli compile -s $f || exit $?; done",
     "lint:schemas-examples": "for f in ./schemas/*.schema.json; do npx ajv-cli validate -s $f -d `echo $f | sed -e 's/schema\\.//' -e 's/schemas/examples/'` || exit $?; done",
     "lint": "npm run lint:jsonld && npm run lint:jsonld-examples && npm run lint:schemas && npm run lint:schemas-examples",
+    "validate": "npx ajv-cli validate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://codebase.helmholtz.cloud/stamplate/jsonschemas"
+    "url": "https://github.com/HMC-STAMPLATE/JSONSchema"
   },
   "keywords": [
     "HMC",
@@ -24,8 +25,12 @@
     "SensorThingsAPI"
   ],
   "contributors": [
-    "Marc Hanisch <marc.hanisch@gfz-potsdam.de>",
-    "Ulrich Loup <u.loup@fz-juelich.de>"
+    "Marc Hanisch <marc.hanisch@gfz.de>",
+    "Ulrich Loup <u.loup@fz-juelich.de>",
+    "Nils Brinckmann <nils.brinckmann@gfz.de>",
+    "Claas Faber <cfaber@geomar.de>",
+    "David Schäfer <david.schaefer@ufz.de>",
+    "Christof Lorenz <christof.lorenz@kit.edu>"
   ],
   "devDependencies": {
     "ajv-cli": "^5.0.0",
