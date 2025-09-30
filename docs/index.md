@@ -1,4 +1,4 @@
-# STAMPLATE Schema: An extended SensorThings API data model for environmental monitoring systems
+# STAMPLATE Schema Documentation
 
 <small>Version {{ project_version }}</small>
 
