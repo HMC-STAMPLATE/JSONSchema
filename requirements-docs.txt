@@ -5,3 +5,4 @@ furo
 sphinx-jsonschema
 sphinxcontrib-jsonschema
 sphinxcontrib-bibtex
+sphinx-design
