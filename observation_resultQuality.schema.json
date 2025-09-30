@@ -51,7 +51,7 @@
             "description": "parameters of the quality-measure scheme/tool",
             "type": "object",
             "properties": {
-              "@type": {
+              "jsonld.type": {
                 "type": "string",
                 "const": "ObservationResultQualityProperties"
               },
