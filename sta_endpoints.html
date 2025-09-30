@@ -3,11 +3,11 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="The OGC SensorThings API" href="sta-data-model.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="prev" title="STA Properties Mappings" href="mapping.html">
         <link rel="prefetch" href="_static/datahub_logo.png" as="image">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
-        <title>An enhanced SensorThings API data model for environmental monitoring systems</title>
+        <title>Collection of STA-Endpoints - An enhanced SensorThings API data model for environmental monitoring systems</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -163,7 +163,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">An enhanced SensorThings API data model for environmental monitoring systems</div></a>
+      <a href="index.html"><div class="brand">An enhanced SensorThings API data model for environmental monitoring systems</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -174,7 +174,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -182,7 +182,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo" src="_static/datahub_logo.png" alt="Logo"/>
   </div>
@@ -196,12 +196,12 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sta-data-model.html">The OGC SensorThings API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="properties.html">Enhanced STA Properties</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage of the enhanced STA Profile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mapping.html">STA Properties Mappings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sta_endpoints.html">Collection of STA-Endpoints</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Collection of STA-Endpoints</a></li>
 </ul>
 
 </div>
@@ -222,7 +222,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/index.md.txt" title="View this page">
+  <a class="muted-link" href="_sources/sta_endpoints.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -235,94 +235,40 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="an-enhanced-sensorthings-api-data-model-for-environmental-monitoring-systems">
-<h1>An enhanced SensorThings API data model for environmental monitoring systems<a class="headerlink" href="#an-enhanced-sensorthings-api-data-model-for-environmental-monitoring-systems" title="Link to this heading">¶</a></h1>
-<p><small>Version 1.0.0</small></p>
-<p><strong>Authors:</strong> Ulrich Loup, Marc Hanisch, Nils Brinckmann, Claas Faber, David Schäfer, Mihir Rambhia, Hylke van der Schaaf, Christof Lorenz</p>
-<p><strong>Contributors:</strong> Thomas Schnicke, Ulrike Kleeberg, Marie Ryan, many many more!</p>
-<p><strong>DOI:</strong> <a class="reference external" href="https://doi.org/10.5281/zenodo.16874731">10.5281/zenodo.16874731</a></p>
-<p>Welcome! This site documents the JSON Schemas and guidance for using the <code class="docutils literal notranslate"><span class="pre">properties</span></code> objects of core <strong>OGC SensorThings API (STA)</strong> entities in the <strong>STAMPLATE</strong> context.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sta-data-model.html">The OGC SensorThings API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sta-data-model.html#the-basic-sta-data-model">The basic STA data model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sta-data-model.html#full-example">Full Example</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="properties.html">Enhanced STA Properties</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#thing-properties"><em>Thing</em> properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#sensor-properties"><em>Sensor</em> properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#datastream-properties"><em>Datastream</em> properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#location-properties"><em>Location</em> properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#observedproperty-properties"><em>ObservedProperty</em> properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#observation-properties"><em>Observation</em> properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="properties.html#observation-resultquality-properties"><em>Observation ResultQuality</em> properties</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage of the enhanced STA Profile</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#infer-an-empty-template-or-schema-from-an-example">Infer an empty template or schema from an example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#validate-a-sta-entity-against-our-enhanced-profile">Validate a STA-entity against our enhanced profile</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mapping.html">STA Properties Mappings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mapping.html#thing-properties"><code class="docutils literal notranslate"><span class="pre">Thing.properties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="mapping.html#sensor-properties"><code class="docutils literal notranslate"><span class="pre">Sensor.properties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="mapping.html#datastream-properties"><code class="docutils literal notranslate"><span class="pre">Datastream.properties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="mapping.html#observedproperty-properties"><code class="docutils literal notranslate"><span class="pre">ObservedProperty.properties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="mapping.html#location-properties"><code class="docutils literal notranslate"><span class="pre">Location.properties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="mapping.html#observation-properties"><code class="docutils literal notranslate"><span class="pre">Observation.properties</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sta_endpoints.html">Collection of STA-Endpoints</a></li>
-</ul>
-</div>
-<section id="citing">
-<h2>Citing<a class="headerlink" href="#citing" title="Link to this heading">¶</a></h2>
-<p>If you use this profile, please cite it as</p>
-<p>Ulrich Loup, Marc Hanisch, Nils Brinckmann, Claas Faber, David Schäfer, Mihir Rambhia, Hylke van der Schaaf, Christof Lorenz (1.0.0). <em>An enhanced SensorThings API data model for environmental monitoring systems</em>. https://doi.org/10.5281/zenodo.16874731</p>
+          <section id="collection-of-sta-endpoints">
+<h1>Collection of STA-Endpoints<a class="headerlink" href="#collection-of-sta-endpoints" title="Link to this heading">¶</a></h1>
+<p>Our enhanced STA-profile is currently used across several STA-endpoints. But please note that while several <em>Things</em> already show the enhanced properties, the endpoints also contain standard STA-Things from other workflows.</p>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
-<div class="docutils container" id="id1">
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>Steve Liang, Chih-Yuan Huang, and Tania Khalafbeigi. Ogc sensorthings api part 1: sensing. <em>Open Geospatial Consortium</em>, 2016. URL: <a class="reference external" href="http://www.opengis.net/doc/is/sensorthings/1.0">http://www.opengis.net/doc/is/sensorthings/1.0</a>.</p>
-</div>
-<div class="citation" id="id4" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<p>Steve Liang and Tania Khalafbeigi. Ogc sensorthings api part 2 – tasking core. <em>Open Geospatial Consortium</em>, 2019. URL: <a class="reference external" href="http://www.opengis.net/doc/IS/sensorthings-part2-TaskingCore/1.0">http://www.opengis.net/doc/IS/sensorthings-part2-TaskingCore/1.0</a>.</p>
-</div>
-<div class="citation" id="id2" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<p>Steve Liang, Tania Khalafbeigi, and Hylke van der Schaaf. Ogc sensorthings api part 1: sensing version 1.1. <em>Open Geospatial Consortium</em>, 2021. URL: <a class="reference external" href="http://www.opengis.net/doc/is/sensorthings/1.1">http://www.opengis.net/doc/is/sensorthings/1.1</a>.</p>
-</div>
-</div>
-</div>
-</section>
-</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">http</span></code> with <code class="docutils literal notranslate"><span class="pre">https</span></code> if your browser does not redirect automatically.</p>
+</aside>
+</aside>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="sta-data-model.html">
+          
+          <a class="prev-page" href="mapping.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
-                  <span>Next</span>
+                  <span>Previous</span>
                 </div>
-                <div class="title">The OGC SensorThings API</div>
+                
+                <div class="title">STA Properties Mappings</div>
+                
               </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -341,28 +287,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">An enhanced SensorThings API data model for environmental monitoring systems</a><ul>
-<li><a class="reference internal" href="#citing">Citing</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
