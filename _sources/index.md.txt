@@ -36,13 +36,11 @@ This work was carried out within the framework of the DataHub of the Helmholtz R
 
 We would like to express our special thanks to the following individuals and teams whose commitment and expertise were instrumental in the development and implementation of our schema:
 
-- Alfred Wegener Institute (AWI): Roland Koppe
-- Forschungszentrum Jülich (FZJ): Ralf Kunkel, Jürgen Sorg
+- Alfred Wegener Institute for Polar and Marine Research (AWI): Roland Koppe
+- Jülich Research Centre (FZJ): Ralf Kunkel, Jürgen Sorg
 - GEOMAR Helmholtz Centre for Ocean Research Kiel: Marc Adolf, Andreas Lehmann
-- GFZ Helmholtz Centre for Geosciences: Kirsten Elger
-- Helmholtz Metadata Collaboration (HMC): Emmanuel Söding, Andrea Pörsch, Dorothee Kottmeier
-- Hereon: Linda Baldewein, Ulrike Kleeberg, Marie Ryan
+- Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences: Kirsten Elger
+- Helmholtz Metadata Collaboration (HMC): Dorothee Kottmeier, Andrea Pörsch, Emmanuel Söding
+- Helmholtz-Zentrum Hereon: Linda Baldewein, Ulrike Kleeberg, Marie Ryan
 - Karlsruhe Institute of Technology (KIT): Sabine Barthlott, Benjamin Louisot, Florian Obersteiner, Jasper Schalla
-- Umweltforschungszentrum Leipzig (UFZ): Thomas Schnicke, Jan Bumberger, Martin Abbrent
-
-
+- Helmholtz Centre for Environmental Research - UFZ: Thomas Schnicke, Jan Bumberger, Martin Abbrent
