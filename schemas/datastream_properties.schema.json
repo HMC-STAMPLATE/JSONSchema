@@ -46,7 +46,7 @@
             "type": "string"
           },
           "relationRole": {
-            "$ref": "#/$defs/isRelatedToRelationRole"
+            "$ref": "#/$defs/continuesRelationRole"
           }
         },
         "required": [

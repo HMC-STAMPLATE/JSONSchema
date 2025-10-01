@@ -1,8 +1,9 @@
-# HMC STAMPLATE JSON-Schemas
+# The STAMPLATE Schema
+## An extended SensorThings API data model for environmental monitoring systems
 
-This repo provides JSON-Schema definitions for the `properties` objects of the
+This repository provides JSON Schema definitions for the `properties` objects of the
 OGC STA entities `Thing`, `Sensor`, `Datastream`, `ObservedProperty`,
-`Location`, `Observation` and `FeatureOfInterest`.
+`Location` and `Observation`.
 
 ## Goals
 
@@ -15,15 +16,15 @@ properties on both the service and the client side. This ensures uniform access
 to this data across the centers.
 
 We also want to semantically label the data by using the terms already defined
-at https://schema.org.
+at, e.g., https://schema.org.
 
 ## Structure of this Repository
 
-- `stamplate.jsonld`, contains the necessary adoptions and definitions of terms
+- `stamplate.jsonld` contains the necessary adoptions and definitions of terms
     used in the JSON documents
-- `schemas/`, contains the JSON-Schema definitions for each OGC STA entity
+- `schemas/` contains the JSON-Schema definitions for each OGC STA entity
     property
-- `examples/`, contains examples of JSON-Schema and JSON-LD valid documents for
+- `examples/` contains JSON-Schema and JSON-LD valid documents examples for
     each OGC STA entity property
 
 ## Examples
@@ -55,7 +56,17 @@ To validate the examples against the schemas, run
 npm run lint:schemas-examples
 ```
 
-## JSON-LD Compability
+To validate your own JSON against the schemas in this project, run
+
+```
+npm run validate -- -s schemas/SCHEMA.json -d DATA.json
+```
+
+where `DATA.json` is a JSON object from the `properties` property of an STA
+entity from your STA endpoint, and `schemas/SCHEMA.json` is the schema
+corresponding to the entity, as defined in this project.
+
+## JSON-LD Compatibility
 
 To check for JSON-LD compatibility lint the `stamplate.jsonld` context file
 with:
@@ -70,9 +81,13 @@ To check the examples for JSON-LD compatibility, run:
 npm run lint:jsonld-examples
 ```
 
-⚠️ The `json-ld` linter just takes care that the file is correct to the JSON-LD
-specifications, it does not resolve or checks types from
+⚠️ The `json-ld` linter ensures that the file is formatted correctly according to
+JSON-LD specifications. It does not resolve or check types from
 [schema.org](https://schema.org).
+
+⚠️ The examples refer to the remote resource of the `stamplate.jsonld`
+definition. If you have made changes to the local definition and want to test it
+against the examples, be sure you refer to the local file.
 
 To see if the terms are correctly resolved, expand the examples with the
 `jsonld-cli` tool:
@@ -86,20 +101,49 @@ which generates the following result:
 ```json
 [
   {
-    "@id": "https://sensors.gfz-potsdam.de/configurations/35",
+    "@id": "https://sensors.gfz.de/configurations/35",
     "@type": [
-      "https://codebase.helmholtz.cloud/stamplate/vocab/ThingProperties"
+      "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties"
     ],
     "http://schema.org/identifier": [
       {
         "@value": "https://handle.net/12345"
       }
     ],
+    "http://schema.org/image": [
+      {
+        "http://schema.org/caption": [
+          {
+            "@value": "Echo Sound Transducer at backside of Speedboat"
+          }
+        ],
+        "http://schema.org/contentUrl": [
+          {
+            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+          }
+        ],
+        "@type": [
+          "http://schema.org/ImageObject"
+        ]
+      },
+      {
+        "http://schema.org/caption": [
+          {
+            "@value": "Platform in situ"
+          }
+        ],
+        "http://schema.org/contentUrl": [
+          {
+            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+          }
+        ],
+        "@type": [
+          "http://schema.org/ImageObject"
+        ]
+      }
+    ],
     "http://schema.org/dataset": [
       {
-        "@type": [
-          "http://schema.org/Dataset"
-        ],
         "http://schema.org/distribution": [
           {
             "@type": [
@@ -107,7 +151,7 @@ which generates the following result:
             ],
             "http://schema.org/url": [
               {
-                "@value": "https://sensors.gfz-potsdam.de/backend/api/v1/devices/1/sensorml"
+                "@value": "https://sensors.gfz.de/backend/api/v1/devices/1/sensorml"
               }
             ]
           }
@@ -116,6 +160,9 @@ which generates the following result:
           {
             "@value": "http://www.opengis.net/doc/IS/SensorML/2.0"
           }
+        ],
+        "@type": [
+          "http://schema.org/Dataset"
         ]
       }
     ],
@@ -131,58 +178,58 @@ which generates the following result:
         ]
       }
     ],
-    "http://schema.org/providerMobility": [
-      {
-        "@value": "static"
-      }
-    ],
     "http://schema.org/member": [
       {
+        "http://schema.org/sameAs": [
+          {
+            "@value": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4"
+          }
+        ],
         "@type": [
           "http://schema.org/Role"
         ],
         "http://schema.org/member": [
           {
-            "@id": "https://sensors.gfz-potsdam.de/contacts/49",
-            "@type": [
-              "http://schema.org/Person"
-            ],
             "http://schema.org/affiliation": [
               {
-                "@type": [
-                  "http://schema.org/Organization"
-                ],
                 "http://schema.org/identifier": [
                   {
                     "@value": "https://ror.org/04z8jg394"
                   }
                 ],
+                "@type": [
+                  "http://schema.org/Organization"
+                ],
                 "http://schema.org/name": [
                   {
-                    "@value": "Helmholtz Centre Potsdam German Research Centre for Geosciences GFZ"
+                    "@value": "GFZ Helmholtz Centre for Geosciences"
                   }
                 ]
               }
             ],
             "http://schema.org/email": [
               {
-                "@value": "christian.wille@gfz-potsdam.de"
+                "@value": "john.doe@example.org"
               }
             ],
             "http://schema.org/familyName": [
               {
-                "@value": "Wille"
+                "@value": "Doe"
               }
             ],
             "http://schema.org/givenName": [
               {
-                "@value": "Christian"
+                "@value": "John"
               }
             ],
             "http://schema.org/identifier": [
               {
-                "@value": "https://orcid.org/0000-0003-0930-6527"
+                "@value": "https://orcid.org/0000-0000-0000-1234"
               }
+            ],
+            "@id": "https://sensors.gfz.de/contacts/12345",
+            "@type": [
+              "http://schema.org/Person"
             ]
           }
         ],
@@ -193,9 +240,39 @@ which generates the following result:
         ]
       }
     ],
-    "http://schema.org/status": [
+    "https://hmc-stamplate.github.io/JSONSchema/jsonld/sourceRelatedThings": [
       {
-        "@value": "active"
+        "@id": "https://sta.gfz.de/v1.1/Things(1)",
+        "@type": [
+          "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelatedThing"
+        ],
+        "https://hmc-stamplate.github.io/JSONSchema/jsonld/relationRole": [
+          {
+            "http://schema.org/sameAs": [
+              {
+                "@value": "https://schema.org/containedInPlace"
+              }
+            ],
+            "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseDefinition": [
+              {
+                "@value": "https://schema.org/containsPlace"
+              }
+            ],
+            "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseName": [
+              {
+                "@value": "containsPlace"
+              }
+            ],
+            "@type": [
+              "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelationRole"
+            ],
+            "http://schema.org/name": [
+              {
+                "@value": "containedInPlace"
+              }
+            ]
+          }
+        ]
       }
     ]
   }

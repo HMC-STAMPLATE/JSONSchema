@@ -1,11 +1,15 @@
 cff-version: 1.2.0
-title: "An enhanced SensorThings API data model for environmental monitoring systems"
-message: "Please cite this profile using these metadata."
+title: "STAMPLATE Schema: An extended SensorThings API data model for environmental monitoring systems"
+message: "Authors are listed in alphabetical order."
 type: software
-version: 0.0.4
+version: 1.0.0
 license: "CCO 1.0"
 repository-code: "https://github.com/HMC-STAMPLATE/JSONSchema"
 
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.16874731
+    
 keywords:
   - SensorThings API
   - JSON Schema
@@ -15,33 +19,45 @@ keywords:
   - STAMPLATE
 
 authors:  
-  - family-names: Loup
-    given-names: Ulrich
-    email: uloup@fzj.de
-    orcid: "https://orcid.org/0009-0005-1370-6226"
-    affiliation: "Forschungszentrum Jülich - FZJ"
-  - family-names: Hanisch
-    given-names: Marc
-    email: marc.hanisch@gfz.de
-    orcid: "https://orcid.org/0000-0001-5272-4674"
-    affiliation: "GFZ Helmholtz Centre for Geosciences"
   - family-names: Brinckmann
     given-names: Nils
     email: nils.brinckmann@gfz.de
     orcid: "https://orcid.org/0000-0001-8159-3888"
-    affiliation: "GFZ Helmholtz Centre for Geosciences"
+    affiliation: "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
   - given-names: Claas
     family-names: Faber
     email: cfaber@geomar.de
     orcid: "https://orcid.org/0000-0002-4861-3338"
     affiliation: GEOMAR Helmholtz Centre for Ocean Research Kiel
+  - family-names: Hanisch
+    given-names: Marc
+    email: marc.hanisch@gfz.de
+    orcid: "https://orcid.org/0000-0001-5272-4674"
+    affiliation: "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+  - family-names: Lorenz
+    given-names: Christof
+    email: christof.lorenz@kit.edu
+    orcid: "https://orcid.org/0000-0001-5590-5470"
+    affiliation: "Karlsruhe Institute of Technology"
+  - family-names: Loup
+    given-names: Ulrich
+    email: uloup@fzj.de
+    orcid: "https://orcid.org/0009-0005-1370-6226"
+    affiliation: "Jülich Research Centre"
+  - family-names: Rambhia
+    given-names: Mihir
+    email: Mihir.Rambhia@hereon.de
+    affiliation: "Helmholtz Zentrum Hereon" 
+  - family-names: van der Schaaf
+    given-names: Hylke
+    email: hylke.vanderschaaf@iosb.fraunhofer.de
+    orcid: "https://orcid.org/0000-0001-6110-8902"
+    affiliation: "Fraunhofer Institute of Optronics, System Technologies and Image Exploitation"
   - family-names: Schäfer
     given-names: David
     email: david.schaefer@ufz.de
     orcid: "https://orcid.org/0000-0003-4517-6459"
     affiliation: "Helmholtz Centre for Environmental Research - UFZ"
-  - family-names: Lorenz
-    given-names: Christof
-    email: christof.lorenz@kit.edu
-    orcid: "https://orcid.org/0000-0001-5590-5470"
-    affiliation: "Karlsruhe Institute of Technology - KIT"
+
+
+

@@ -31,11 +31,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "@id": {
+          "jsonld.id": {
             "description": "link to a view page of the quality-measure scheme/tool",
             "$ref": "#/$defs/url"
           },
-          "@type": {
+          "jsonld.type": {
             "type": "string",
             "const": "ObservationResultQuality"
           },
@@ -51,7 +51,7 @@
             "description": "parameters of the quality-measure scheme/tool",
             "type": "object",
             "properties": {
-              "@type": {
+              "jsonld.type": {
                 "type": "string",
                 "const": "ObservationResultQualityProperties"
               },
@@ -71,8 +71,8 @@
           }
         },
         "required": [
-          "@id",
-          "@type"
+          "jsonld.id",
+          "jsonld.type"
         ]
       }
     }

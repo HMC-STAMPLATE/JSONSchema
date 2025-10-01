@@ -1,0 +1,156 @@
+{
+  "title": "STAMPLATE Schema: An extended SensorThings API data model for environmental monitoring systems",
+  "upload_type": "software",
+  "description": "Authors are listed in alphabetical order.",
+  "creators": [
+    {
+      "name": "Brinckmann, Nils",
+      "orcid": "0000-0001-8159-3888",
+      "affiliation": "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+    },
+    {
+      "name": "Faber, Claas",
+      "orcid": "0000-0002-4861-3338",
+      "affiliation": "GEOMAR Helmholtz Centre for Ocean Research Kiel"
+    },
+    {
+      "name": "Hanisch, Marc",
+      "orcid": "0000-0001-5272-4674",
+      "affiliation": "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+    },
+    {
+      "name": "Lorenz, Christof",
+      "orcid": "0000-0001-5590-5470",
+      "affiliation": "Karlsruhe Institute of Technology"
+    },
+    {
+      "name": "Loup, Ulrich",
+      "orcid": "0009-0005-1370-6226",
+      "affiliation": "Jülich Research Centre"
+    },
+    {
+      "name": "Rambihia, Mihir",
+      "affiliation": "Helmholtz-Zentrum Hereon"
+    },
+    {
+      "name": "van der Schaaf, Hylke",
+      "orcid": "0000-0001-6110-8902",
+      "affiliation": "Fraunhofer Institute of Optronics, System Technologies and Image Exploitation"
+    },
+    {
+      "name": "Schäfer, David",
+      "orcid": "0000-0003-4517-6459",
+      "affiliation": "Helmholtz Centre for Environmental Research - UFZ"
+    }
+  ],
+  "contributors": [
+        {
+            "name": "Koope, Roland",
+            "affiliation": "Alfred Wegener Institute for Polar and Marine Research",
+            "type": "ProjectMember"
+        },
+        {
+            "name": "Kunkel, Ralf",
+            "affiliation": "Jülich Research Centre",
+            "type": "ProjectMember"
+        },
+        {
+            "name": "Sorg, Jürgen",
+            "affiliation": "Jülich Research Centre",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Adolf, Marc",
+            "affiliation": "GEOMAR Helmholtz Centre for Ocean Research Kiel",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Lehmann, Andreas",
+            "affiliation": "GEOMAR Helmholtz Centre for Ocean Research Kiel",
+            "type": "ProjectMember"
+        },
+        {
+            "name": "Elger, Kirsten",
+            "affiliation": "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Kottmeier, Dorothee",
+            "affiliation": "Helmholtz Metadata Collaboration",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Pörsch, Andrea",
+            "affiliation": "Helmholtz Metadata Collaboration",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Söding, Emmanuel",
+            "affiliation": "Helmholtz Metadata Collaboration",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Kleeberg, Ulrike",
+            "affiliation": "Helmholtz-Zentrum Hereon",
+            "type": "ProjectLeader"
+        },
+        {
+            "name": "Ryan, Marie",
+            "affiliation": "Helmholtz-Zentrum Hereon",
+            "type": "ProjectMember"
+        },
+        {
+            "name": "Barthlott, Sabine",
+            "affiliation": "Karlsruhe Institute of Technology",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Louisot, Benjamin",
+            "affiliation": "Karlsruhe Institute of Technology",
+            "type": "ProjectMember"
+        },
+          {
+            "name": "Obersteiner, Florian",
+            "affiliation": "Karlsruhe Institute of Technology",
+            "type": "ProjectMember"
+        },
+        {
+            "name": "Schalla, Jasper",
+            "affiliation": "Karlsruhe Institute of Technology",
+            "type": "RelatedPerson"
+        },
+          {
+            "name": "Abbrent, Martin",
+            "affiliation": "Helmholtz Centre for Environmental Research - UFZ",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Bumberger, Jan",
+            "affiliation": "Helmholtz Centre for Environmental Research - UFZ",
+            "type": "RelatedPerson"
+        },
+        {
+            "name": "Schnicke, Thomas",
+            "affiliation": "Helmholtz Centre for Environmental Research - UFZ",
+            "type": "RelatedPerson"
+        }
+    ],
+  "keywords": [
+    "SensorThings API",
+    "JSON Schema",
+    "IoT",
+    "Time series",
+    "Environmental data",
+    "STAMPLATE"
+  ],
+  "version": "1.0.0" ,
+  "license": "CC0-1.0",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/HMC-STAMPLATE/JSONSchema",
+      "scheme": "url"
+    }
+  ]
+}
