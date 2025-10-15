@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://hmc-stamplate.github.io/JSONSchema/observation_properties.schema.json",
   "title": "ObservationProperties",
-  "description": "JSON object of the `properties` property of an OGC STA `Observation` entity",
+  "description": "JSON object of the `properties` property of an OGC STA `Observation` entity for the STAMPLATE profile",
   "type": "object",
   "properties": {
     "@context": {
@@ -12,7 +13,22 @@
           "const": 1.1
         },
         "@import": {
-          "type": "string"
+          "type": "string",
+          "description": "Import of the STAMPLATE JSON-LD context",
+          "anyOf": [
+            {
+              "enum": [
+                "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          ]
         },
         "@vocab": {
           "type": "string",
