@@ -6,39 +6,24 @@
   "type": "object",
   "properties": {
     "@context": {
-      "type": "object",
-      "properties": {
-        "@version": {
-          "type": "number",
-          "const": 1.1
-        },
-        "@import": {
-          "type": "string",
-          "description": "Import of the STAMPLATE JSON-LD context",
-          "anyOf": [
-            {
-              "enum": [
-                "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld"
-              ]
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1
-            }
+      "type": [
+        "string",
+        "array"
+      ],
+      "description": "Reference to the STAMPLATE JSON-LD context",
+      "anyOf": [
+        {
+          "enum": [
+            "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld"
           ]
         },
-        "@vocab": {
-          "type": "string",
-          "const": "http://schema.org/"
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
         }
-      },
-      "required": [
-        "@version",
-        "@import",
-        "@vocab"
       ]
     },
     "jsonld.type": {
@@ -53,5 +38,6 @@
   "required": [
     "@context",
     "jsonld.type"
-  ]
+  ],
+  "additionalProperties": true
 }
