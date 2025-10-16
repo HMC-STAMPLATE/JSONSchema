@@ -1,6 +1,7 @@
 {
   "@context": {
     "schema": "http://schema.org/",
+    "@import": "stamplate-dqv.jsonld" ,
     "jsonld.id": "@id",
     "jsonld.type": "@type",
     "DatastreamProperties": {
