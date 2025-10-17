@@ -2,8 +2,10 @@
   "@context": {
     "dqv": "http://www.w3.org/ns/dqv#",
     "ssn-systems": "https://www.w3.org/TR/vocab-ssn/#SSNSYSTEM",
-    "hasQualityMeasurement": { "@id": "dqv:hasQualityMeasurement", "@type": "@id" },
-    "QualityMeasurement": "dqv:QualityMeasurement",
+    "hasQualityMeasurement": {
+      "@id": "dqv:hasQualityMeasurement",
+      "@type": "@id"
+     },
     "qualityValue": {
       "@id": "dqv:value"
     },

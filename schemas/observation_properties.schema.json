@@ -10,7 +10,7 @@
         "string",
         "array"
       ],
-      "description": "Reference to the STAMPLATE JSON-LD context",
+      "description": "reference to the STAMPLATE JSON-LD context",
       "anyOf": [
         {
           "enum": [
@@ -33,11 +33,51 @@
     "dataSource": {
       "description": "additional information on the source of the observation, e.g., a file name",
       "type": "string"
+    },
+    "hasQualityMeasurement": {
+      "type": "object",
+      "description": "quality measurement of this observation according to DQV",
+      "properties": {
+        "jsonld.id": {
+          "description": "IRI identifying this specific QualityMeasurement node",
+          "$ref": "#/$defs/url"
+        },
+        "jsonld.type": {
+          "type": "string",
+          "const": "dqv:QualityMeasurement"
+        },
+        "qualityStatus": {
+          "type": "string",
+          "description": "status derived from dqv:value according to the ISO 19157 convention"
+        },
+        "qualityValue": {
+          "type": "string",
+          "description": "value according to DQV"
+        },
+        "qualitySchema": {
+          "description": "IRI of the dqv:Dimension this quality measurement is defined in",
+          "$ref": "#/$defs/url"
+        },
+        "qualityMethod": {
+          "description": "IRI of the dqv:Metric used to produce this quality measurement",
+          "$ref": "#/$defs/url"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
     "@context",
     "jsonld.type"
   ],
-  "additionalProperties": true
+  "additionalProperties": true,
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    }
+  }
 }
