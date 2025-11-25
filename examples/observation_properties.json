@@ -3,11 +3,14 @@
   "jsonld.type": "ObservationProperties",
   "dataSource": "file01.csv",
   "hasQualityMeasurement": {
-      "jsonld.id": "https://quality.earth-data.fz-juelich.de/FROST-Server/v1.1/Observations(688)",
-      "jsonld.type": "dqv:QualityMeasurement",
-      "qualityStatus": "baddata",
-      "qualityValue": "4",
-      "qualitySchema": "https://lod.earth-data.fz-juelich.de/quality_annotations/",
-      "qualityMethod": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html"
-    }
+    "jsonld.id": "https://quality.earth-data.fz-juelich.de/FROST-Server/v1.1/Observations(688)",
+    "jsonld.type": "dqv:QualityMeasurement",
+    "qualityStatus": "baddata",
+    "qualityValue": "4",
+    "qualitySchema": "https://lod.earth-data.fz-juelich.de/quality_annotations/",
+    "qualityMethods": [
+      "https://faas.earth-data.fz-juelich.de/min_max",
+      "https://faas.earth-data.fz-juelich.de/saqc12"
+    ]
+  }
 }
