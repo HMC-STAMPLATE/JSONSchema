@@ -46,8 +46,8 @@
           "type": "string",
           "const": "dqv:QualityMeasurement"
         },
-        "qualityStatus": {
-          "description": "status derived from dqv:value according to the ISO 19157 convention",
+        "qualityAnnotation": {
+          "description": "annotation derived from dqv:value according to the ISO 19157 convention",
           "type": "string"
         },
         "qualityValue": {
@@ -58,72 +58,22 @@
           "description": "IRI of the dqv:Dimension this quality measurement is defined in",
           "$ref": "#/$defs/url"
         },
-        "qualityMethods": {
-          "description": "list of IRIs of the dqv:Metric instances that use the same dqv:Dimension and were used to produce this quality measurement",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "jsonld.type": {
-                "type": "string",
-                "const": "Role"
-              },
-              "roleName": {
-                "description": "name of the role the person has w.r.t. the thing, e.g., Owner",
-                "type": "string"
-              },
-              "definition": {
-                "$ref": "#/$defs/optionalUrl"
-              },
-              "responsiblePersons": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "jsonld.id": {
-                      "description": "link to a view page of the respective entity in the source system",
-                      "$ref": "#/$defs/url"
-                    },
-                    "jsonld.type": {
-                      "type": "string",
-                      "const": "Person"
-                    },
-                    "givenName": {
-                      "type": "string"
-                    },
-                    "familyName": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "type": "string",
-                      "pattern": "^\\S+@\\S+\\.\\S+$",
-                      "minLength": 6
-                    },
-                    "affiliation": {
-                      "$ref": "#/$defs/organization"
-                    },
-                    "identifier": {
-                      "description": "link to a persistent identifier for the person, e.g., the ORCID",
-                      "$ref": "#/$defs/optionalUrl"
-                    }
-                  },
-                  "required": [
-                    "jsonld.type"
-                  ]
-                }
-              }
-            },
-            "required": [
-              "jsonld.type"
-            ]
-          },
-          "$ref": "#/$defs/url"
+        "qualityProcedure": {
+          "description": "IRI of the dqv:Metric instance used to produce this quality measurement",
+          "type": "string"
         }
       },
       "required": [
         "jsonld.type"
       ],
       "additionalProperties": false
+    },
+    "hasQualitySetup": {
+      "description": "IRIs of the dqv:Metric instances that were used to produce all quality measurements for this observation",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": [

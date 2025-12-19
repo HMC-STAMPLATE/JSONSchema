@@ -9,30 +9,22 @@
     "qualityValue": {
       "@id": "dqv:value"
     },
-    "qualityStatus": {
-      "@id": "ssn-systems:qualityOfObservation",
+    "qualityAnnotation": {
+      "@id": "dqv:hasQualityAnnotation",
       "@type": "@id"
     },
-    "qualityMethod": {
+    "qualityProcedure": {
       "@id": "dqv:isMeasurementOf",
-      "@type": "@id",
-      "@context": {
-        "inDimension": {
-          "@id": "dqv:inDimension",
-          "@type": "@id"
-        }
-      }
+      "@type": "@id"
     },
     "qualitySchema": {
-      "@id": "dqv:inDimension",
+      "@id": "dqv:isMeasurementOf/dqv:inDimension",
       "@type": "@id"
     },
-    "qualityMethod": {
-      "@id": "dqv:isMeasurementOf",
+    "hasQualitySetup": {
+      "@id": "dqv:hasQualityMeasurement/dqv:isMeasurementOf",
       "@type": "@id",
-      "@context": {
-        "inDimension": { "@id": "dqv:inDimension", "@type": "@id" }
-      }
+      "@container": "@set",
     }
   }
 }
