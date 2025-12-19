@@ -24,7 +24,7 @@
     "hasQualitySetup": {
       "@id": "dqv:hasQualityMeasurement/dqv:isMeasurementOf",
       "@type": "@id",
-      "@container": "@set",
+      "@container": "@set"
     }
   }
 }
