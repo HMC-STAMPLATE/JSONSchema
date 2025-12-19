@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://hmc-stamplate.github.io/JSONSchema/observation_properties.schema.json",
   "title": "ObservationProperties",
-  "description": "JSON object of the `properties` property of an OGC STA `Observation` entity for the STAMPLATE profile",
+  "description": "JSON object of the `properties` (`parameters` in STA V1) property of an OGC STA `Observation` entity for the STAMPLATE profile",
   "type": "object",
   "properties": {
     "@context": {
