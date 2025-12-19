@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "dqv": "http://www.w3.org/ns/dqv#",
+    "ssn-systems": "https://www.w3.org/TR/vocab-ssn/#SSNSYSTEM",
+    "hasQualityMeasurement": {
+      "@id": "dqv:hasQualityMeasurement",
+      "@type": "@id"
+     },
+    "qualityValue": {
+      "@id": "dqv:value"
+    },
+    "qualityAnnotation": {
+      "@id": "dqv:hasQualityAnnotation",
+      "@type": "@id"
+    },
+    "qualityProcedure": {
+      "@id": "dqv:isMeasurementOf",
+      "@type": "@id"
+    },
+    "qualitySchema": {
+      "@id": "dqv:isMeasurementOf/dqv:inDimension",
+      "@type": "@id"
+    },
+    "hasQualitySetup": {
+      "@id": "dqv:hasQualityMeasurement/dqv:isMeasurementOf",
+      "@type": "@id",
+      "@container": "@set"
+    }
+  }
+}

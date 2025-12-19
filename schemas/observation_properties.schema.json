@@ -1,28 +1,29 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://hmc-stamplate.github.io/JSONSchema/observation_properties.schema.json",
   "title": "ObservationProperties",
-  "description": "JSON object of the `properties` property of an OGC STA `Observation` entity",
+  "description": "JSON object of the `properties` (`parameters` in STA V1) property of an OGC STA `Observation` entity for the STAMPLATE profile",
   "type": "object",
   "properties": {
     "@context": {
-      "type": "object",
-      "properties": {
-        "@version": {
-          "type": "number",
-          "const": 1.1
+      "type": [
+        "string",
+        "array"
+      ],
+      "description": "reference to the STAMPLATE JSON-LD context",
+      "anyOf": [
+        {
+          "enum": [
+            "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld"
+          ]
         },
-        "@import": {
-          "type": "string"
-        },
-        "@vocab": {
-          "type": "string",
-          "const": "http://schema.org/"
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
         }
-      },
-      "required": [
-        "@version",
-        "@import",
-        "@vocab"
       ]
     },
     "jsonld.type": {
@@ -32,10 +33,58 @@
     "dataSource": {
       "description": "additional information on the source of the observation, e.g., a file name",
       "type": "string"
+    },
+    "hasQualityMeasurement": {
+      "type": "object",
+      "description": "quality measurement of this observation according to DQV",
+      "properties": {
+        "jsonld.id": {
+          "description": "IRI identifying this specific QualityMeasurement node",
+          "$ref": "#/$defs/url"
+        },
+        "jsonld.type": {
+          "type": "string",
+          "const": "dqv:QualityMeasurement"
+        },
+        "qualityAnnotation": {
+          "description": "annotation derived from dqv:value according to the ISO 19157 convention",
+          "type": "string"
+        },
+        "qualityValue": {
+          "description": "value according to DQV",
+          "type": "string"
+        },
+        "qualitySchema": {
+          "description": "IRI of the dqv:Dimension this quality measurement is defined in",
+          "$ref": "#/$defs/url"
+        },
+        "qualityProcedure": {
+          "description": "IRI of the dqv:Metric instance used to produce this quality measurement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jsonld.type"
+      ],
+      "additionalProperties": false
+    },
+    "hasQualitySetup": {
+      "description": "IRIs of the dqv:Metric instances that were used to produce all quality measurements for this observation",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": [
     "@context",
     "jsonld.type"
-  ]
+  ],
+  "additionalProperties": true,
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https*://"
+    }
+  }
 }

@@ -5,29 +5,55 @@
   "type": "object",
   "properties": {
     "@context": {
-      "type": "object",
-      "properties": {
-        "@version": {
-          "type": "number",
-          "const": 1.1
+      "type": [
+        "string",
+        "array"
+      ],
+      "description": "reference to the STAMPLATE JSON-LD context",
+      "anyOf": [
+        {
+          "enum": [
+            "https://hmc-stamplate.github.io/JSONSchema/stamplate.jsonld"
+          ]
         },
-        "@import": {
-          "type": "string"
-        },
-        "@vocab": {
-          "type": "string",
-          "const": "http://schema.org/"
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
         }
-      },
-      "required": [
-        "@version",
-        "@import",
-        "@vocab"
       ]
     },
     "jsonld.id": {
       "description": "link to a view page of the respective entity in the source system",
       "$ref": "#/$defs/url"
+    },
+    "jsonld.type": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "description": "should include DatastreamProperties",
+      "anyOf": [
+        {
+          "enum": [
+            "DatastreamProperties",
+            "dqv:QualityMeasurement"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "DatastreamProperties",
+              "dqv:QualityMeasurementDataset"
+            ]
+          },
+          "minItems": 1
+        }
+      ]
     },
     "sourceRelatedDatastreams": {
       "type": "array",
@@ -54,10 +80,6 @@
           "jsonld.type"
         ]
       }
-    },
-    "jsonld.type": {
-      "type": "string",
-      "const": "DatastreamProperties"
     },
     "observingProcedure": {
       "description": "function applied to the observations of the datastream, e.g., an aggregation",
