@@ -332,7 +332,7 @@ datastream originates.
 | `deployment.properties.unitOfOffsets.name` | The name of the unit. | String | Zero-to-one |
 | `deployment.properties.unitOfOffsets.symbol` | The symbol for the unit. | String | Zero-to-one |
 | `deployment.properties.unitOfOffsets.definition` | URL to the definition of the unit. | String | Zero-to-one |
-| `dataSource` | A descriptive string indicating the source of the data. | String | Zero-to-one |
+| `dataSource` | A descriptive string or any JSON object indicating the source of the data. | String / Object | Zero-to-one |
 ```
 
 *Example*: Additional information for a *Datastream*
@@ -508,7 +508,7 @@ for the OGC SensorThings API (STA) `Observation` entity.
 | `@context.@import` | Import URL for the STAMPLATE context. | String | One (mandatory) |
 | `@context.@vocab` | The default vocabulary used (schema.org). | String | One (mandatory) |
 | `jsonld.type` | The type of the object, in this case 'ObservationProperties'. | String | One (mandatory) |
-| `dataSource` | A descriptive string indicating the source of the observation data. | String | Zero-to-one |
+| `dataSource` | A descriptive string or any JSON object indicating the source of the observation data. | String / Object | Zero-to-one |
 ```
 
 *Example*: Additional information for an *Observation*

@@ -338,7 +338,15 @@
     },
     "dataSource": {
       "description": "additional information on the source of the datastream data, e.g., an upload folder",
-      "type": "string"
+      "anyOf": [
+          {
+              "type": "string"
+          },
+          {
+              "type": "object",
+              "additionalProperties": true
+          }
+      ]
     }
   },
   "required": [
