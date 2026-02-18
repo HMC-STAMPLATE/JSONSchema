@@ -4,12 +4,10 @@
     "jsonld.id": "@id",
     "jsonld.type": "@type",
     "DatastreamProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/DatastreamProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/DatastreamProperties"
     },
     "Deployment": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/Deployment",
-      "@type": "@id",
       "@context": {
         "properties": {
           "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/deploymentProperties"
@@ -17,35 +15,28 @@
       }
     },
     "DeploymentProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/DeploymentProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/DeploymentProperties"
     },
     "LocationProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/LocationProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/LocationProperties"
     },
     "MeasurementProperties": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/MeasurementProperties"
     },
     "ObservationProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservationProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservationProperties"
     },
     "ObservationResultQuality": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservationResultQuality",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservationResultQuality"
     },
     "ObservationResultQualityProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservationResultQualityProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservationResultQualityProperties"
     },
     "ObservedPropertyProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservedPropertyProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservedPropertyProperties"
     },
     "ObservingProcedure": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ObservingProcedure",
-      "@type": "@id",
       "@context": {
         "properties": {
           "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/observingProcedureProperties",
@@ -54,28 +45,22 @@
       }
     },
     "Offset": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/Offset",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/Offset"
     },
     "RelatedThing": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelatedThing",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelatedThing"
     },
     "RelationRole": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelationRole",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/RelationRole"
     },
     "SensorProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/SensorProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/SensorProperties"
     },
     "ThingProperties": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties"
     },
     "Unit": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/Unit",
-      "@type": "@id"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/Unit"
     },
     "annotation": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/annotation"
@@ -86,11 +71,16 @@
     "capacitance": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/capacitance"
     },
+    "contentUrl": {
+      "@id": "schema:contentUrl",
+      "@type": "@id"
+    },
     "dataSource": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/dataSource"
     },
     "definition": {
-      "@id": "schema:sameAs"
+      "@id": "schema:sameAs",
+      "@type": "@id"
     },
     "deployment": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/deployment",
@@ -105,12 +95,17 @@
     "gradientThreshold": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/gradientThreshold"
     },
+    "identifier": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
     "images": {
       "@id": "schema:image",
       "@container": "@set"
     },
     "inverseDefinition": {
-      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseDefinition"
+      "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseDefinition",
+      "@type": "@id"
     },
     "inverseName": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseName"
@@ -274,6 +269,10 @@
     },
     "unitOfZeros": {
       "@id": "https://hmc-stamplate.github.io/JSONSchema/jsonld/unitOfZeros"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
     },
     "x": {
       "@id": "offsetX"

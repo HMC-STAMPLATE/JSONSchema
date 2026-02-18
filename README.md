@@ -101,13 +101,9 @@ which generates the following result:
 ```json
 [
   {
-    "@id": "https://sensors.gfz.de/configurations/35",
-    "@type": [
-      "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties"
-    ],
     "http://schema.org/identifier": [
       {
-        "@value": "https://handle.net/12345"
+        "@id": "https://handle.net/12345"
       }
     ],
     "http://schema.org/image": [
@@ -119,7 +115,7 @@ which generates the following result:
         ],
         "http://schema.org/contentUrl": [
           {
-            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
+            "@id": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/2/file/IMG_20231204_144945_Echo_Sounder.jpg"
           }
         ],
         "@type": [
@@ -134,13 +130,17 @@ which generates the following result:
         ],
         "http://schema.org/contentUrl": [
           {
-            "@value": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
+            "@id": "https://sensors.gfz.de/backend/api/v1/configuration-attachments/3/file/IMG_1451_Speedboat_platform_in_situ.jpg"
           }
         ],
         "@type": [
           "http://schema.org/ImageObject"
         ]
       }
+    ],
+    "@id": "https://sensors.gfz.de/configurations/35",
+    "@type": [
+      "https://hmc-stamplate.github.io/JSONSchema/jsonld/ThingProperties"
     ],
     "http://schema.org/dataset": [
       {
@@ -151,7 +151,7 @@ which generates the following result:
             ],
             "http://schema.org/url": [
               {
-                "@value": "https://sensors.gfz.de/backend/api/v1/devices/1/sensorml"
+                "@id": "https://sensors.gfz-potsdam.de/backend/api/v1/configurations/1/sensorml"
               }
             ]
           }
@@ -182,7 +182,7 @@ which generates the following result:
       {
         "http://schema.org/sameAs": [
           {
-            "@value": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4"
+            "@id": "https://sms-cv.helmholtz.cloud/sms/cv/api/v1/contactroles/4"
           }
         ],
         "@type": [
@@ -194,7 +194,7 @@ which generates the following result:
               {
                 "http://schema.org/identifier": [
                   {
-                    "@value": "https://ror.org/04z8jg394"
+                    "@id": "https://ror.org/04z8jg394"
                   }
                 ],
                 "@type": [
@@ -224,7 +224,7 @@ which generates the following result:
             ],
             "http://schema.org/identifier": [
               {
-                "@value": "https://orcid.org/0000-0000-0000-1234"
+                "@id": "https://orcid.org/0000-0000-0000-1234"
               }
             ],
             "@id": "https://sensors.gfz.de/contacts/12345",
@@ -250,12 +250,12 @@ which generates the following result:
           {
             "http://schema.org/sameAs": [
               {
-                "@value": "https://schema.org/containedInPlace"
+                "@id": "https://schema.org/containedInPlace"
               }
             ],
             "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseDefinition": [
               {
-                "@value": "https://schema.org/containsPlace"
+                "@id": "https://schema.org/containsPlace"
               }
             ],
             "https://hmc-stamplate.github.io/JSONSchema/jsonld/inverseName": [
