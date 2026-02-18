@@ -86,7 +86,7 @@
       }
     }
   },
-  "datasource": {
+  "dataSource": {
     "thingId": "proj01",
     "thingName": "climate station of project 01",
     "datasourceId": "database_instance:01",
