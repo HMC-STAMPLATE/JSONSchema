@@ -15,7 +15,7 @@ Our enhanced STA-profile is currently used across several STA-endpoints. But ple
   - [sta.gfz.de](https://sta.gfz.de)
 * - GEOMAR Helmholtz Centre for Ocean Research Kiel
   - [timeseries.geomar.de/soop/FROST-Server](https://timeseries.geomar.de/soop/FROST-Server)
-* - GEOMAR Helmholtz Centre for Ocean Research Kiel
+* - Helmholtz-Zentrum Hereon
   - [sta.hub.hereon.de](https://sta.hub.hereon.de/v1.1)
 * - Karlsruhe Institute of Technology (KIT)
   - [sensorthings.imk-ifu.kit.edu](https://sensorthings.imk-ifu.kit.edu)
