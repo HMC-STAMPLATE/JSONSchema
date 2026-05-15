@@ -7,6 +7,8 @@ Our enhanced STA-profile is currently used across several STA-endpoints. But ple
 
 * - Center
   - URL
+* - Alfred Wegener Institute for Polar and Marine Research (AWI)
+  - [ingest.o2a-data.de/sta](https://ingest.o2a-data.de/sta/)
 * - Forschungszentrum Jülich (FZJ)
   - [eifelrur.earth-data.fz-juelich.de/FROST-Server](https://eifelrur.earth-data.fz-juelich.de/FROST-Server)
 * -
